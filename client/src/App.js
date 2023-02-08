@@ -5,6 +5,7 @@ import Footer from './components/footer/Footer';
 import HomePage from './pages/home/hompage/HomePage';
 import Shop from './pages/home/shop/Shop';
 import Carousel from './components/carousel/Carousel';
+import Menu from './components/menu/Menu';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/card" element={<Card />} />
           <Route path="/footer" element={<Footer />} />
           <Route path="/carousel" element={<Carousel />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="*" element={'Not Found'} />
         </Routes>
       </Router>

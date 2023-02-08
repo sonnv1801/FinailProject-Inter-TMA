@@ -1,0 +1,68 @@
+.menu {
+    background-color: var(--second-cl);
+    border-radius: 0.8rem;
+    font-family: var(--main-font);
+    box-shadow: 1px 3px 3px 1px #8888;
+    border: 1px solid #9d939388;
+    width: 300px;
+    position: relative;
+}
+
+.menu .menu-body {
+    padding: 0.5rem 1.1rem;
+}
+
+.menu .menu-body ul li:hover {
+    background: var(--primary-cl);
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 0.5rem;
+
+}
+
+.menu .menu-body ul li:hover .menu-second {
+    display: block;
+}
+
+.menu .menu-body .icon-menu {
+    color: red;
+}
+
+.menu-second {
+
+    background-color: var(--second-cl);
+    font-family: var(--main-font);
+    box-shadow: 1px 3px 3px 1px #8888;
+    border: 1px solid #9d939388;
+    position: absolute;
+    left: 301px;
+    top: -17px;
+    width: 315%;
+    display: none;
+}
+
+.menu-second .menu-second-body {
+    padding: 0.5rem 1.1rem;
+}
+
+.menu-second ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu-second ul li {
+    padding: 0.6rem;
+    font-size: 1.3rem;
+    letter-spacing: 0.7px;
+    opacity: 0.8;
+}
+
+.menu-second ul li:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.open-menu .menu .menu-body ul li:hover .menu-second {
+    display: block;
+}
