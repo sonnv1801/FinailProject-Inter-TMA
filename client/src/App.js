@@ -4,6 +4,7 @@ import Card from './components/Card';
 import Footer from './components/footer/Footer';
 import HomePage from './pages/home/hompage/HomePage';
 import Shop from './pages/home/shop/Shop';
+import Carousel from './components/carousel/Carousel';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/shop" element={<Shop />} />
           <Route path="/card" element={<Card />} />
           <Route path="/footer" element={<Footer />} />
+          <Route path="/carousel" element={<Carousel />} />
           <Route path="*" element={'Not Found'} />
         </Routes>
       </Router>
