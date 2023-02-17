@@ -1,0 +1,90 @@
+.clear-div-top {
+  margin-top: 5rem;
+}
+
+.nav_container {
+  background: rgb(219, 50, 50);
+  width: 100%;
+  height: 80px;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.nav_container .navbar {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+}
+
+.nav_container .navbar .left {
+  width: 40%;
+}
+
+.nav_container .navbar .logo {
+  width: 100px;
+  height: 80px;
+  padding: 0;
+  margin: 0;
+  float: left;
+  margin-left: 20px;
+}
+
+.nav_container .navbar .left .form-inline {
+  display: flex;
+  /* margin-left: 20px; */
+  margin-top: 20px;
+}
+
+.nav_container .navbar .right {
+  width: 58%;
+}
+
+.nav_container .navbar .right .area {
+  display: grid;
+  background: rgb(219, 50, 50);
+  padding: 0;
+  border-radius: 0.5rem;
+  /* width: 22%; */
+  margin-left: 10px;
+  cursor: pointer;
+  justify-content: center;
+}
+
+.nav_container .navbar .right .area select {
+  border: none;
+  border-radius: 7px;
+  background: #f3e6e678;
+  color: black;
+  outline: none;
+}
+
+.nav_container .navbar .right .area p {
+  padding: 0;
+  margin: 0;
+  font-size: var(--main-fsize);
+  text-align: center;
+  font-weight: 500;
+  font-size: 13px;
+  color: white;
+}
+
+
+.nav_container .navbar .right .area:hover {
+  transition: 0.3s;
+}
+
+/* :root {
+  --main-cl: #528352;
+  --primary-cl: #ffcc00;
+  --second-cl: #faf5e9;
+  --black-cl: #180303;
+  --main-font: "Mukta", sans-serif;
+  --main-fsize: 14px;
+  --title-fsize: 18px;
+}
+ */

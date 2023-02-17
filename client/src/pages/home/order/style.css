@@ -1,0 +1,18 @@
+.order-container {
+    width: 70%;
+    min-height: 500px;
+    /* background: pink; */
+    margin: 0 auto;
+    padding: 5px;
+    border: 1px dashed orange;
+
+}
+
+.title-order {
+    margin-top: 6rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: red;
+    text-shadow: 2px 2px #000;
+}

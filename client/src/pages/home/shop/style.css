@@ -1,0 +1,31 @@
+.shop-container {
+    width: 90%;
+    min-height: 500px;
+    /* background: pink; */
+    margin: 0 auto;
+    font-family: var(--main-font);
+}
+
+.shop-container .shop-product {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.shop-container .see-more {
+    display: flex;
+    justify-content: center;
+}
+
+.shop-container .see-more button {
+    padding: 10px;
+    width: 20%;
+    border: none;
+    background: red;
+    border-radius: 25px;
+
+}
+
+.shop-container .see-more button a {
+    text-decoration: none;
+    color: white;
+}

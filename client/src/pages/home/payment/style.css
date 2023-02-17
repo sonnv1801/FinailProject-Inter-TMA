@@ -1,0 +1,20 @@
+.title-payment {
+    margin-top: 6rem;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    color: red;
+    text-shadow: 2px 2px #000;
+}
+
+
+.payment-container {
+    width: 70%;
+    min-height: 500px;
+    /* background: pink; */
+    margin: 0 auto;
+    border: 1px solid orange;
+    padding: 5px;
+
+
+}

@@ -1,0 +1,10 @@
+ .header-payment {
+     display: flex;
+     justify-content: space-between;
+ }
+
+
+ .header-payment a {
+     text-decoration: none;
+     color: red;
+ }

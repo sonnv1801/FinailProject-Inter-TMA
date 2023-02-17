@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-home {
+    font-family: var(--main-font);
+    width: 90%;
+    margin: 0 auto;
+    /* background: pink; */
+    min-height: 500px;
+}
+
+.main-home .menu-home {
+    margin-top: 1rem;
+    margin-right: 2rem;
+}
+
+.main-home .card-product-home {
+    margin: 1rem 0;
+}
+
+.main-home .mini-card-home {
+    display: flex;
+    justify-content: space-between;
+}
