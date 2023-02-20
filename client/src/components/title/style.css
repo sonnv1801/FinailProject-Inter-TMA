@@ -25,20 +25,18 @@
 }
 
 .title-head ul {
-  display: flex;
-  flex-wrap: nowrap;
   list-style-type: none;
-  overflow-x: scroll;
   width: 100%;
   padding: 0;
+
 }
 
 .title-head ul li {
   margin: 10px;
-  white-space: nowrap;
   border: 1px solid #f1eeee;
   border-radius: 5px;
   padding: 1px;
+  display: inline-block;
 }
 
 .title-head ul li a {

@@ -1,5 +1,5 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 function TitleHead() {
   return (
     <div>
@@ -12,12 +12,6 @@ function TitleHead() {
           </div>
           <div className="col-4">
             <ul>
-              <li>
-                <a href="3">Iphone</a>
-              </li>
-              <li>
-                <a href="3">Samsung</a>
-              </li>
               <li>
                 <a href="3">Iphone</a>
               </li>
