@@ -1,31 +1,29 @@
-import { createAction } from '.';
 import { userService } from '../../services';
-import { GET_USER, START_LOADING, STOP_LOADING } from '../type/types';
+import { LOGIN_FAILED, LOGIN_START, LOGIN_SUCCESS } from '../type/types';
+import { createAction } from '.';
 
-export const startLoading = () => {
+export const loginStart = () => {
   return {
-    type: START_LOADING,
+    type: LOGIN_START,
   };
 };
 
-export const stopLoading = () => {
+export const loginFailed = () => {
   return {
-    type: STOP_LOADING,
+    type: LOGIN_FAILED,
   };
 };
 
-export const getUsers = () => {
-  return (dispatch) => {
-    dispatch(startLoading());
-    userService
-      .getUser()
-      .then((res) => {
-        dispatch(createAction(GET_USER, res.data));
-        dispatch(stopLoading());
-      })
-      .catch((err) => {
-        console.log(err);
-        dispatch(stopLoading());
-      });
-  };
+export const loginUser = async (user, dispatch, navigate) => {
+  dispatch(loginStart());
+  userService
+    .Login(user)
+    .then((res) => {
+      dispatch(createAction(LOGIN_SUCCESS, res.data));
+      navigate('/');
+    })
+    .catch((err) => {
+      console.log(err);
+      dispatch(loginFailed());
+    });
 };

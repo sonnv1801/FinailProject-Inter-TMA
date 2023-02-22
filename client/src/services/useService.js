@@ -1,8 +1,8 @@
 import Axios from 'axios';
-const API = 'https://63ef3e62c59531ccf16b778a.mockapi.io/api/v1/user';
+const API = 'http://localhost:8000/v1/auth';
 
 export class UserService {
-  getUser() {
-    return Axios.get(API);
+  Login(user) {
+    return Axios.post(`${API}/login`, user);
   }
 }

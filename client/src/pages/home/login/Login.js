@@ -1,24 +1,27 @@
 import React from 'react';
 import './style.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { loginUser } from '../../../redux/actions/user.action';
 function Login() {
-  const [passwordType, setPasswordType] = useState('password');
-  const [passwordInput, setPasswordInput] = useState('');
-  const handlePasswordChange = (evnt) => {
-    setPasswordInput(evnt.target.value);
-  };
-  const togglePassword = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text');
-      return;
-    }
-    setPasswordType('password');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const newUser = {
+      username: username,
+      password: password,
+    };
+    loginUser(newUser, dispatch, navigate);
   };
   return (
     <>
       <div className="main">
-        <form className="login" action="#">
+        <form className="login" action="#" onSubmit={handleLogin}>
           <div className="title">Wellcome!</div>
           <p className="title-input">Username</p>
           <div class="input-group mb-3">
@@ -28,27 +31,21 @@ function Login() {
               placeholder="your username"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              onChange={(e) => setUsername(e.target.value)}
             />
           </div>
           <p className="title-input">Password</p>
           <div className="input-group mb-3">
             <input
-              type={passwordType}
-              onChange={handlePasswordChange}
-              value={passwordInput}
+              type="text"
+              onChange={(e) => setPassword(e.target.value)}
               name="password"
               className="form-control"
               placeholder="your password"
               id="form-password"
             />
             <span className="input-group-text" id="basic-addon1">
-              <i onClick={togglePassword}>
-                {passwordType === 'password' ? (
-                  <i className="fa fa-eye"></i>
-                ) : (
-                  <i className="fa fa-eye-slash"></i>
-                )}
-              </i>
+              <i className="fa fa-eye"></i>
             </span>
           </div>
 
@@ -67,17 +64,16 @@ function Login() {
               <span classv="slider round"></span>
             </label>
           </div>
-          <button type="button" className="btn btn-danger">
+          <button type="submit" className="btn btn-danger">
             LOGIN
           </button>
-          <Link to={'/register'}>
-            <button type="button" className="btn btn-danger">
-              REGISTER
-            </button>
-          </Link>
-
-          <p className="forgot">you forgot password?</p>
         </form>
+        <Link to={'/register'}>
+          <button type="button" className="btn btn-danger">
+            REGISTER
+          </button>
+        </Link>
+        <p className="forgot">you forgot password?</p>
       </div>
     </>
   );

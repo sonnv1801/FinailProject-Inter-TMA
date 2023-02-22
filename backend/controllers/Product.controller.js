@@ -13,6 +13,31 @@ const product = {
       res.status(500).json(err);
     }
   },
+  getProductById: async (req, res) => {
+    try {
+      const Id = req.params.id;
+      Product.findById(Id, (err, products) => {
+        if (err) {
+          return res.status(500).json("Can't find Id..");
+        }
+        return res.status(200).json(products);
+      });
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  },
+  getProductByType: async (req, res) => {
+    try {
+      const types = "Iphone";
+      if (!types) {
+        return res.status(404).json("Not foud");
+      }
+      let result = await Product.find().where("type").equals(types);
+      return res.status(200).json(result);
+    } catch (error) {
+      res.status(500).json(err);
+    }
+  },
   createProduct: async (req, res) => {
     try {
       const result = await cloudinary.uploader.upload(req.file.path, {

@@ -7,6 +7,9 @@ const authRoute = require("./routes/Auth.routes");
 const userRoute = require("./routes/User.routes");
 const typeRoute = require("./routes/TypeProduct.routes");
 const productRoute = require("./routes/Product.routes");
+const bannerRoute = require("./routes/Banner.routes");
+const imgPrdRoute = require("./routes/ImageProduct.routes");
+const cmtRoute = require("./routes/Comment.routes");
 const PORT = 8000;
 const app = express();
 
@@ -32,6 +35,9 @@ app.use("/v1/auth", authRoute);
 app.use("/v1/user", userRoute);
 app.use("/v1/typeProduct", typeRoute);
 app.use("/v1/product", productRoute);
+app.use("/v1/banner", bannerRoute);
+app.use("/v1/imageproduct", imgPrdRoute);
+app.use("/v1/comment", cmtRoute);
 
 app.listen(8000, () => {
   console.log(`Server is runing port ${PORT}`);
