@@ -67,13 +67,14 @@ function Login() {
           <button type="submit" className="btn btn-danger">
             LOGIN
           </button>
-        </form>
-        <Link to={'/register'}>
+          <Link to={'/register'}>
           <button type="button" className="btn btn-danger">
             REGISTER
           </button>
         </Link>
         <p className="forgot">you forgot password?</p>
+        </form>
+        
       </div>
     </>
   );

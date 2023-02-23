@@ -1,24 +1,35 @@
 import React from 'react';
 import './style.css';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
+import { registerUser } from '../../../redux/actions/user.action';
+import { useDispatch } from 'react-redux';
 function Register() {
-  const [passwordType, setPasswordType] = useState('password');
-  const [passwordInput, setPasswordInput] = useState('');
-  const handlePasswordChange = (evnt) => {
-    setPasswordInput(evnt.target.value);
-  };
-  const togglePassword = () => {
-    if (passwordType === 'password') {
-      setPasswordType('text');
-      return;
-    }
-    setPasswordType('password');
-  };
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [phone, setPhone] = useState('');
+  const [address, setAddress] = useState('');
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleRegister = (e) => {
+    e.preventDefault();
+    const newUser = {
+      username: username,
+      email:email,
+      password: password,
+      phone:phone,
+      address: address,
+    };
+    registerUser(newUser, dispatch, navigate);
+  }
+  
   return (
     <>
       <div className="register-page">
-        <form className="register" action="#" method="post">
+        <form className="register" action="#" onSubmit={handleRegister}>
           <div className="title">Register!</div>
           <p className="title-input">Username</p>
           <div className="input-group mb-3">
@@ -28,6 +39,7 @@ function Register() {
               placeholder="your username"
               aria-label="Username"
               aria-describedby="basic-addon1"
+              onChange={(e) => {setUsername(e.target.value)}}
             />
           </div>
           <p className="title-input">Email</p>
@@ -38,27 +50,23 @@ function Register() {
               placeholder="your email"
               aria-label="email"
               aria-describedby="basic-addon1"
+              onChange={(e) => {setEmail(e.target.value)}}
+
             />
           </div>
           <p className="title-input">Password</p>
           <div className="input-group mb-3">
             <input
-              type={passwordType}
-              onChange={handlePasswordChange}
-              value={passwordInput}
+              type="text"
               name="password"
               className="form-control"
               placeholder="your password"
               id="form-password"
+              onChange={(e) => {setPassword(e.target.value)}}
+
             />
             <span className="input-group-text" id="basic-addon1">
-              <i onClick={togglePassword}>
-                {passwordType === 'password' ? (
-                  <i className="fa fa-eye"></i>
-                ) : (
-                  <i className="fa fa-eye-slash"></i>
-                )}
-              </i>
+              <i className="fa fa-eye"></i>
             </span>
           </div>
           <p className="title-input">Phone</p>
@@ -69,6 +77,8 @@ function Register() {
               placeholder="your phone"
               aria-label="Phone"
               aria-describedby="basic-addon1"
+              onChange={(e) => {setPhone(e.target.value)}}
+
             />
           </div>
           <p className="title-input">Address</p>
@@ -79,13 +89,14 @@ function Register() {
               placeholder="your address"
               aria-label="Address"
               aria-describedby="basic-addon1"
+              onChange={(e) => {setAddress(e.target.value)}}
             />
           </div>
-          <Link to={'/home'}>
-            <button type="button" className="btn btn-danger">
+         
+            <button type="submit" className="btn btn-danger">
               DONE
             </button>
-          </Link>
+
         </form>
       </div>
     </>

@@ -3,6 +3,9 @@ import {
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
+  REGISTER_FAILED,
+  REGISTER_START,
+  REGISTER_SUCCESS
 } from '../type/types';
 
 const initialState = {
@@ -12,6 +15,15 @@ const initialState = {
     isFetching: false,
     error: false,
   },
+  register:{
+    isFetching:false,
+    error:false,
+    success:false,
+  },
+  logout:{
+    isFetching:false,
+    error:false,
+  }
 };
 
 const defaultReducer = (state = initialState, action) => {
@@ -36,6 +48,25 @@ const defaultReducer = (state = initialState, action) => {
       state.login.error = true;
       return { ...state };
     }
+    case REGISTER_START: {
+      state.register.isFetching =true;
+      return {...state};
+    }
+    case REGISTER_SUCCESS:{
+      state.register.isFetching = false;
+      state.register.error = false;
+      state.register.success = true;
+      return {...state};
+
+    }
+    case REGISTER_FAILED:{
+      state.register.isFetching = false;
+      state.register.error = true;
+      state.register.success = false;
+      return {...state};
+
+    }
+  
     default:
       return state;
   }

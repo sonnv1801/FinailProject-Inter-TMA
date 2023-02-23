@@ -1,8 +1,15 @@
 import React from 'react';
 import './style.css';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 export const NavDropDown = () => {
+  const navigate = useNavigate();
+
+const handlelogout = () =>{
+  localStorage.removeItem("token");
+  navigate("/login");
+}
+
   return (
     <div className="nav-dropdown">
       <div className="sub-nav-down">
@@ -18,7 +25,8 @@ export const NavDropDown = () => {
             <Link to="/profile">Trang cá nhân</Link>
           </li>
           <li>
-            <Link to="/">Đăng xuất</Link>
+            <Link onClick={handlelogout}>Đăng xuất</Link>
+            
           </li>
         </ul>
       </div>

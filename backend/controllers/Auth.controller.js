@@ -109,7 +109,7 @@ const authController = {
         sameSite: "strict",
       });
       return res.status(200).json({ accessToken: newAccessToken });
-    });
+    }); 
   },
 
   userLogout: async (req, res) => {

@@ -5,4 +5,7 @@ export class UserService {
   Login(user) {
     return Axios.post(`${API}/login`, user);
   }
+  Register(user) {
+    return Axios.post(`${API}/register`, user);
+  }
 }
