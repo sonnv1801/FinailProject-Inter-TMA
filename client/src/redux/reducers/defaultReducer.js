@@ -73,6 +73,7 @@ const defaultReducer = (state = initialState, action) => {
       state.listBanner = payload;
       return { ...state }; //setState
     }
+    //Typroduct
 
     case START_LOADING: {
       state.isLoading = true;
