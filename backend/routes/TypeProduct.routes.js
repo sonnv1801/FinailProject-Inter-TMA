@@ -1,10 +1,9 @@
-const middlewareController = require("../controllers/Middleware.controllers");
 const typeProduct = require("../controllers/TypeProduct.controller");
 
 const router = require("express").Router();
 
-router.get("/", middlewareController.verifyToken, typeProduct.getAllType);
-router.post("/", middlewareController.verifyToken, typeProduct.createType);
-router.delete("/:id", middlewareController.verifyToken, typeProduct.deleteType);
+router.get("/", typeProduct.getAllType);
+router.post("/", typeProduct.createType);
+router.delete("/:id", typeProduct.deleteType);
 
 module.exports = router;
