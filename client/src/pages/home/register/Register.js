@@ -8,9 +8,7 @@ function Register() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-
+  
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -20,11 +18,25 @@ function Register() {
       username: username,
       email:email,
       password: password,
-      phone:phone,
-      address: address,
     };
     registerUser(newUser, dispatch, navigate);
+  };
+  const handleShow = () => {
+    const x = document.getElementById("form-password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
   }
+  };
+  const handleShowinform = () => {
+    const x = document.getElementById("confirm-password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+  };
   
   return (
     <>
@@ -57,7 +69,7 @@ function Register() {
           <p className="title-input">Password</p>
           <div className="input-group mb-3">
             <input
-              type="text"
+              type="password"
               name="password"
               className="form-control"
               placeholder="your password"
@@ -66,32 +78,24 @@ function Register() {
 
             />
             <span className="input-group-text" id="basic-addon1">
-              <i className="fa fa-eye"></i>
+              <i className="fa fa-eye" onClick={handleShow}></i>
             </span>
           </div>
-          <p className="title-input">Phone</p>
+          <p className="title-input">Confirm Password</p>
           <div className="input-group mb-3">
             <input
-              type="number"
+              type="password"
+              name="password"
               className="form-control"
-              placeholder="your phone"
-              aria-label="Phone"
-              aria-describedby="basic-addon1"
-              onChange={(e) => {setPhone(e.target.value)}}
-
+              placeholder="your password"
+              id="confirm-password"
+              onChange={(e) => {setPassword(e.target.value)}}
             />
+            <span className="input-group-text" id="basic-addon1">
+              <i className="fa fa-eye" onClick={handleShowinform}></i>
+            </span>
           </div>
-          <p className="title-input">Address</p>
-          <div className="input-group mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="your address"
-              aria-label="Address"
-              aria-describedby="basic-addon1"
-              onChange={(e) => {setAddress(e.target.value)}}
-            />
-          </div>
+          
          
             <button type="submit" className="btn btn-danger">
               DONE
