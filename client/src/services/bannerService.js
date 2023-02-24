@@ -1,7 +1,7 @@
 import Axios from 'axios';
 const API = 'http://localhost:8000/v1/banner';
 
-export class UserService {
+export class BannerService {
   getAllBaner() {
     return Axios.get(API);
   }
