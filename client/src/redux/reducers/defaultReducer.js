@@ -1,29 +1,33 @@
 import {
+  FETCH_BANNER,
   GET_USER,
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
   REGISTER_FAILED,
   REGISTER_START,
-  REGISTER_SUCCESS
+  REGISTER_SUCCESS,
+  START_LOADING,
+  STOP_LOADING,
 } from '../type/types';
 
 const initialState = {
   listUser: [],
+  listBanner: [],
   login: {
     currentUser: null,
     isFetching: false,
     error: false,
   },
-  register:{
-    isFetching:false,
-    error:false,
-    success:false,
+  register: {
+    isFetching: false,
+    error: false,
+    success: false,
   },
-  logout:{
-    isFetching:false,
-    error:false,
-  }
+  logout: {
+    isFetching: false,
+    error: false,
+  },
 };
 
 const defaultReducer = (state = initialState, action) => {
@@ -49,24 +53,37 @@ const defaultReducer = (state = initialState, action) => {
       return { ...state };
     }
     case REGISTER_START: {
-      state.register.isFetching =true;
-      return {...state};
+      state.register.isFetching = true;
+      return { ...state };
     }
-    case REGISTER_SUCCESS:{
+    case REGISTER_SUCCESS: {
       state.register.isFetching = false;
       state.register.error = false;
       state.register.success = true;
-      return {...state};
-
+      return { ...state };
     }
-    case REGISTER_FAILED:{
+    case REGISTER_FAILED: {
       state.register.isFetching = false;
       state.register.error = true;
       state.register.success = false;
-      return {...state};
-
+      return { ...state };
     }
-  
+    //Banner
+    case FETCH_BANNER: {
+      state.listBanner = payload;
+      return { ...state }; //setState
+    }
+
+    case START_LOADING: {
+      state.isLoading = true;
+      return { ...state };
+    }
+
+    case STOP_LOADING: {
+      state.isLoading = false;
+      return { ...state };
+    }
+
     default:
       return state;
   }
