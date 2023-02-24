@@ -1,5 +1,6 @@
 import {
   FETCH_BANNER,
+  FETCH_TYPE_PRODUCT,
   GET_USER,
   LOGIN_FAILED,
   LOGIN_START,
@@ -14,6 +15,7 @@ import {
 const initialState = {
   listUser: [],
   listBanner: [],
+  listType: [],
   login: {
     currentUser: null,
     isFetching: false,
@@ -74,6 +76,11 @@ const defaultReducer = (state = initialState, action) => {
       return { ...state }; //setState
     }
     //Typroduct
+
+    case FETCH_TYPE_PRODUCT: {
+      state.listType = payload;
+      return { ...state }; //setState
+    }
 
     case START_LOADING: {
       state.isLoading = true;

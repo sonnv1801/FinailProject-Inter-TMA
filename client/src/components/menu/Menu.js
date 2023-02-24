@@ -1,36 +1,29 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 
 import './style.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTypeProduct } from '../../redux/actions/typeProduct.action';
 
-const PrductType = [
-  {
-    id: '1',
-    name: 'Iphone',
-    ip1: 'ip1',
-  },
-  {
-    id: '2',
-    name: 'LapTop',
-  },
-  {
-    id: '3',
-    name: 'Samsung',
-  },
-];
 export default function Menu() {
+  const dispatch = useDispatch();
+  const listType = useSelector((state) => state.defaultReducer.listType);
+  useEffect(() => {
+    dispatch(getAllTypeProduct());
+  }, []);
+  console.log(listType);
   return (
     <div id="mainnav">
       <ul>
-        {PrductType.map((item, index) => (
+        {listType.map((item, index) => (
           <li className="thefirst" key={index}>
             <Link to="/">
               {item.name} <ArrowForwardIosOutlinedIcon className="icon-menu" />
             </Link>
             <ul className="sub-menu">
               <li>
-                <Link to="/shop">{item.ip1}</Link>
+                <Link to="/shop">{item._id}</Link>
               </li>
               <li>
                 <Link to="/shop">Iphone 14</Link>
