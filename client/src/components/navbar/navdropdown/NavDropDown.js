@@ -5,10 +5,14 @@ import { Link, useNavigate } from 'react-router-dom';
 export const NavDropDown = () => {
   const navigate = useNavigate();
 
-const handlelogout = () =>{
-  localStorage.removeItem("token");
-  navigate("/login");
-}
+  const handlelogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
+  const user = JSON.parse(localStorage.getItem('token'));
+
+  console.log(user?.role);
 
   return (
     <div className="nav-dropdown">
@@ -18,16 +22,26 @@ const handlelogout = () =>{
           alt="..."
         />
         <ul>
-          <li>
-            <Link to="/login">Đăng nhập</Link>
-          </li>
-          <li>
-            <Link to="/profile">Trang cá nhân</Link>
-          </li>
-          <li>
-            <Link onClick={handlelogout}>Đăng xuất</Link>
-            
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link to="/login">{user?.role}</Link>
+                <h1>{user?.role}</h1>
+              </li>
+              <li>
+                <button onClick={handlelogout}>Đăng xuất</button>
+              </li>
+              <li>
+                <Link to="/profile">Trang cá nhân</Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login">Đăng nhập</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
