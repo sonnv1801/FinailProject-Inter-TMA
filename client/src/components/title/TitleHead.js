@@ -1,13 +1,14 @@
 import React from 'react';
 import './style.css';
-function TitleHead() {
+function TitleHead(props) {
+  console.log('typeProduct,,,,,,,,,,,', props.typeProduct);
   return (
     <div>
       <div className="title-head">
         <div className="row">
           <div className="col-8">
             <div className="title">
-              <h3>LAPTOP TRẢ GÓP 0 ĐỒNG - BAO LUÔN LÃI SUẤT</h3>
+              <h3>Iphone</h3>
             </div>
           </div>
           <div className="col-4">

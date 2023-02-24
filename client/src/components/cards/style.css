@@ -79,3 +79,7 @@ a {
   font-size: 11px;
   color: red;
 }
+
+#rates span {
+  color: orange !important;
+}

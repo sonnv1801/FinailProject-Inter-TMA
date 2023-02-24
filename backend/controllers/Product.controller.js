@@ -51,6 +51,7 @@ const product = {
         newPrice: req.body.newPrice,
         oldPrice: req.body.oldPrice,
         quantity: req.body.quantity,
+        rates: req.body.rates,
       });
       await newProduct.save();
       res.status(200).json(newProduct);

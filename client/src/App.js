@@ -12,11 +12,18 @@ import Register from './pages/home/register/Register';
 import { Order } from './pages/home/order/Order';
 import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
+import React, { useState } from 'react';
 function App() {
+  const [ad, setAD] = useState('');
+
+  React.useEffect(() => {
+    setAD(JSON.parse(localStorage.getItem('token')));
+  }, []);
+  console.log('app ad ', ad);
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Navbar admin={ad} />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product-detail" element={<ProductDetail />} />

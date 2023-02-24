@@ -1,6 +1,6 @@
 import './style.css';
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Clock from '../../../../components/flashsale/Clock';
 import Slider from 'react-slick';
 
@@ -8,7 +8,8 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Card from '../../../../components/cards/Card';
 
-const EveryFlashSale = () => {
+const EveryFlashSale = (listProducts) => {
+  console.log('listProducts', listProducts.listProducts);
   const settings = {
     dots: true,
     infinite: false,
@@ -54,11 +55,9 @@ const EveryFlashSale = () => {
       </div>
       <div className="product-sale">
         <Slider {...settings}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+          {listProducts.listProducts?.map((item, idex) => (
+            <Card card={item} />
+          ))}
         </Slider>
       </div>
     </div>

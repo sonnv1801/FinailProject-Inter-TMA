@@ -3,9 +3,8 @@ import './style.css';
 import logo from '../../assets/logo.png';
 import { NavDropDown } from './navdropdown/NavDropDown';
 import { Link } from 'react-router-dom';
-function Navbar() {
-  const admin = JSON.parse(localStorage.getItem('token'));
-  console.log(admin?.role);
+function Navbar({ admin }) {
+  console.log('admin', admin?.role);
   return (
     <>
       {admin?.role ? (
