@@ -5,25 +5,18 @@ import HomePage from './pages/home/hompage/HomePage';
 import Shop from './pages/home/shop/Shop';
 import Card from './components/cards/Card';
 import { Payment } from './pages/home/payment/Payment';
-import Navbar from './components/navbar/Navbar';
 import Login from './pages/home/login/Login';
 import NotFound from './pages/home/notfound/NotFound';
 import Register from './pages/home/register/Register';
 import { Order } from './pages/home/order/Order';
 import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
-import React, { useState } from 'react';
+import Nav from './components/navbar/Nav';
 function App() {
-  const [ad, setAD] = useState('');
-
-  React.useEffect(() => {
-    setAD(JSON.parse(localStorage.getItem('token')));
-  }, []);
-  console.log('app ad ', ad);
   return (
     <div className="App">
       <Router>
-        <Navbar admin={ad} />
+        <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product-detail" element={<ProductDetail />} />

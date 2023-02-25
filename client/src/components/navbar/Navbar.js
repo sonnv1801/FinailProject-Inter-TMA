@@ -4,7 +4,6 @@ import logo from '../../assets/logo.png';
 import { NavDropDown } from './navdropdown/NavDropDown';
 import { Link } from 'react-router-dom';
 function Navbar({ admin }) {
-  console.log('admin', admin?.role);
   return (
     <>
       {admin?.role ? (
@@ -30,13 +29,6 @@ function Navbar({ admin }) {
               </div>
               <div className="right">
                 <div className="row">
-                  <div className="area col-sm-3">
-                    <select>
-                      <option selected>Khu vực của bạn</option>
-                      <option selected>Miền Nam</option>
-                      <option selected>Miền Bắc</option>
-                    </select>
-                  </div>
                   <div className="area col-sm-3">
                     <a href="tel:0375521434">
                       <p>Gọi mua hàng qua số điện thoại</p>
@@ -78,13 +70,6 @@ function Navbar({ admin }) {
               </div>
               <div className="right">
                 <div className="row">
-                  <div className="area col-sm-3">
-                    <select>
-                      <option selected>Khu vực của bạn</option>
-                      <option selected>Miền Nam</option>
-                      <option selected>Miền Bắc</option>
-                    </select>
-                  </div>
                   <div className="area col-sm-3">
                     <a href="tel:0375521434">
                       <p>Gọi mua hàng qua số điện thoại</p>
