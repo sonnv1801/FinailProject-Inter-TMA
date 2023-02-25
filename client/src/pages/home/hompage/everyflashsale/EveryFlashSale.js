@@ -1,6 +1,6 @@
 import './style.css';
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import Clock from '../../../../components/flashsale/Clock';
 import Slider from 'react-slick';
 
