@@ -2,56 +2,42 @@ import React from 'react';
 import './style.css';
 import ReactStars from 'react-rating-stars-component';
 import { Link } from 'react-router-dom';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
 
-function Card(props) {
-  // console.log('list', props.card);
+export default function MediaCard(props) {
   return (
-    <Link to="/product-detail">
-      <div>
-        <div className="container">
-          <div className="card">
-            <img className="card-img-top" src={props.card?.image} alt="Card" />
-            <div className="card-body">
-              <p className="title">{props.card?.title}</p>
-              <del
-                className="title"
-                style={{ textDecoration: 'line-through', opacity: '0.7' }}
-              >
-                {props.card?.oldPrice}
-              </del>
-              <p className="price">{props.card?.newPrice}</p>
-              <p>{props.card?.description}</p>
-              <div
-                className="rating"
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'left',
-                }}
-              >
-                <span id="rates">
-                  <ReactStars count={props.card?.rates} size={20} />
-                </span>
-                <i
-                  className="rating-info"
-                  style={{ fontSize: '10px', margin: '10px 0px 0px 5px' }}
-                >
-                  100 luot danh gia
-                </i>{' '}
-              </div>
-            </div>
-
-            <div className="card-info">
-              <ul>
-                <li>Status: {props.card?.status}</li>
-              </ul>
-            </div>
-            <div className="voucher"> Giảm 19%</div>
-          </div>
-        </div>
-      </div>
-    </Link>
+    <Card sx={{ maxWidth: 310 }} className="container-card">
+      <CardMedia
+        sx={{ height: 200 }}
+        image={props.card?.image}
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {props.card?.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {props.card?.description}
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          <del
+            style={{ opacity: '0.7', lineHeight: '2' }}
+          >{`${props.card?.oldPrice}đ`}</del>
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          {`${props.card?.newPrice}đ`}
+        </Typography>
+        <Typography variant="body2">
+          <span id="color-tile-card">
+            <ReactStars count={props.card?.rates} />
+          </span>
+        </Typography>
+      </CardContent>
+    </Card>
   );
 }
-
-export default Card;

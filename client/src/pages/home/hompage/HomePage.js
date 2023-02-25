@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import Card from '../../../components/cards/Card';
+import MediaCard from '../../../components/cards/Card';
 import Carousel from '../../../components/carousel/Carousel';
 import Menu from '../../../components/menu/Menu';
 import MiniCard from '../../../components/minicard/MiniCard';
@@ -76,7 +76,7 @@ const HomePage = () => {
         <div className="row">
           {fliterProductIphone.map((item, index) => (
             <div className="col-xl-3 mt-3" key={index}>
-              <Card card={item} />
+              <MediaCard card={item} />
             </div>
           ))}
         </div>
@@ -86,7 +86,7 @@ const HomePage = () => {
         <div className="row">
           {fliterProductSamsung.map((item, index) => (
             <div className="col-xl-3 mt-3" key={index}>
-              <Card card={item} />
+              <MediaCard card={item} />
             </div>
           ))}
         </div>

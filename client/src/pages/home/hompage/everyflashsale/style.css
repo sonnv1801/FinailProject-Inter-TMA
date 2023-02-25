@@ -24,4 +24,9 @@
 
 .every-flash-sale .product-sale {
     margin: 1rem 0;
+    padding: 0rem 2rem;
+}
+
+.slick-slider .slick-initialized button {
+    background-color: red !important;
 }
