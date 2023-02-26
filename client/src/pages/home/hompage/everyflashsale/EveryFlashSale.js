@@ -9,7 +9,6 @@ import 'slick-carousel/slick/slick-theme.css';
 import Card from '../../../../components/cards/Card';
 
 const EveryFlashSale = (listProducts) => {
-  console.log('listProducts', listProducts.listProducts);
   const settings = {
     dots: true,
     infinite: false,
@@ -55,8 +54,8 @@ const EveryFlashSale = (listProducts) => {
       </div>
       <div className="product-sale">
         <Slider {...settings}>
-          {listProducts.listProducts?.map((item, idex) => (
-            <Card card={item} />
+          {listProducts.listProducts.listProduct10days?.map((item, idex) => (
+            <Card card={item} key={idex} />
           ))}
         </Slider>
       </div>

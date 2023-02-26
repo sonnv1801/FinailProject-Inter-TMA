@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 function TitleHead(props) {
-  console.log('typeProduct,,,,,,,,,,,', props.typeProduct);
   return (
     <div className="container-content">
       <h1>Sản Phẩm</h1>

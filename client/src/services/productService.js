@@ -5,4 +5,7 @@ export class ProductService {
   getAllProduct() {
     return Axios.get(API);
   }
+  getProduct10days() {
+    return Axios.get(`${API}/10days/prd`);
+  }
 }

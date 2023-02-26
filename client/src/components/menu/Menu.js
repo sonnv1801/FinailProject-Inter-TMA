@@ -7,7 +7,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllTypeProduct } from '../../redux/actions/typeProduct.action';
 
 export default function Menu(props) {
-  console.log(',.sdsfsaf', props.product);
   const dispatch = useDispatch();
   const listType = useSelector((state) => state.defaultReducer.listType);
   useEffect(() => {

@@ -6,7 +6,10 @@ import Carousel from '../../../components/carousel/Carousel';
 import Menu from '../../../components/menu/Menu';
 import Repost from '../../../components/repost/Repost';
 import TitleHead from '../../../components/title/TitleHead';
-import { getProduct } from '../../../redux/actions/product.action';
+import {
+  getProduct,
+  getProduct10days,
+} from '../../../redux/actions/product.action';
 import { getAllTypeProduct } from '../../../redux/actions/typeProduct.action';
 import EveryFlashSale from './everyflashsale/EveryFlashSale';
 import './style.css';
@@ -15,9 +18,14 @@ import TypeNav from './typenav/TypeNav';
 
 const HomePage = () => {
   const listProduct = useSelector((state) => state.defaultReducer.listProduct);
+  const listProduct10Days = useSelector((state) => state.defaultReducer);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
+  }, []);
+
+  useEffect(() => {
+    dispatch(getProduct10days());
   }, []);
 
   const listType = useSelector((state) => state.defaultReducer.listType);
@@ -28,7 +36,6 @@ const HomePage = () => {
   const fliterTypeSamsung = listType.filter(function (type, index, array) {
     return type.name === 'Samsung';
   });
-  console.log('fliterTypeSamsung', fliterTypeSamsung);
   const fliterProductIphone = listProduct.filter(function (
     product,
     index,
@@ -65,7 +72,7 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-      <EveryFlashSale listProducts={listProduct} />
+      <EveryFlashSale listProducts={listProduct10Days} />
       <TitleHead typeProduct={listType} />
       <div className="card-product-home">
         <div className="row">
