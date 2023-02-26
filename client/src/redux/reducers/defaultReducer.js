@@ -1,4 +1,6 @@
 import {
+  ADD_CART,
+  DELETE_CART,
   FETCH_BANNER,
   FETCH_DETAIL,
   FETCH_PRODUCT,
@@ -10,13 +12,14 @@ import {
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
+  NUMBER_QUANTITY,
   REGISTER_FAILED,
   REGISTER_START,
   REGISTER_SUCCESS,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
-
+import Swal from 'sweetalert2';
 const initialState = {
   listUser: [],
   listBanner: [],
@@ -26,6 +29,7 @@ const initialState = {
   listProductType: [],
   listProductTypeSamsung: [],
   productDetail: null,
+  cart: [],
   login: {
     currentUser: null,
     isFetching: false,
@@ -116,6 +120,61 @@ const defaultReducer = (state = initialState, action) => {
 
     case FETCH_PRODUCT_TYPE_SAMSUNG: {
       state.listProductTypeSamsung = payload;
+      return { ...state };
+    }
+
+    //cart
+
+    case ADD_CART: {
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart.id === action.payload.id;
+      });
+
+      if (index !== -1) {
+        cart[index].quantity_cart += 1;
+        Swal.fire('Đã Thêm Một Sản Phẩm Trùng Vào Giỏ', 'success');
+      } else {
+        cart = [...cart, action.payload];
+        Swal.fire('Thêm Thành Công Rồi Áaaaa!', 'success');
+      }
+      // cart.push(action.payload);
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+    case DELETE_CART: {
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart._id === payload._id;
+      });
+      if (index !== -1) {
+        cart.splice(cart[index], 1);
+      }
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+
+    case NUMBER_QUANTITY: {
+      let { status, product } = payload;
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart.id === product.id;
+      });
+      if (index !== -1) {
+        if (status) {
+          cart[index].quantity_cart += 1;
+        } else {
+          if (cart[index].quantity_cart > 1) {
+            cart[index].quantity_cart -= 1;
+          } else {
+            Swal.fire('Max decline!', '', 'warning');
+          }
+        }
+      }
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
       return { ...state };
     }
 

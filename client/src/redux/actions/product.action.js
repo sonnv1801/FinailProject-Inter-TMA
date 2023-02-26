@@ -1,11 +1,15 @@
+import Swal from 'sweetalert2';
 import { createAction } from '.';
 import { productSevice } from '../../services';
 import {
+  ADD_CART,
+  DELETE_CART,
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
   FETCH_PRODUCT_TYPE,
   FETCH_PRODUCT_TYPE_SAMSUNG,
+  NUMBER_QUANTITY,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
@@ -98,5 +102,36 @@ export const getProductTypeSamsung = (limit) => {
         console.log(err);
         dispatch(stopLoading());
       });
+  };
+};
+
+export const addCart = (product) => {
+  const productCart = {
+    id: product._id,
+    title: product.title,
+    image: product.image,
+    newPrice: product.newPrice,
+    quantity_cart: 1,
+  };
+  return (dispatch) => {
+    dispatch(createAction(ADD_CART, productCart))
+      .then(() => {
+        Swal.fire('Add Successfully!', 'success');
+      })
+      .catch(() => {
+        Swal.fire('Add not Successfully!', 'warning');
+      });
+  };
+};
+
+export const deleteCart = (product) => {
+  return (dispatch) => {
+    dispatch(createAction(DELETE_CART, product));
+  };
+};
+
+export const numberQuantity = (product, status) => {
+  return (dispatch) => {
+    dispatch(createAction(NUMBER_QUANTITY, { product, status }));
   };
 };

@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 export const CartPayment = () => {
+  const carts = JSON.parse(localStorage.getItem('carts'));
+  console.log(carts);
   return (
     <>
       <div className="body-left-payment">
@@ -76,44 +78,17 @@ export const CartPayment = () => {
                   <th scope="col">Tạm tính</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Iphone 14 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>45.000.000đ</td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-              </tbody>
+              {carts.map((item, index) => (
+                <tbody>
+                  <tr>
+                    <td>
+                      {item.title}
+                      <span className="quantity-prd-payment">{`X${item.quantity_cart}`}</span>
+                    </td>
+                    <td>{`${item.newPrice}đ`}</td>
+                  </tr>
+                </tbody>
+              ))}
             </table>
             <div className="total-payment">
               <span>Giao hàng</span>

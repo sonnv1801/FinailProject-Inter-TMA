@@ -10,12 +10,15 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 import numeral from 'numeral';
+import { useDispatch } from 'react-redux';
+import { addCart } from '../../redux/actions/product.action';
 scroll.scrollToTop();
 export default function MediaCard(props) {
   const oldPrice = props.card?.oldPrice;
   const newPrice = props.card?.newPrice;
   const formattedOldPrice = numeral(oldPrice).format('0,0');
   const formattedNewPrice = numeral(newPrice).format('0,0');
+  const dispatch = useDispatch();
   return (
     <Card sx={{ maxWidth: 310 }} className="container-card">
       <CardMedia
@@ -52,12 +55,14 @@ export default function MediaCard(props) {
         >
           <Button size="small">Xem chi tiết</Button>
         </Link>
-        <Link
-          onClick={() => scroll.scrollToTop()}
-          to={`/product-detail/${props.card?._id}`}
+        <Button
+          size="small"
+          onClick={() => {
+            dispatch(addCart(props.card));
+          }}
         >
-          <Button size="small">Thêm vào giỏ</Button>
-        </Link>
+          Thêm vào giỏ
+        </Button>
       </CardActions>
     </Card>
   );
