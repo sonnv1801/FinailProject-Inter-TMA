@@ -9,6 +9,8 @@ import TitleHead from '../../../components/title/TitleHead';
 import {
   getProduct,
   getProduct10days,
+  getProductType,
+  getProductTypeSamsung,
 } from '../../../redux/actions/product.action';
 import { getAllTypeProduct } from '../../../redux/actions/typeProduct.action';
 import EveryFlashSale from './everyflashsale/EveryFlashSale';
@@ -18,39 +20,38 @@ import TypeNav from './typenav/TypeNav';
 
 const HomePage = () => {
   const listProduct = useSelector((state) => state.defaultReducer.listProduct);
+  const listProductType = useSelector(
+    (state) => state.defaultReducer.listProductType
+  );
   const listProduct10Days = useSelector((state) => state.defaultReducer);
   const isLoading = useSelector((state) => state.defaultReducer.isLoading);
-  console.log(isLoading);
-
+  const listType = useSelector((state) => state.defaultReducer.listType);
+  const ProductSamsung = useSelector(
+    (state) => state.defaultReducer.listProductTypeSamsung
+  );
+  console.log(ProductSamsung);
+  const type = 'Iphone';
+  const limit = 8;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
   }, []);
 
   useEffect(() => {
+    dispatch(getProductTypeSamsung(limit));
+  }, []);
+
+  useEffect(() => {
     dispatch(getProduct10days());
   }, []);
 
-  const listType = useSelector((state) => state.defaultReducer.listType);
+  useEffect(() => {
+    dispatch(getProductType(type, limit));
+  }, []);
+
   useEffect(() => {
     dispatch(getAllTypeProduct());
   }, []);
-
-  const fliterProductIphone = listProduct.filter(function (
-    product,
-    index,
-    array
-  ) {
-    return product.type === 'Iphone';
-  });
-
-  const fliterProductSamsung = listProduct.filter(function (
-    product,
-    index,
-    array
-  ) {
-    return product.type === 'Samsung';
-  });
   return (
     <div className="main-home">
       <SubNav />
@@ -85,7 +86,7 @@ const HomePage = () => {
       ) : (
         <div className="card-product-home">
           <div className="row">
-            {fliterProductIphone.map((item, index) => (
+            {listProductType.map((item, index) => (
               <div className="col-xl-3 mt-3" key={index}>
                 <MediaCard card={item} />
               </div>
@@ -105,7 +106,7 @@ const HomePage = () => {
       ) : (
         <div className="card-product-home">
           <div className="row">
-            {fliterProductSamsung.map((item, index) => (
+            {ProductSamsung.map((item, index) => (
               <div className="col-xl-3 mt-3" key={index}>
                 <MediaCard card={item} />
               </div>

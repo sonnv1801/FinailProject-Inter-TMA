@@ -11,4 +11,11 @@ export class ProductService {
   getDetail(id) {
     return Axios.get(`${API}/${id}`);
   }
+  getProductType(type, limit) {
+    return Axios.get(`${API}/products/${type}/${limit}`);
+  }
+
+  getProductTypeSamsung(limit) {
+    return Axios.get(`${API}/products/Samsung/${limit}`);
+  }
 }

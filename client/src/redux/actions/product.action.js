@@ -4,6 +4,8 @@ import {
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
+  FETCH_PRODUCT_TYPE,
+  FETCH_PRODUCT_TYPE_SAMSUNG,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
@@ -58,6 +60,38 @@ export const getDetail = (id) => {
       .getDetail(id)
       .then((res) => {
         dispatch(createAction(FETCH_DETAIL, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const getProductType = (type, limit) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    productSevice
+      .getProductType(type, limit)
+      .then((res) => {
+        dispatch(createAction(FETCH_PRODUCT_TYPE, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const getProductTypeSamsung = (limit) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    productSevice
+      .getProductTypeSamsung(limit)
+      .then((res) => {
+        dispatch(createAction(FETCH_PRODUCT_TYPE_SAMSUNG, res.data));
         dispatch(stopLoading());
       })
       .catch((err) => {

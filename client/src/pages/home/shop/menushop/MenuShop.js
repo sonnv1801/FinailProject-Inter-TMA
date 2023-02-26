@@ -1,37 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
-export const MenuShop = () => {
+export const MenuShop = (typeShop) => {
   return (
     <div className="menu-shop">
       <ul>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
-        <li>
-          <Link to="/">Sam Sung S23 Series</Link>
-        </li>
+        {typeShop.typeShop.map((item, index) => (
+          <li>
+            <Link to={`/product-detail/${item?._id}`}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
     </div>
   );
