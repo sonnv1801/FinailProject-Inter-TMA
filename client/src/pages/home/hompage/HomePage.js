@@ -19,6 +19,9 @@ import TypeNav from './typenav/TypeNav';
 const HomePage = () => {
   const listProduct = useSelector((state) => state.defaultReducer.listProduct);
   const listProduct10Days = useSelector((state) => state.defaultReducer);
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
+  console.log(isLoading);
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getProduct());
@@ -71,25 +74,45 @@ const HomePage = () => {
       </div>
       <EveryFlashSale listProducts={listProduct10Days} />
       <TitleHead typeProduct={listType} />
-      <div className="card-product-home">
-        <div className="row">
-          {fliterProductIphone.map((item, index) => (
-            <div className="col-xl-3 mt-3" key={index}>
-              <MediaCard card={item} />
-            </div>
-          ))}
+      {isLoading ? (
+        <div
+          class="spinner-border"
+          role="status"
+          style={{ position: 'relative', left: '50%' }}
+        >
+          <span class="visually-hidden">Loading...</span>
         </div>
-      </div>
+      ) : (
+        <div className="card-product-home">
+          <div className="row">
+            {fliterProductIphone.map((item, index) => (
+              <div className="col-xl-3 mt-3" key={index}>
+                <MediaCard card={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
       <TitleHead typeProduct={listType} />
-      <div className="card-product-home">
-        <div className="row">
-          {fliterProductSamsung.map((item, index) => (
-            <div className="col-xl-3 mt-3" key={index}>
-              <MediaCard card={item} />
-            </div>
-          ))}
+      {isLoading ? (
+        <div
+          class="spinner-border"
+          role="status"
+          style={{ position: 'relative', left: '50%' }}
+        >
+          <span class="visually-hidden">Loading...</span>
         </div>
-      </div>
+      ) : (
+        <div className="card-product-home">
+          <div className="row">
+            {fliterProductSamsung.map((item, index) => (
+              <div className="col-xl-3 mt-3" key={index}>
+                <MediaCard card={item} />
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
     </div>
   );
 };

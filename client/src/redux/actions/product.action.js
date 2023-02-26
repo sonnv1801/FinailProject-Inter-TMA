@@ -29,7 +29,6 @@ export const getProduct = () => {
         dispatch(stopLoading());
       })
       .catch((err) => {
-        console.log(err);
         dispatch(stopLoading());
       });
   };
