@@ -5,7 +5,17 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
+import { Link } from 'react-router-dom';
+import { animateScroll as scroll } from 'react-scroll';
+import numeral from 'numeral';
+scroll.scrollToTop();
 export default function MediaCard(props) {
+  const oldPrice = props.card?.oldPrice;
+  const newPrice = props.card?.newPrice;
+  const formattedOldPrice = numeral(oldPrice).format('0,0');
+  const formattedNewPrice = numeral(newPrice).format('0,0');
   return (
     <Card sx={{ maxWidth: 310 }} className="container-card">
       <CardMedia
@@ -24,10 +34,10 @@ export default function MediaCard(props) {
         <Typography variant="body1" color="text.secondary">
           <del
             style={{ opacity: '0.7', lineHeight: '2' }}
-          >{`${props.card?.oldPrice}đ`}</del>
+          >{`${formattedOldPrice}đ`}</del>
         </Typography>
         <Typography gutterBottom variant="h6" component="div">
-          {`${props.card?.newPrice}đ`}
+          {`${formattedNewPrice}đ`}
         </Typography>
         <Typography variant="body2">
           <span id="color-tile-card">
@@ -35,6 +45,14 @@ export default function MediaCard(props) {
           </span>
         </Typography>
       </CardContent>
+      <CardActions>
+        <Link
+          onClick={() => scroll.scrollToTop()}
+          to={`/product-detail/${props.card?._id}`}
+        >
+          <Button size="small">Xem chi tiết</Button>
+        </Link>
+      </CardActions>
     </Card>
   );
 }

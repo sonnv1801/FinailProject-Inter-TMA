@@ -8,4 +8,7 @@ export class ProductService {
   getProduct10days() {
     return Axios.get(`${API}/10days/prd`);
   }
+  getDetail(id) {
+    return Axios.get(`${API}/${id}`);
+  }
 }
