@@ -6,13 +6,12 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllTypeProduct } from '../../redux/actions/typeProduct.action';
 
-export default function Menu() {
+export default function Menu(props) {
   const dispatch = useDispatch();
   const listType = useSelector((state) => state.defaultReducer.listType);
   useEffect(() => {
     dispatch(getAllTypeProduct());
   }, []);
-  console.log(listType);
   return (
     <div id="mainnav">
       <ul>
@@ -22,21 +21,9 @@ export default function Menu() {
               {item.name} <ArrowForwardIosOutlinedIcon className="icon-menu" />
             </Link>
             <ul className="sub-menu">
-              <li>
-                <Link to="/shop">{item._id}</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
+              {item.name === 'Samsung'
+                ? props.product.map((prd) => <li>{prd.title}</li>)
+                : props.product.map((prd) => <li>{prd.title}</li>)}
               <li>
                 <Link to="/shop">Iphone 14</Link>
               </li>

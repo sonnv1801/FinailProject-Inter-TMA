@@ -1,3 +1,18 @@
+.css-18k87ye-MuiTypography-root {
+  color: #e10c00 !important;
+}
+
+.container-card {
+  padding: 1rem 0 !important;
+  margin-bottom: 1rem !important;
+
+
+}
+
+#color-tile-card span {
+  color: orange !important;
+}
+
 a {
   text-decoration: none;
   color: black;
@@ -8,6 +23,11 @@ a {
   float: left;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   position: relative;
+}
+
+.card .card-img {
+  width: 100%;
+  max-height: 100%;
 }
 
 .card .card-img-top {
@@ -78,4 +98,8 @@ a {
   right: 0;
   font-size: 11px;
   color: red;
+}
+
+#rates span {
+  color: orange !important;
 }

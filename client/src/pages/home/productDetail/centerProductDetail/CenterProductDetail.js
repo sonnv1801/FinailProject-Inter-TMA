@@ -3,6 +3,7 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import RedeemRoundedIcon from '@mui/icons-material/RedeemRounded';
 import ColorLensRoundedIcon from '@mui/icons-material/ColorLensRounded';
+import numeral from 'numeral';
 
 const colors = [
   {
@@ -24,14 +25,18 @@ const colors = [
     color: 'green',
   },
 ];
-const CenterProductDetail = () => {
+const CenterProductDetail = (ceterProduct) => {
   const [clicked, setClicked] = useState(colors[0]);
+  const oldPrice = ceterProduct.ceterProduct?.oldPrice;
+  const newPrice = ceterProduct.ceterProduct?.newPrice;
+  const formattedOldPrice = numeral(oldPrice).format('0,0');
+  const formattedNewPrice = numeral(newPrice).format('0,0');
   return (
     <div className="body-prd-dt">
-      <Link to="/">{clicked.price}</Link>
+      <Link to="/">{`${formattedOldPrice}đ`}</Link>
       <div className="prd-price">
         <div className="sub-price" style={{ background: `${clicked.color}` }}>
-          <h1>{clicked.price}</h1>
+          <h1>{`${formattedNewPrice}đ`}</h1>
         </div>
         <div className="sub-installment">
           <h1>Trả góp từ 6.158.000₫ / 1 tháng</h1>

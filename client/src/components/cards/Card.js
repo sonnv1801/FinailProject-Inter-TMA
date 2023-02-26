@@ -1,64 +1,58 @@
 import React from 'react';
 import './style.css';
 import ReactStars from 'react-rating-stars-component';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import CardActions from '@mui/material/CardActions';
+import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
-const ratingChanged = (newRating) => {
-  console.log(newRating);
-};
-function Card() {
+import { animateScroll as scroll } from 'react-scroll';
+import numeral from 'numeral';
+scroll.scrollToTop();
+export default function MediaCard(props) {
+  const oldPrice = props.card?.oldPrice;
+  const newPrice = props.card?.newPrice;
+  const formattedOldPrice = numeral(oldPrice).format('0,0');
+  const formattedNewPrice = numeral(newPrice).format('0,0');
   return (
-    <Link to="/product-detail">
-      <div>
-        <div className="container">
-          <div className="card">
-            <img
-              className="card-img-top"
-              src="https://clickbuy.com.vn/uploads/2021/06/ipad.jpg"
-              alt="Card"
-            />
-            <div className="card-body">
-              <p className="title">
-                San pham Some example text some example text
-              </p>
-              <p className="price">10.000.000 đ</p>
-              <div
-                className="rating"
-                style={{
-                  display: 'flex',
-                  flexWrap: 'wrap',
-                  justifyContent: 'left',
-                }}
-              >
-                <ReactStars
-                  count={5}
-                  onChange={ratingChanged}
-                  size={20}
-                  activeColor="#ffd700"
-                />
-                <i
-                  className="rating-info"
-                  style={{ fontSize: '10px', margin: '10px 0px 0px 5px' }}
-                >
-                  100 luot danh gia
-                </i>{' '}
-              </div>
-            </div>
-
-            <div className="card-info">
-              <ul>
-                <li>ABC</li>
-                <li>ABC</li>
-                <li>ABC</li>
-                <li>ABC</li>
-                <li>ABC</li>
-              </ul>
-            </div>
-            <div className="voucher"> Giảm 19%</div>
-          </div>
-        </div>
-      </div>
-    </Link>
+    <Card sx={{ maxWidth: 310 }} className="container-card">
+      <CardMedia
+        className="sub-card-container"
+        sx={{ height: 200 }}
+        image={props.card?.image}
+        title="green iguana"
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {props.card?.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+          {props.card?.description}
+        </Typography>
+        <Typography variant="body1" color="text.secondary">
+          <del
+            style={{ opacity: '0.7', lineHeight: '2' }}
+          >{`${formattedOldPrice}đ`}</del>
+        </Typography>
+        <Typography gutterBottom variant="h6" component="div">
+          {`${formattedNewPrice}đ`}
+        </Typography>
+        <Typography variant="body2">
+          <span id="color-tile-card">
+            <ReactStars count={props.card?.rates} />
+          </span>
+        </Typography>
+      </CardContent>
+      <CardActions>
+        <Link
+          onClick={() => scroll.scrollToTop()}
+          to={`/product-detail/${props.card?._id}`}
+        >
+          <Button size="small">Xem chi tiết</Button>
+        </Link>
+      </CardActions>
+    </Card>
   );
 }
-
-export default Card;

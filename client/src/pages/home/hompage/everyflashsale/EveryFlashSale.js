@@ -7,8 +7,11 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Card from '../../../../components/cards/Card';
+import { useSelector } from 'react-redux';
 
-const EveryFlashSale = () => {
+const EveryFlashSale = (listProducts) => {
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
+
   const settings = {
     dots: true,
     infinite: false,
@@ -43,6 +46,7 @@ const EveryFlashSale = () => {
       },
     ],
   };
+
   return (
     <div className="every-flash-sale">
       <div className="header-sale">
@@ -52,15 +56,27 @@ const EveryFlashSale = () => {
         />
         <Clock />
       </div>
-      <div className="product-sale">
-        <Slider {...settings}>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-        </Slider>
-      </div>
+      <>
+        {isLoading ? (
+          <div
+            class="spinner-border"
+            role="status"
+            style={{ position: 'relative', left: '50%' }}
+          >
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        ) : (
+          <div className="product-sale">
+            <Slider {...settings}>
+              {listProducts.listProducts.listProduct10days?.map(
+                (item, idex) => (
+                  <Card card={item} key={idex} />
+                )
+              )}
+            </Slider>
+          </div>
+        )}
+      </>
     </div>
   );
 };
