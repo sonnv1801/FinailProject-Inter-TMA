@@ -33,9 +33,6 @@ const HomePage = () => {
     dispatch(getAllTypeProduct());
   }, []);
 
-  const fliterTypeSamsung = listType.filter(function (type, index, array) {
-    return type.name === 'Samsung';
-  });
   const fliterProductIphone = listProduct.filter(function (
     product,
     index,
