@@ -1,6 +1,36 @@
 const Product = require("../models/Product");
 const cloudinary = require("../utils/cloudinary");
 const product = {
+  RamdomProduct: async (req, res) => {
+    try {
+      const count = await Product.countDocuments();
+      const random = Math.floor(Math.random() * count);
+      const product = await Product.findOne().skip(random);
+      res.json(product);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send("Server Error");
+    }
+  },
+  getAllBy10Day: async (req, res) => {
+    const TEN_DAYS = 10 * 24 * 60 * 60 * 1000;
+    const currentDate = new Date();
+    try {
+      const products = await Product.find({
+        created_at: { $gte: new Date(currentDate - TEN_DAYS) },
+      })
+        .sort({ created_at: -1 })
+        .limit(8);
+
+      res.send(products);
+      // const products = await Product.find({
+      //   created_at: { $gte: TEN_DAYS, $lt: currentDate },
+      // }).exec();
+      // res.send(products);
+    } catch (err) {
+      res.status(500).send(err);
+    }
+  },
   getAllProduct: async (req, res) => {
     try {
       Product.find({}, (err, products) => {

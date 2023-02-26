@@ -4,13 +4,12 @@ function TitleHead(props) {
   console.log('typeProduct,,,,,,,,,,,', props.typeProduct);
   return (
     <div className="container-content">
-      <h1>Iphone</h1>
+      <h1>Sản Phẩm</h1>
       <div className="sub-content">
         <ul>
-          <li>Samsung</li>
-          <li>Samsung</li>
-          <li>Samsung</li>
-          <li>Samsung</li>
+          {props.typeProduct.map((item) => (
+            <li>{item.name}</li>
+          ))}
         </ul>
       </div>
     </div>

@@ -9,5 +9,7 @@ router.get("/type/iphone", product.getProductByType);
 router.post("/", upload.single("image"), product.createProduct);
 router.put("/:id", upload.single("image"), product.updateProduct);
 router.delete("/:id", product.deleteProduct);
+router.get("/10days/prd", product.getAllBy10Day);
+router.get("/ramdom/prd", product.RamdomProduct);
 
 module.exports = router;

@@ -4,7 +4,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import MediaCard from '../../../components/cards/Card';
 import Carousel from '../../../components/carousel/Carousel';
 import Menu from '../../../components/menu/Menu';
-import MiniCard from '../../../components/minicard/MiniCard';
 import Repost from '../../../components/repost/Repost';
 import TitleHead from '../../../components/title/TitleHead';
 import { getProduct } from '../../../redux/actions/product.action';
@@ -25,7 +24,6 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getAllTypeProduct());
   }, []);
-  // console.log('type', listType);
 
   const fliterTypeSamsung = listType.filter(function (type, index, array) {
     return type.name === 'Samsung';
@@ -46,16 +44,13 @@ const HomePage = () => {
   ) {
     return product.type === 'Samsung';
   });
-  // console.log('fliterProductIphone', fliterProductIphone);
-  // console.log('fliterProductSamsung', fliterProductSamsung);
   return (
     <div className="main-home">
-      {/* <h1>{user}</h1> */}
       <SubNav />
       <div className="row">
         <div className="col-xl-3" style={{ width: '20%' }}>
           <div className="menu-home">
-            <Menu />
+            <Menu product={listProduct} />
           </div>
         </div>
         <div className="col-xl-6">
@@ -71,7 +66,7 @@ const HomePage = () => {
         </div>
       </div>
       <EveryFlashSale listProducts={listProduct} />
-      <TitleHead typeProduct={fliterTypeSamsung} />
+      <TitleHead typeProduct={listType} />
       <div className="card-product-home">
         <div className="row">
           {fliterProductIphone.map((item, index) => (
@@ -81,7 +76,7 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      {/* <TitleHead typeProduct={listType} /> */}
+      <TitleHead typeProduct={listType} />
       <div className="card-product-home">
         <div className="row">
           {fliterProductSamsung.map((item, index) => (
@@ -91,18 +86,6 @@ const HomePage = () => {
           ))}
         </div>
       </div>
-      <TitleHead />
-      <div className="mini-card-home">
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-        <MiniCard />
-      </div>
-      {/* {listUser?.map((item, index) => (
-        <h1 key={index}>{item.address}</h1>
-      ))} */}
     </div>
   );
 };
