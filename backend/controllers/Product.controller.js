@@ -58,12 +58,10 @@ const product = {
   },
   getProductByType: async (req, res) => {
     try {
-      const types = "Iphone";
-      if (!types) {
-        return res.status(404).json("Not foud");
-      }
-      let result = await Product.find().where("type").equals(types);
-      return res.status(200).json(result);
+      const type = req.params.type;
+      const limit = 8;
+      const products = await Product.find({ type: type }).limit(limit);
+      return res.status(200).json(products);
     } catch (error) {
       res.status(500).json(err);
     }

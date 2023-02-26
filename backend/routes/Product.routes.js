@@ -5,7 +5,7 @@ const router = require("express").Router();
 
 router.get("/", product.getAllProduct);
 router.get("/:id", product.getProductById);
-router.get("/type/iphone", product.getProductByType);
+router.get("/products/:type/:limit", product.getProductByType);
 router.post("/", upload.single("image"), product.createProduct);
 router.put("/:id", upload.single("image"), product.updateProduct);
 router.delete("/:id", product.deleteProduct);
