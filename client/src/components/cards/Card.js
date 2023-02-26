@@ -22,7 +22,7 @@ export default function MediaCard(props) {
         className="sub-card-container"
         sx={{ height: 200 }}
         image={props.card?.image}
-        title="green iguana"
+        title="Sản phẩm"
       />
       <CardContent>
         <Typography gutterBottom variant="h5" component="div">
@@ -51,6 +51,12 @@ export default function MediaCard(props) {
           to={`/product-detail/${props.card?._id}`}
         >
           <Button size="small">Xem chi tiết</Button>
+        </Link>
+        <Link
+          onClick={() => scroll.scrollToTop()}
+          to={`/product-detail/${props.card?._id}`}
+        >
+          <Button size="small">Thêm vào giỏ</Button>
         </Link>
       </CardActions>
     </Card>
