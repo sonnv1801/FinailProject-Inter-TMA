@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 
 import './style.css';
@@ -12,22 +12,23 @@ export default function Menu(props) {
   useEffect(() => {
     dispatch(getAllTypeProduct());
   }, []);
+
   return (
     <div id="mainnav">
       <ul>
         {listType.map((item, index) => (
           <li className="thefirst" key={index}>
-            <Link to="/">
+            <Link to={`/shop/${item.name}`}>
               {item.name} <ArrowForwardIosOutlinedIcon className="icon-menu" />
             </Link>
-            <ul className="sub-menu">
-              {item.name === 'Samsung'
+            {/* <ul className="sub-menu">
+              {item.name === props.product.type
                 ? props.product.map((prd) => <li>{prd.title}</li>)
                 : props.product.map((prd) => <li>{prd.title}</li>)}
               <li>
                 <Link to="/shop">Iphone 14</Link>
               </li>
-            </ul>
+            </ul> */}
           </li>
         ))}
       </ul>

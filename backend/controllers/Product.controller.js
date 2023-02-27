@@ -59,11 +59,11 @@ const product = {
   getProductByType: async (req, res) => {
     try {
       const type = req.params.type;
-      const limit = 8;
+      const limit = req.params.limit;
       const products = await Product.find({ type: type }).limit(limit);
       return res.status(200).json(products);
-    } catch (error) {
-      res.status(500).json(err);
+    } catch (err) {
+      return res.status(500).json(err);
     }
   },
   createProduct: async (req, res) => {

@@ -1,27 +1,36 @@
 import {
+  ADD_CART,
+  BUY_PRODUCT,
+  DELETE_CART,
   FETCH_BANNER,
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
+  FETCH_PRODUCT_TYPE,
+  FETCH_PRODUCT_TYPE_SAMSUNG,
   FETCH_TYPE_PRODUCT,
   GET_USER,
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
+  NUMBER_QUANTITY,
   REGISTER_FAILED,
   REGISTER_START,
   REGISTER_SUCCESS,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
-
+import Swal from 'sweetalert2';
 const initialState = {
   listUser: [],
   listBanner: [],
   listType: [],
   listProduct: [],
   listProduct10days: [],
+  listProductType: [],
+  listProductTypeSamsung: [],
   productDetail: null,
+  cart: [],
   login: {
     currentUser: null,
     isFetching: false,
@@ -102,6 +111,81 @@ const defaultReducer = (state = initialState, action) => {
 
     case FETCH_DETAIL: {
       state.productDetail = payload;
+      return { ...state };
+    }
+
+    case FETCH_PRODUCT_TYPE: {
+      state.listProductType = payload;
+      return { ...state };
+    }
+
+    case FETCH_PRODUCT_TYPE_SAMSUNG: {
+      state.listProductTypeSamsung = payload;
+      return { ...state };
+    }
+
+    //cart
+
+    case ADD_CART: {
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart.id === action.payload.id;
+      });
+
+      if (index !== -1) {
+        cart[index].quantity_cart += 1;
+        Swal.fire('Đã thêm một sản phẩm trùng tên vào giỏ!', 'success');
+      } else {
+        cart = [...cart, action.payload];
+        Swal.fire('Sản phẩm đã được thêm vào giỏ!', 'success');
+      }
+      // cart.push(action.payload);
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+    case DELETE_CART: {
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart.id === payload.id;
+      });
+      if (index !== -1) {
+        cart.splice(cart[index], 1);
+      }
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+
+    case NUMBER_QUANTITY: {
+      let { status, product } = payload;
+      let cart = [...state.cart];
+      const index = cart.findIndex((cart) => {
+        return cart.id === product.id;
+      });
+      if (index !== -1) {
+        if (status) {
+          cart[index].quantity_cart += 1;
+        } else {
+          if (cart[index].quantity_cart > 1) {
+            cart[index].quantity_cart -= 1;
+          } else {
+            cart.splice(cart[index], 1);
+          }
+        }
+      }
+      state.cart = cart;
+      localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+
+    case BUY_PRODUCT: {
+      // if (state.login.currentUser === null) {
+      //   Swal.fire('Đăng Nhập Đi!!!!', 'error');
+      // } else {
+      state.cart = [];
+      // Swal.fire('Buy successfully!', '', 'success');
+      // }
       return { ...state };
     }
 

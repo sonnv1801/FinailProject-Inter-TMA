@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
@@ -8,6 +8,8 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Link, useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
+import CartNav from '../cartnav/CartNav';
+import { useSelector } from 'react-redux';
 export const NavDropDown = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const handleOpenUserMenu = (event) => {
@@ -19,7 +21,6 @@ export const NavDropDown = () => {
   };
 
   const navigate = useNavigate();
-
   const handlelogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
@@ -28,6 +29,12 @@ export const NavDropDown = () => {
   const user = JSON.parse(localStorage.getItem('token'));
 
   console.log(user?.fullname);
+
+  const carts = JSON.parse(localStorage.getItem('carts'));
+  console.log('cart', carts);
+
+  const cart = useSelector((state) => state.defaultReducer.cart);
+  console.log(cart);
 
   return (
     <Box sx={{ flexGrow: 0 }} className="nav-dropdown-app">
@@ -78,6 +85,8 @@ export const NavDropDown = () => {
                   </li>
                 </div>
               )}
+              <CartNav cart={cart} />
+
               <Button textAlign="center" onClick={handlelogout}>
                 Đăng Xuất
               </Button>
@@ -87,9 +96,7 @@ export const NavDropDown = () => {
               <Link to="/login" textAlign="center">
                 Đăng nhập
               </Link>
-              <li>
-                <Link to="/cart">Giỏ Hàng</Link>
-              </li>
+              <CartNav cart={cart} />
             </div>
           )}
         </MenuItem>

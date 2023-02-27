@@ -13,6 +13,8 @@ import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
 import Nav from './components/navbar/Nav';
 function App() {
+  const user = JSON.parse(localStorage.getItem('token'));
+  console.log(user);
   return (
     <div className="App">
       <Router>
@@ -20,13 +22,21 @@ function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/product-detail/:id" element={<ProductDetail />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/shop/:id" element={<Shop />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/order" element={<Order />} />
           <Route path="/card" element={<Card />} />
-          <Route path="/profile" element={<Profile />} />
+          {user === null ? (
+            <>
+              <Route path="*" element={<NotFound />} />
+            </>
+          ) : (
+            <>
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/profile" element={<Profile />} />
+            </>
+          )}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
