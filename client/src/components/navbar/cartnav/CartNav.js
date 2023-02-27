@@ -32,7 +32,7 @@ export default function CartNav(cart) {
   console.log('cart log', cart.cart.length);
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
-  const user = useSelector((state) => state.defaultReducer.login.currentUser);
+  const user = JSON.parse(localStorage.getItem('token'));
   console.log(user);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -55,6 +55,8 @@ export default function CartNav(cart) {
       setOpen(false);
     } else {
       dispatch(buyProduct());
+      navigate('/payment');
+      setOpen(false);
     }
   };
   useEffect(() => {}, []);

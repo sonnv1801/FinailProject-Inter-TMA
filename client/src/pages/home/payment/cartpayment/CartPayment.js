@@ -4,7 +4,14 @@ import './style.css';
 
 export const CartPayment = () => {
   const carts = JSON.parse(localStorage.getItem('carts'));
+  const user = JSON.parse(localStorage.getItem('token'));
   console.log(carts);
+
+  const renderAmount = () => {
+    return carts.reduce((total, item) => {
+      return (total += item.newPrice * item.quantity_cart);
+    }, 0);
+  };
   return (
     <>
       <div className="body-left-payment">
@@ -43,12 +50,12 @@ export const CartPayment = () => {
           <div className="infomation-users">
             <form>
               <span>Họ và tên*</span>
-              <input />
+              <input type="text" value={user.fullname} />
               <span>Số điện thoại*</span>
-              <input />
+              <input type="number" value={user.phone} />
               <span>Email*</span>
-              <input />
-              <span>Tỉnh/ thành phố*</span>
+              <input type="email" value={user.email} />
+              {/* <span>Tỉnh/ thành phố*</span>
               <select>
                 <option>Quảng Ngãi</option>
                 <option>Đà Nẵng</option>
@@ -62,9 +69,9 @@ export const CartPayment = () => {
               <select>
                 <option>Hải Châu</option>
                 <option>Sơn Trà</option>
-              </select>
+              </select> */}
               <span>Địa chỉ*</span>
-              <input />
+              <input type="text" value={user.address} />
               <span>Ghi chú</span>
               <textarea></textarea>
             </form>
@@ -85,7 +92,7 @@ export const CartPayment = () => {
                       {item.title}
                       <span className="quantity-prd-payment">{`X${item.quantity_cart}`}</span>
                     </td>
-                    <td>{`${item.newPrice}đ`}</td>
+                    <td>{`${item.newPrice.toLocaleString()}đ`}</td>
                   </tr>
                 </tbody>
               ))}
@@ -95,8 +102,8 @@ export const CartPayment = () => {
               <span>Express</span>
             </div>
             <div className="total-payment">
-              <span>Giao hàng</span>
-              <span>500.000.000đ</span>
+              <span>Tổng:</span>
+              <span> {`${renderAmount().toLocaleString()}đ`}</span>
             </div>
             <span className="term">
               <input type="checkbox" />

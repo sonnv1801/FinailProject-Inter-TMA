@@ -184,7 +184,7 @@ const defaultReducer = (state = initialState, action) => {
       //   Swal.fire('Đăng Nhập Đi!!!!', 'error');
       // } else {
       state.cart = [];
-      Swal.fire('Buy successfully!', '', 'success');
+      // Swal.fire('Buy successfully!', '', 'success');
       // }
       return { ...state };
     }
