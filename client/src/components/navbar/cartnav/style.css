@@ -1,5 +1,6 @@
 #container-carts {
     border: none;
+    font-family: var(--main-font);
 }
 
 #container-carts::-webkit-scrollbar {
@@ -20,13 +21,15 @@
 }
 
 #cart-container {
-    margin-bottom: 2rem;
+    /* margin-bottom: 2rem; */
     padding: 2rem;
+    transition: 0.4s;
 
 }
 
 #cart-container:hover {
-    background: rgb(230, 227, 227);
+    background: rgb(190, 186, 186);
+    color: white;
 }
 
 #cart-container .cart-image {
@@ -71,6 +74,57 @@
 }
 
 #cart-container span {
-    color: red;
+    color: white;
     cursor: pointer;
+    background: var(--red-clr);
+    padding: 0.7rem;
+    border-radius: 0.5rem;
+    text-align: center;
+}
+
+#cart-container span:hover {
+    background-color: green;
+}
+
+#sub-cart-nav p {
+    text-align: center;
+    color: var(--red-clr);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+#sub-cart-nav p span {
+    padding: 1rem
+}
+
+#cart-empty {
+    text-align: center;
+}
+
+#cart-empty img {
+    left: 30%;
+    width: 45%;
+}
+
+#cart-empty b {
+    display: block;
+    padding: 2rem;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    text-shadow: 2px 2px rgb(162, 162, 162);
+    color: red;
+}
+
+#btn-pay {
+    border: none;
+    background-color: var(--red-clr);
+    color: white;
+    padding: 0.5rem;
+    transition: 0.6s;
+    border-radius: 3px;
+}
+
+#btn-pay:hover {
+    background-color: green;
 }

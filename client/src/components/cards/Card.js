@@ -20,7 +20,7 @@ export default function MediaCard(props) {
   const formattedNewPrice = numeral(newPrice).format('0,0');
   const dispatch = useDispatch();
   return (
-    <Card sx={{ maxWidth: 310 }} className="container-card">
+    <Card sx={{ maxWidth: 300 }} className="container-card">
       <CardMedia
         className="sub-card-container"
         sx={{ height: 200 }}

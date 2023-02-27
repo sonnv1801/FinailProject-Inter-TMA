@@ -29,7 +29,6 @@ const HomePage = () => {
   const ProductSamsung = useSelector(
     (state) => state.defaultReducer.listProductTypeSamsung
   );
-  console.log(ProductSamsung);
   const type = 'Iphone';
   const limit = 8;
   const dispatch = useDispatch();

@@ -6,11 +6,15 @@ import Typography from '@mui/material/Typography';
 import DeleteIcon from '@mui/icons-material/Delete';
 import numeral from 'numeral';
 import './style.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
+  buyProduct,
   deleteCart,
   numberQuantity,
 } from '../../../redux/actions/product.action';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { useState } from 'react';
 
 const style = {
   position: 'absolute',
@@ -25,8 +29,11 @@ const style = {
 };
 
 export default function CartNav(cart) {
-  console.log('cart log', cart.cart);
+  console.log('cart log', cart.cart.length);
   const [open, setOpen] = React.useState(false);
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.defaultReducer.login.currentUser);
+  console.log(user);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();
@@ -41,6 +48,16 @@ export default function CartNav(cart) {
       return (total += item.newPrice * item.quantity_cart);
     }, 0);
   };
+
+  const handleBuyNow = () => {
+    if (user === null) {
+      navigate('/login');
+      setOpen(false);
+    } else {
+      dispatch(buyProduct());
+    }
+  };
+  useEffect(() => {}, []);
   return (
     <div>
       <Button
@@ -78,64 +95,86 @@ export default function CartNav(cart) {
               textTransform: 'uppercase',
             }}
           >
-            Giỏ Hàng Của Bạn Nè!
+            Giỏ Hàng Của Bạn!
           </Typography>
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            {cart.cart.map((item, index) => (
-              <div className="row" id="cart-container">
-                <div className="col-2">
-                  <div className="cart-image">
-                    <img src={item.image} alt={item.title} />
+          {cart.cart.length === 0 ? (
+            <div id="cart-empty">
+              <img
+                src="https://hoanghamobile.com/Content/web/content-icon/no-item.png"
+                alt="..."
+              />
+              <b>Hiện chưa có sản phẩm nào</b>
+            </div>
+          ) : (
+            <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
+              {cart.cart.map((item, index) => (
+                <div className="row" id="cart-container">
+                  <div className="col-2">
+                    <div className="cart-image">
+                      <img src={item.image} alt={item.title} />
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <p>{item.title}</p>
+                  </div>
+                  <div className="col-2">
+                    <div className="quantity-cart-nav">
+                      <button
+                        onClick={() => {
+                          dispatch(numberQuantity(item, false));
+                        }}
+                      >
+                        -
+                      </button>
+                      <input type="text" value={item.quantity_cart} />
+                      <button
+                        onClick={() => {
+                          dispatch(numberQuantity(item, true));
+                        }}
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <div className="col-2">
+                    <p>{`${item.newPrice.toLocaleString()}đ`}</p>
+                  </div>
+                  <div className="col-2">
+                    <p className="sum-carts">
+                      {`${(
+                        item.newPrice * item.quantity_cart
+                      ).toLocaleString()}đ`}
+                    </p>
+                  </div>
+                  <div className="col-2">
+                    <span>
+                      <DeleteIcon
+                        onClick={() => {
+                          dispatch(deleteCart(item));
+                        }}
+                      />
+                    </span>
                   </div>
                 </div>
-                <div className="col-2">
-                  <p>{item.title}</p>
+              ))}
+              <div className="row" id="sub-cart-nav">
+                <div className="col-6">
+                  <p></p>
                 </div>
-                <div className="col-2">
-                  <div className="quantity-cart-nav">
-                    <button
-                      onClick={() => {
-                        dispatch(numberQuantity(item, false));
-                      }}
-                    >
-                      -
+                <div className="col-6">
+                  <p>
+                    <span>Tổng Tiền:</span>
+                    {`${renderAmount().toLocaleString()}đ`}
+                  </p>
+                  <p>
+                    <button type="submit" id="btn-pay" onClick={handleBuyNow}>
+                      Thanh Toán Ngay
                     </button>
-                    <input type="text" value={item.quantity_cart} />
-                    <button
-                      onClick={() => {
-                        dispatch(numberQuantity(item, true));
-                      }}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <div className="col-2">
-                  <p>{`${item.newPrice.toLocaleString()}đ`}</p>
-                </div>
-                <div className="col-2">
-                  <p className="sum-carts">
-                    {`${(
-                      item.newPrice * item.quantity_cart
-                    ).toLocaleString()}đ`}
                   </p>
                 </div>
-                <div className="col-2">
-                  <span>
-                    <DeleteIcon
-                      onClick={() => {
-                        dispatch(deleteCart(item));
-                      }}
-                    />
-                  </span>
-                </div>
               </div>
-            ))}
-            <div className="row">
-              <div className="col-6">Tổng Tiền:</div>
-              <div className="col-6">{`${renderAmount().toLocaleString()}đ`}</div>
-            </div>
-          </Typography>
+            </Typography>
+          )}
         </Box>
       </Modal>
     </div>

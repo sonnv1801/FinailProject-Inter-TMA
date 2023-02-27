@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 
 import './style.css';
@@ -7,12 +7,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getAllTypeProduct } from '../../redux/actions/typeProduct.action';
 
 export default function Menu(props) {
-  console.log(props);
   const dispatch = useDispatch();
   const listType = useSelector((state) => state.defaultReducer.listType);
   useEffect(() => {
     dispatch(getAllTypeProduct());
   }, []);
+
   return (
     <div id="mainnav">
       <ul>

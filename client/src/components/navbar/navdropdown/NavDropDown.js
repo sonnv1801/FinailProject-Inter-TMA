@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './style.css';
 import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
@@ -21,7 +21,6 @@ export const NavDropDown = () => {
   };
 
   const navigate = useNavigate();
-
   const handlelogout = () => {
     localStorage.removeItem('token');
     navigate('/login');
@@ -97,9 +96,7 @@ export const NavDropDown = () => {
               <Link to="/login" textAlign="center">
                 Đăng nhập
               </Link>
-              <li>
-                <Link to="/cart">Giỏ Hàng</Link>
-              </li>
+              <CartNav cart={cart} />
             </div>
           )}
         </MenuItem>

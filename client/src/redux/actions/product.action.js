@@ -3,6 +3,7 @@ import { createAction } from '.';
 import { productSevice } from '../../services';
 import {
   ADD_CART,
+  BUY_PRODUCT,
   DELETE_CART,
   FETCH_DETAIL,
   FETCH_PRODUCT,
@@ -133,5 +134,11 @@ export const deleteCart = (product) => {
 export const numberQuantity = (product, status) => {
   return (dispatch) => {
     dispatch(createAction(NUMBER_QUANTITY, { product, status }));
+  };
+};
+
+export const buyProduct = (navigate) => {
+  return (dispatch) => {
+    dispatch(createAction(BUY_PRODUCT));
   };
 };

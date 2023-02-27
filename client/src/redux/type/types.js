@@ -34,3 +34,5 @@ export const ADD_CART = 'ADD_CART';
 export const DELETE_CART = 'DELETE_CART';
 
 export const NUMBER_QUANTITY = 'NUMBER_QUANTITY';
+
+export const BUY_PRODUCT = 'BUY_PRODUCT';

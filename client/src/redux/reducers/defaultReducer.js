@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  BUY_PRODUCT,
   DELETE_CART,
   FETCH_BANNER,
   FETCH_DETAIL,
@@ -133,10 +134,10 @@ const defaultReducer = (state = initialState, action) => {
 
       if (index !== -1) {
         cart[index].quantity_cart += 1;
-        Swal.fire('Đã Thêm Một Sản Phẩm Trùng Vào Giỏ', 'success');
+        Swal.fire('Đã thêm một sản phẩm trùng tên vào giỏ!', 'success');
       } else {
         cart = [...cart, action.payload];
-        Swal.fire('Thêm Thành Công Rồi Áaaaa!', 'success');
+        Swal.fire('Sản phẩm đã được thêm vào giỏ!', 'success');
       }
       // cart.push(action.payload);
       state.cart = cart;
@@ -146,7 +147,7 @@ const defaultReducer = (state = initialState, action) => {
     case DELETE_CART: {
       let cart = [...state.cart];
       const index = cart.findIndex((cart) => {
-        return cart._id === payload._id;
+        return cart.id === payload.id;
       });
       if (index !== -1) {
         cart.splice(cart[index], 1);
@@ -169,12 +170,22 @@ const defaultReducer = (state = initialState, action) => {
           if (cart[index].quantity_cart > 1) {
             cart[index].quantity_cart -= 1;
           } else {
-            Swal.fire('Max decline!', '', 'warning');
+            cart.splice(cart[index], 1);
           }
         }
       }
       state.cart = cart;
       localStorage.setItem('carts', JSON.stringify(cart));
+      return { ...state };
+    }
+
+    case BUY_PRODUCT: {
+      // if (state.login.currentUser === null) {
+      //   Swal.fire('Đăng Nhập Đi!!!!', 'error');
+      // } else {
+      state.cart = [];
+      Swal.fire('Buy successfully!', '', 'success');
+      // }
       return { ...state };
     }
 
