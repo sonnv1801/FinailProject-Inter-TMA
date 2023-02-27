@@ -2,11 +2,11 @@
 
 :root {
   --main-cl: #528352;
-  --primary-cl: #FFCC00;
-  --second-cl: #FAF5E9;
+  --primary-cl: #ffcc00;
+  --second-cl: #faf5e9;
   --black-cl: #180303;
   --main-font: 'Mukta', sans-serif;
   --main-fsize: 14px;
   --title-fsize: 18px;
-  --red-clr: #BB2B3B;
+  --red-clr: #dd0000;
 }

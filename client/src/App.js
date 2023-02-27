@@ -12,6 +12,7 @@ import { Order } from './pages/home/order/Order';
 import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
 import Nav from './components/navbar/Nav';
+import Adminpage from './pages/admin/Adminpage';
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
   console.log(user);
@@ -37,6 +38,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
             </>
           )}
+          <Route path="/admin" element={<Adminpage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
