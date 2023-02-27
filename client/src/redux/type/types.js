@@ -36,3 +36,5 @@ export const DELETE_CART = 'DELETE_CART';
 export const NUMBER_QUANTITY = 'NUMBER_QUANTITY';
 
 export const BUY_PRODUCT = 'BUY_PRODUCT';
+
+export const UPDATE_USER = 'UPDATE_USER';
