@@ -1,5 +1,5 @@
 .nav-container {
-  background-color: #DD0000 !important;
+  background-color: #dd0000 !important;
   position: fixed !important;
   top: 0 !important;
   left: 0 !important;
@@ -10,7 +10,6 @@
 .nav-container .sub-container .title-logo a {
   text-transform: uppercase;
   letter-spacing: 2px;
-  ;
   color: white;
 }
 

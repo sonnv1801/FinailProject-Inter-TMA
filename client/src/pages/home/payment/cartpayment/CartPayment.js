@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import './style.css';
 
 export const CartPayment = () => {
@@ -23,7 +24,7 @@ export const CartPayment = () => {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            Bạn có mã ưu đãi?<b>Bấm vào đây</b>
+            Bạn có mã ưu đãi? <b>Bấm vào đây</b>
           </a>
         </p>
         <div class="collapse" id="collapseExample">
@@ -36,11 +37,7 @@ export const CartPayment = () => {
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-              >
+              <button class="btn btn-success" type="button" id="button-addon2">
                 Áp dụng
               </button>
             </div>
@@ -48,36 +45,21 @@ export const CartPayment = () => {
         </div>
         <div className="body-payment">
           <div className="infomation-users">
-            <form>
-              <span>Họ và tên*</span>
-              <input type="text" value={user.fullname} />
-              <span>Số điện thoại*</span>
-              <input type="number" value={user.phone} />
-              <span>Email*</span>
-              <input type="email" value={user.email} />
-              {/* <span>Tỉnh/ thành phố*</span>
-              <select>
-                <option>Quảng Ngãi</option>
-                <option>Đà Nẵng</option>
-              </select>
-              <span>Quận/ huyện*</span>
-              <select>
-                <option>Hải Châu</option>
-                <option>Sơn Trà</option>
-              </select>
-              <span>Xã/ phường*</span>
-              <select>
-                <option>Hải Châu</option>
-                <option>Sơn Trà</option>
-              </select> */}
-              <span>Địa chỉ*</span>
-              <input type="text" value={user.address} />
-              <span>Ghi chú</span>
-              <textarea></textarea>
-            </form>
+            <Form.Group className="formgroup-body">
+              <Form.Label>Họ và tên: </Form.Label>
+              <Form.Control type="text" onChange="" value={user.fullname} />
+              <Form.Label>Số điện thoại: </Form.Label>
+              <Form.Control type="number" onChange="" value={user.phone} />
+              <Form.Label>Email: </Form.Label>
+              <Form.Control type="email" onChange="" value={user.email} />
+              <Form.Label>Email: </Form.Label>
+              <Form.Control type="text" onChange="" value={user.address} />
+              <Form.Label>Ghi Chú: </Form.Label>
+              <Form.Control type="text" onChange="" />
+            </Form.Group>
           </div>
           <div className="infomation-product">
-            <b>Đơn hàng của bạn</b>
+            <b>HOÁ ĐƠN</b>
             <table class="table">
               <thead>
                 <tr>
