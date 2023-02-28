@@ -8,6 +8,7 @@ import {
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
+  FETCH_PRODUCT_SIMILAR,
   FETCH_PRODUCT_TYPE,
   FETCH_PRODUCT_TYPE_SAMSUNG,
   NUMBER_QUANTITY,
@@ -65,6 +66,23 @@ export const getDetail = (id) => {
       .getDetail(id)
       .then((res) => {
         dispatch(createAction(FETCH_DETAIL, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        console.log(err);
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const getProductSimilar = (id) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    productSevice
+      .getProductSimilar(id)
+      .then((res) => {
+        dispatch(createAction(FETCH_PRODUCT_SIMILAR, res.data));
+        dispatch(getProduct());
         dispatch(stopLoading());
       })
       .catch((err) => {

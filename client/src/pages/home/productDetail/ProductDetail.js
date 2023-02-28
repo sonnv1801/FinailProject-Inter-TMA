@@ -12,7 +12,10 @@ import NavProduct from '../../../components/navproduct/NavProduct';
 import SimilarProduct from './similarproduct/SimilarProduct';
 import { useLocation } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { getDetail } from '../../../redux/actions/product.action';
+import {
+  getDetail,
+  getProductSimilar,
+} from '../../../redux/actions/product.action';
 
 const ProductDetail = () => {
   const location = useLocation();
@@ -24,6 +27,17 @@ const ProductDetail = () => {
   const productDetail = useSelector(
     (state) => state.defaultReducer.productDetail
   );
+
+  console.log('productDetail', productDetail?._id);
+  const ProductSimilar = useSelector(
+    (state) => state.defaultReducer.listProductSimilar
+  );
+  useEffect(() => {
+    dispatch(getProductSimilar(id));
+  }, []);
+
+  console.log('ProductSimilar', ProductSimilar);
+
   return (
     <>
       {/* <NavProduct /> */}
@@ -43,7 +57,7 @@ const ProductDetail = () => {
             <RightProductDetail />
           </div>
         </div>
-        <SimilarProduct />
+        <SimilarProduct productSimilar={ProductSimilar} />
         <div className="row">
           <div className="col-8">
             <SalientFeature />

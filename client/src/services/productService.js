@@ -18,4 +18,8 @@ export class ProductService {
   getProductTypeSamsung(limit) {
     return Axios.get(`${API}/products/Samsung/${limit}`);
   }
+
+  getProductSimilar(id) {
+    return Axios.get(`${API}/similar/${id}`);
+  }
 }
