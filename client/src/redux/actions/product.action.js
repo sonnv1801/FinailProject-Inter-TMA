@@ -13,6 +13,7 @@ import {
   FETCH_PRODUCT_TYPE,
   FETCH_PRODUCT_TYPE_SAMSUNG,
   NUMBER_QUANTITY,
+  SEARCH_PRODUCT,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
@@ -174,5 +175,12 @@ export const numberQuantity = (product, status) => {
 export const buyProduct = (navigate) => {
   return (dispatch) => {
     dispatch(createAction(BUY_PRODUCT));
+  };
+};
+
+export const searchProduct = (keyword) => {
+  return (dispatch) => {
+    dispatch(createAction(SEARCH_PRODUCT, keyword));
+    console.log(keyword);
   };
 };

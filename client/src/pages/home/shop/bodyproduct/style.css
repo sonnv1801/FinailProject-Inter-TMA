@@ -14,6 +14,18 @@
 .body-product .sub-body-arrange {
     margin-top: 1rem;
     clear: both;
+    display: flex;
+}
+
+.body-product .sub-body-arrange .search-form {
+    position: relative;
+
+}
+
+.body-product .sub-body-arrange .search-form button {
+    position: absolute;
+    top: 0;
+    right: -30px;
 }
 
 .body-product .sub-body-arrange a {

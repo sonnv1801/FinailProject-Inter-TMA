@@ -19,6 +19,7 @@ import {
   REGISTER_FAILED,
   REGISTER_START,
   REGISTER_SUCCESS,
+  SEARCH_PRODUCT,
   START_LOADING,
   STOP_LOADING,
 } from '../type/types';
@@ -35,6 +36,8 @@ const initialState = {
   fillPrice: [],
   productDetail: null,
   cart: [],
+  selected: '',
+  search: [],
   login: {
     currentUser: null,
     isFetching: false,
@@ -200,6 +203,22 @@ const defaultReducer = (state = initialState, action) => {
       state.cart = [];
       // Swal.fire('Buy successfully!', '', 'success');
       // }
+      return { ...state };
+    }
+
+    case SEARCH_PRODUCT: {
+      const key = payload;
+      state.selected = key;
+      if (key == '') {
+        state.search = [];
+      } else {
+        const update = state.listProduct.filter(
+          (product) =>
+            product.title.toLowerCase().indexOf(key.toLowerCase()) !== -1
+        );
+        state.search = update;
+      }
+
       return { ...state };
     }
 

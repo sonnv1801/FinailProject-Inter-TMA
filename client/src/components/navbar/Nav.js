@@ -16,6 +16,9 @@ import { styled, alpha } from '@mui/material/styles';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 import { NavDropDown } from './navdropdown/NavDropDown';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchProduct } from '../../redux/actions/product.action';
+import MediaCard from '../cards/Card';
 
 const pages = [
   'Gọi mua hàng: 037 5521 434',
@@ -138,7 +141,7 @@ function Nav(admin) {
                 ))}
               </Menu>
             </Box>
-            <form onSubmit={handleSerach}>
+            {/* <form onSubmit={handleSerach}>
               <Search>
                 <SearchIconWrapper>
                   <SearchIcon />
@@ -148,7 +151,8 @@ function Nav(admin) {
                   inputProps={{ 'aria-label': 'search' }}
                 />
               </Search>
-            </form>
+            </form> */}
+
             <Typography
               variant="h5"
               noWrap
