@@ -28,13 +28,9 @@ export const NavDropDown = () => {
 
   const user = JSON.parse(localStorage.getItem('token'));
 
-  console.log(user?.fullname);
-
   const carts = JSON.parse(localStorage.getItem('carts'));
-  console.log('cart', carts);
 
   const cart = useSelector((state) => state.defaultReducer.cart);
-  console.log(cart);
 
   return (
     <Box sx={{ flexGrow: 0 }} className="nav-dropdown-app">

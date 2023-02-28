@@ -29,11 +29,9 @@ const style = {
 };
 
 export default function CartNav(cart) {
-  console.log('cart log', cart.cart.length);
   const [open, setOpen] = React.useState(false);
   const navigate = useNavigate();
   const user = JSON.parse(localStorage.getItem('token'));
-  console.log(user);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const dispatch = useDispatch();

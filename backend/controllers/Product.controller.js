@@ -22,7 +22,20 @@ const product = {
       res.json(product);
     } catch (err) {
       console.error(err.message);
-      res.status(500).send("Server Error");
+      res.status(500).json("Server Error");
+    }
+  },
+
+  GetPrice: async (req, res) => {
+    const type = req.params.type;
+    const filled = req.params.filled;
+    try {
+      const products = await Product.find({ type: type }).sort({
+        newPrice: filled,
+      });
+      res.status(200).json(products);
+    } catch (err) {
+      res.status(500).json(err);
     }
   },
   getAllBy10Day: async (req, res) => {

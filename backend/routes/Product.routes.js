@@ -12,5 +12,6 @@ router.delete("/:id", product.deleteProduct);
 router.get("/10days/prd", product.getAllBy10Day);
 router.get("/ramdom/prd", product.RamdomProduct);
 router.get("/similar/:productId", product.similarProduct);
+router.get("/price/:type/:filled", product.GetPrice);
 
 module.exports = router;

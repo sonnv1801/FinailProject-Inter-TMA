@@ -15,7 +15,6 @@ import Nav from './components/navbar/Nav';
 import Adminpage from './pages/admin/Adminpage';
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
-  console.log(user);
   return (
     <div className="App">
       <Router>
@@ -24,6 +23,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/product-detail/:id" element={<ProductDetail />} />
           <Route path="/shop/:id" element={<Shop />} />
+          <Route path="/shop/:id/:fill" element={<Shop />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/order" element={<Order />} />

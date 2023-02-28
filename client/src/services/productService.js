@@ -22,4 +22,7 @@ export class ProductService {
   getProductSimilar(id) {
     return Axios.get(`${API}/similar/${id}`);
   }
+  getFilledPrice(type, filled) {
+    return Axios.get(`${API}/price/${type}/${filled}`);
+  }
 }

@@ -66,7 +66,6 @@ const handleSerach = (e) => {
   alert('Văn Sơn');
 };
 function Nav(admin) {
-  console.log('navvvvv', admin);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
 
   const handleOpenNavMenu = (event) => {

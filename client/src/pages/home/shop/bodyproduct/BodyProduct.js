@@ -1,10 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
-import VisibilityIcon from '@mui/icons-material/Visibility';
 import './style.css';
 export const BodyProduct = () => {
+  const location = useLocation();
+  const type = location.pathname.split('/')[2];
+  function refreshPage() {
+    setTimeout(() => {
+      window.location.reload(false);
+    }, 200);
+  }
   return (
     <div className="body-product">
       <b>Chọn theo tiêu chí</b>
@@ -24,19 +30,14 @@ export const BodyProduct = () => {
       </div>
       <b>Sắp xếp theo</b>
       <div className="sub-body-arrange">
-        <Link to="/">
+        <Link to={`/shop/${type}/1`} onClick={refreshPage}>
           <i>
             <ArrowUpwardIcon /> Giá thấp - cao
           </i>
         </Link>
-        <Link to="/">
+        <Link to={`/shop/${type}/-1`} onClick={refreshPage}>
           <i>
             <ArrowDownwardIcon /> Giá cao - thấp
-          </i>
-        </Link>
-        <Link to="/">
-          <i>
-            <VisibilityIcon /> Xem nhiều
           </i>
         </Link>
       </div>
