@@ -11,5 +11,6 @@ router.put("/:id", upload.single("image"), product.updateProduct);
 router.delete("/:id", product.deleteProduct);
 router.get("/10days/prd", product.getAllBy10Day);
 router.get("/ramdom/prd", product.RamdomProduct);
+router.get("/similar/:productId", product.similarProduct);
 
 module.exports = router;

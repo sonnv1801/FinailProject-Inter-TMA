@@ -1,8 +1,9 @@
 import React from 'react';
+import MediaCard from '../../../../components/cards/Card';
 import Card from '../../../../components/cards/Card';
 import './style.css';
 
-const SimilarProduct = () => {
+const SimilarProduct = (productSimilar) => {
   return (
     <div>
       <ul className="nav nav-pills mb-3" id="pills-tab" role="tablist">
@@ -44,18 +45,11 @@ const SimilarProduct = () => {
         >
           <h1 className="title-similar-prd">Sản phẩm tương tự</h1>
           <div className="row">
-            <div className="col-3">
-              <Card />
-            </div>
-            <div className="col-3">
-              <Card />
-            </div>
-            <div className="col-3">
-              <Card />
-            </div>
-            <div className="col-3">
-              <Card />
-            </div>
+            {productSimilar.productSimilar.map((item, idex) => (
+              <div className="col-3" key={idex}>
+                <MediaCard card={item} />
+              </div>
+            ))}
           </div>
         </div>
         <div

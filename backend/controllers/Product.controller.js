@@ -1,6 +1,19 @@
 const Product = require("../models/Product");
 const cloudinary = require("../utils/cloudinary");
 const product = {
+  similarProduct: async (req, res) => {
+    try {
+      const productId = req.params.productId;
+      const product = await Product.findById(productId);
+      const similarProducts = await Product.find({
+        type: product.type,
+        _id: { $ne: productId },
+      }).limit(4);
+      res.status(200).json(similarProducts);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
   RamdomProduct: async (req, res) => {
     try {
       const count = await Product.countDocuments();

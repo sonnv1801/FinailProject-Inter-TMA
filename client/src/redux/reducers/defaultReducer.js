@@ -6,6 +6,7 @@ import {
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
+  FETCH_PRODUCT_SIMILAR,
   FETCH_PRODUCT_TYPE,
   FETCH_PRODUCT_TYPE_SAMSUNG,
   FETCH_TYPE_PRODUCT,
@@ -29,6 +30,7 @@ const initialState = {
   listProduct10days: [],
   listProductType: [],
   listProductTypeSamsung: [],
+  listProductSimilar: [],
   productDetail: null,
   cart: [],
   login: {
@@ -111,6 +113,11 @@ const defaultReducer = (state = initialState, action) => {
 
     case FETCH_DETAIL: {
       state.productDetail = payload;
+      return { ...state };
+    }
+
+    case FETCH_PRODUCT_SIMILAR: {
+      state.listProductSimilar = payload;
       return { ...state };
     }
 

@@ -19,6 +19,13 @@ export default function MediaCard(props) {
   const formattedOldPrice = numeral(oldPrice).format('0,0');
   const formattedNewPrice = numeral(newPrice).format('0,0');
   const dispatch = useDispatch();
+
+  function refreshPage() {
+    setTimeout(() => {
+      window.location.reload(false);
+      scroll.scrollToTop();
+    }, 100);
+  }
   return (
     <Card sx={{ maxWidth: 300 }} className="container-card">
       <CardMedia
@@ -50,10 +57,12 @@ export default function MediaCard(props) {
       </CardContent>
       <CardActions>
         <Link
-          onClick={() => scroll.scrollToTop()}
+          // onClick={() => scroll.scrollToTop()}
           to={`/product-detail/${props.card?._id}`}
         >
-          <Button size="small">Xem chi tiết</Button>
+          <Button size="small" onClick={refreshPage}>
+            Xem chi tiết
+          </Button>
         </Link>
         <Button
           size="small"
