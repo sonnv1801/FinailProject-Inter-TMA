@@ -19,6 +19,9 @@ export default function MediaCard(props) {
   const formattedOldPrice = numeral(oldPrice).format('0,0');
   const formattedNewPrice = numeral(newPrice).format('0,0');
   const dispatch = useDispatch();
+  const maxlenght = 5;
+
+  console.log('props.card?.title.lenght', props.card?.title.slice(0, 10));
   return (
     <Card sx={{ maxWidth: 300 }} className="container-card">
       <CardMedia
@@ -27,27 +30,29 @@ export default function MediaCard(props) {
         image={props.card?.image}
         title="Sản phẩm"
       />
-      <CardContent>
-        <Typography gutterBottom variant="h5" component="div">
-          {props.card?.title}
-        </Typography>
-        <Typography variant="body2" color="text.secondary">
-          {props.card?.description}
-        </Typography>
-        <Typography variant="body1" color="text.secondary">
-          <del
-            style={{ opacity: '0.7', lineHeight: '2' }}
-          >{`${formattedOldPrice}đ`}</del>
-        </Typography>
-        <Typography gutterBottom variant="h6" component="div">
-          {`${formattedNewPrice}đ`}
-        </Typography>
-        <Typography variant="body2">
-          <span id="color-tile-card">
-            <ReactStars count={props.card?.rates} />
-          </span>
-        </Typography>
-      </CardContent>
+      <div style={{ height: '200px' }}>
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {props.card?.title.slice(0, 10) + '...'}
+          </Typography>
+          <Typography variant="body2" color="text.secondary">
+            {(props.card?.description).slice(0, 10) + '...'}
+          </Typography>
+          <Typography variant="body1" color="text.secondary">
+            <del
+              style={{ opacity: '0.7', lineHeight: '2' }}
+            >{`${formattedOldPrice}đ`}</del>
+          </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            {`${formattedNewPrice}đ`}
+          </Typography>
+          <Typography variant="body2">
+            <span id="color-tile-card">
+              <ReactStars count={props.card?.rates} />
+            </span>
+          </Typography>
+        </CardContent>
+      </div>
       <CardActions>
         <Link
           onClick={() => scroll.scrollToTop()}
