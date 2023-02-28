@@ -1,11 +1,12 @@
 .container-dashboard {
-  width: 100%;
+  width: 80%;
   min-height: 200px;
 }
 .container-dashboard .title-dashboard {
   font-size: 30px;
-  font-family: var(--main-font);
   font-weight: bold;
+  margin-left: 20px;
+  margin-bottom: 20px;
 }
 .container-dashboard .group-detail-board {
   display: flex !important;
@@ -14,8 +15,8 @@
   justify-content: space-between;
 }
 .container-dashboard .group-detail-board ul {
-  margin-left: 50px;
   padding: 0;
+  margin-left: 5px;
 }
 .container-dashboard .group-detail-board ul li {
   list-style: none;

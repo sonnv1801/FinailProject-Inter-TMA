@@ -2,19 +2,24 @@
   margin-top: 40px;
   width: 98%;
   min-height: 300px;
-  margin-left: 20px;
+  margin-left: 10px;
 }
-.container-listuser .row .col-sm-5 h2 {
-  margin-top: 6px;
+.container-listuser .row .col-sm-5 {
+  padding: 0;
+}
+.container-listuser .row .col-sm-5 p {
+  margin: 0;
+  font-family: var(--maint-font);
 }
 .container-listuser .title-list {
   font-size: 2rem;
   text-align: center;
-  color: white;
+  color: black;
   margin-top: 6px;
-  background-color: var(--red-clr);
+  background-color: white;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
+  box-shadow: 3px 3px 7px 2px rgb(0 0 0 / 50%);
 }
 
 .container-listuser .col-sm-7 button {

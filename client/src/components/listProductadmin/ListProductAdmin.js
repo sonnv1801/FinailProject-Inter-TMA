@@ -33,12 +33,10 @@ function ListProductAdmin() {
       <div className="title-list">
         <div className="row">
           <div className="col-sm-5">
-            <h2>
-              Product <b>Management</b>
-            </h2>
+            <p>Product Management</p>
           </div>
           <div className="col-sm-7">
-            <button href="#" class="btn btn-light">
+            <button href="#" class="btn btn-outline-danger">
               <i class="bx bxs-folder-plus"></i>
               <span>Add Products</span>
             </button>
@@ -49,8 +47,8 @@ function ListProductAdmin() {
         <thead classNane="table-dark">
           <tr>
             <th>STT</th>
-            <th>Name Products</th>
             <th>Image</th>
+            <th>Name Products</th>
             <th>Type</th>
             <th>Price</th>
             <th>Edit</th>
@@ -59,10 +57,11 @@ function ListProductAdmin() {
         <tbody>
           <tr>
             <td>1</td>
-            <td>Iphone 12 pro</td>
             <td>
               <img src={iphon} />
             </td>
+            <td>Iphone 12 pro</td>
+
             <td>Iphone</td>
             <td>
               <p>20.000.000 đ</p>

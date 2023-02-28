@@ -3,13 +3,11 @@ import iphon from '../../assets/iphone.jpg';
 import './style.css';
 function ListOderAdmin() {
   return (
-    <div className="container-listproductAd">
+    <div className="container-listOderAd">
       <div className="title-list">
         <div className="row">
           <div className="col-sm-5">
-            <h2>
-              Oders <b>Management</b>
-            </h2>
+            <p>Oders Management</p>
           </div>
         </div>
       </div>

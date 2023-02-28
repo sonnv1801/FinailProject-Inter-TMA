@@ -16,12 +16,10 @@ function ListUser() {
       <div className="title-list">
         <div className="row">
           <div className="col-sm-5">
-            <h2>
-              User <b>Management</b>
-            </h2>
+            <p>User Management</p>
           </div>
           <div className="col-sm-7">
-            <button href="#" class="btn btn-light">
+            <button href="#" class="btn btn-outline-danger">
               <i class="bx bxs-folder-plus"></i>
               <span>Add User</span>
             </button>

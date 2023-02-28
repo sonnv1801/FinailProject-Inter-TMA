@@ -6,7 +6,6 @@
 }
 .sidebar-container {
   width: 250px;
-  min-height: 100vh;
   margin-left: 10px;
   box-shadow: 2px 2px 2px 2px #cac5c5;
   border-radius: 5px;
