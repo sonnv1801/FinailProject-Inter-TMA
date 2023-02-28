@@ -1,16 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import './style.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { searchProduct } from '../../../../redux/actions/product.action';
+import MediaCard from '../../../../components/cards/Card';
 export const BodyProduct = () => {
   const location = useLocation();
   const type = location.pathname.split('/')[2];
+  const search = useSelector((state) => state.defaultReducer.search);
   function refreshPage() {
     setTimeout(() => {
       window.location.reload(false);
     }, 200);
   }
+  console.log(search);
+  const dispatch = useDispatch();
+  const [key, setkey] = React.useState('');
+  const handleChange = (e) => {
+    const key = e.target.value;
+    setkey(key);
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchProduct(key));
+    // setkey("")
+  };
+
   return (
     <div className="body-product">
       <b>Chọn theo tiêu chí</b>
@@ -40,6 +57,23 @@ export const BodyProduct = () => {
             <ArrowDownwardIcon /> Giá cao - thấp
           </i>
         </Link>
+        <form
+          onSubmit={handleSearch}
+          className="form-inline my-2 my-lg-0 ml-5 search-form"
+        >
+          <input
+            className="form-control mr-sm-2"
+            type="text"
+            // value={key}
+            name="search"
+            onChange={handleChange}
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
       </div>
     </div>
   );

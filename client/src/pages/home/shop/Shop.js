@@ -7,6 +7,7 @@ import NavProduct from '../../../components/navproduct/NavProduct';
 import {
   filledProduct,
   getProductType,
+  searchProduct,
 } from '../../../redux/actions/product.action';
 import { BodyProduct } from './bodyproduct/BodyProduct';
 import { MenuShop } from './menushop/MenuShop';
@@ -18,16 +19,64 @@ const Shop = () => {
   );
   const fillPrice = useSelector((state) => state.defaultReducer.fillPrice);
   const isLoading = useSelector((state) => state.defaultReducer.isLoading);
+
+  // console.log(search);
   const type = location.pathname.split('/')[2];
   const limit = 100;
   const filled = location.pathname.split('/')[3];
   const dispatch = useDispatch();
+  const [key, setkey] = React.useState('');
   useEffect(() => {
     dispatch(getProductType(type, limit));
   }, []);
   useEffect(() => {
     dispatch(filledProduct(type, filled));
   }, []);
+  const handleChange = (e) => {
+    const key = e.target.value;
+    setkey(key);
+  };
+  const handleSearch = (e) => {
+    e.preventDefault();
+    dispatch(searchProduct(key));
+  };
+  const search = useSelector((state) => state.defaultReducer.search);
+  console.log(search);
+  console.log(key);
+
+  if (search.length > 0) {
+    return (
+      <div className="search-container">
+        <form onSubmit={handleSearch} className="form-inline my-2 my-lg-0 ml-5">
+          <input
+            className="form-control mr-sm-2"
+            type="text"
+            // value={key}
+            name="search"
+            onChange={handleChange}
+            placeholder="Search"
+            aria-label="Search"
+          />
+          <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
+            Search
+          </button>
+        </form>
+        <div
+          className="container-content"
+          style={{ margin: '0', marginTop: '2rem', justifyContent: 'center' }}
+        >
+          <h1>{`Đã Tìm Thấy ${search.length} Sản Phẩm`}</h1>
+        </div>
+        <div className="row mt-3">
+          {search?.map((item, index) => (
+            <div className="col-3 mb-2">
+              <MediaCard key={index} card={item} />
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  }
   return (
     <>
       <NavProduct />
