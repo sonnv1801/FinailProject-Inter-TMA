@@ -140,16 +140,34 @@ const product = {
     }
   },
   deleteProduct: async (req, res) => {
+    // try {
+    //   Product.findByIdAndRemove(req.params.id, (err, products) => {
+    //     if (err) {
+    //       res.status(404).json("Can't find Id");
+    //     } else {
+    //       res.status(200).json("Delete product successfully");
+    //     }
+    //   });
+    // } catch (err) {
+    //   res.status(500).json(err);
+    // }
     try {
-      Product.findByIdAndRemove(req.params.id, (err, products) => {
-        if (err) {
-          res.status(404).json("Can't find Id");
-        } else {
-          res.status(200).json("Delete product successfully");
-        }
-      });
-    } catch (err) {
-      res.status(500).json(err);
+      const productId = req.params.id;
+      const product = await Product.findById(productId);
+      if (!product) {
+        return res.status(404).send("Product not found");
+      }
+
+      if (product.image) {
+        const publicId = product.image.split("/").pop().split(".")[0];
+        await cloudinary.uploader.destroy(publicId);
+      }
+
+      await Product.findByIdAndDelete(productId);
+      res.status(200).json("Delete product successfully");
+    } catch (error) {
+      console.error(error);
+      res.status(500).send("Internal server error");
     }
   },
 };

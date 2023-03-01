@@ -14,4 +14,15 @@ export class UserService {
       headers: { token: `vanson ${accessToken}` },
     });
   }
+
+  getAllUser(accessToken) {
+    return Axios.get(APIUser, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
+  deleteUser(id, accessToken) {
+    return Axios.delete(`${APIUser}/${id}`, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
 }

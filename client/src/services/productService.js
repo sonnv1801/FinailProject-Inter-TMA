@@ -25,4 +25,20 @@ export class ProductService {
   getFilledPrice(type, filled) {
     return Axios.get(`${API}/price/${type}/${filled}`);
   }
+
+  updateProduct(id, item) {
+    return Axios.put(`${API}/${id}`, item);
+  }
+
+  deleteProduct(id, accessToken) {
+    return Axios.delete(`${API}/${id}`, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
+
+  addProduct(item, accessToken) {
+    return Axios.post(API, item, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
 }

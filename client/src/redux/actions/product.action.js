@@ -3,8 +3,10 @@ import { createAction } from '.';
 import { productSevice } from '../../services';
 import {
   ADD_CART,
+  ADD_PRODUCT,
   BUY_PRODUCT,
   DELETE_CART,
+  DELETE_PRODUCT,
   FETCH_DETAIL,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
@@ -16,6 +18,7 @@ import {
   SEARCH_PRODUCT,
   START_LOADING,
   STOP_LOADING,
+  UPDATE_PRODUCT,
 } from '../type/types';
 
 export const startLoading = () => {
@@ -182,5 +185,62 @@ export const searchProduct = (keyword) => {
   return (dispatch) => {
     dispatch(createAction(SEARCH_PRODUCT, keyword));
     console.log(keyword);
+  };
+};
+
+//Product Admin
+
+export const updateProduct = (id, item, navigate) => {
+  return (dispatch) => {
+    productSevice
+      .updateProduct(id, item, navigate)
+      .then((res) => {
+        dispatch(createAction(UPDATE_PRODUCT, res.data));
+        dispatch(getProduct());
+        Swal.fire('Update Successfully...', '', 'success');
+        setTimeout(() => {
+          navigate('/admin');
+        }, 1000);
+      })
+      .catch((err) => console.log(err));
+  };
+};
+
+export const deleteProduct = (id, accessToken) => {
+  return (dispatch) => {
+    Swal.fire({
+      title: 'Bạn chắc chưa?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK !',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          productSevice.deleteProduct(id, accessToken).then((res) => {
+            dispatch(createAction(DELETE_PRODUCT, res.data));
+            dispatch(getProduct());
+          });
+          Swal.fire('Xóa Thành Công!', 'success');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const addProduct = (item, accessToken) => {
+  return (dispatch) => {
+    productSevice
+      .addProduct(item, accessToken)
+      .then((res) => {
+        dispatch(createAction(ADD_PRODUCT, res.data));
+        // dispatch(getProduct());
+        Swal.fire('Thêm thành công...', '', 'success');
+      })
+      .catch((err) => console.log(err));
   };
 };

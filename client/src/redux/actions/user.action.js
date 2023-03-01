@@ -1,6 +1,8 @@
 import { userService } from '../../services';
 import Swal from 'sweetalert2';
 import {
+  DELETE_USER,
+  FETCH_USERS,
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
@@ -10,6 +12,8 @@ import {
   REGISTER_FAILED,
   REGISTER_START,
   REGISTER_SUCCESS,
+  START_LOADING,
+  STOP_LOADING,
   UPDATE_USER,
 } from '../type/types';
 import { createAction } from '.';
@@ -53,6 +57,18 @@ export const logoutSuccess = () => {
 export const logoutFailed = () => {
   return {
     type: LOGOUT_FAILED,
+  };
+};
+
+export const startLoading = () => {
+  return {
+    type: START_LOADING,
+  };
+};
+
+export const stopLoading = () => {
+  return {
+    type: STOP_LOADING,
   };
 };
 
@@ -114,5 +130,48 @@ export const updateUser = (id, item, accessToken) => {
         Swal.fire('Update Successfully...', '', 'success');
       })
       .catch((err) => console.log(err));
+  };
+};
+
+// User Page Admin
+
+export const getAllUser = (accessToken) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    userService
+      .getAllUser(accessToken)
+      .then((res) => {
+        dispatch(createAction(FETCH_USERS, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const deleteUser = (id, accessToken) => {
+  return (dispatch) => {
+    Swal.fire({
+      title: 'Bạn có chắc chưa?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK !',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          userService.deleteUser(id, accessToken).then((res) => {
+            dispatch(createAction(DELETE_USER, res.data));
+            dispatch(getAllUser());
+          });
+          Swal.fire('Xóa Thành Công User!', 'success');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 };

@@ -4,9 +4,9 @@ const userController = require("../controllers/User.controller");
 const router = require("express").Router();
 
 router.get("/", userController.getAllUsers);
-router.post(
+router.delete(
   "/:id",
-  middlewareController.verifyToken,
+  middlewareController.verifyTokenAndAdminAuth,
   userController.deleteUser
 );
 router.put("/:id", middlewareController.verifyToken, userController.updateUser);

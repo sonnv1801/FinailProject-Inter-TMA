@@ -1,4 +1,4 @@
-export const GET_USER = 'GET_USER';
+// export const GET_USER = 'GET_USER';
 export const LOGIN_USER = 'LOGIN_USER';
 export const START_LOADING = 'START_LOADING';
 export const STOP_LOADING = 'STOP_LOADING';
@@ -44,3 +44,13 @@ export const FETCH_PRODUCT_SIMILAR = 'FETCH_PRODUCT_SIMILAR';
 export const FETCH_PRODUCT_FILLED = 'FETCH_PRODUCT_FILLED';
 
 export const SEARCH_PRODUCT = 'SEARCH_PRODUCT';
+
+//User Page Admin
+export const FETCH_USERS = 'FETCH_USERS';
+export const DELETE_USER = 'DELETE_USER';
+
+//Product Page  Admin
+
+export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
+export const ADD_PRODUCT = 'ADD_PRODUCT';

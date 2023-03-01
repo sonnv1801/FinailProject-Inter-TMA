@@ -13,6 +13,7 @@ import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
 import Nav from './components/navbar/Nav';
 import Adminpage from './pages/admin/Adminpage';
+import EditProduct from './pages/admin/updateProducts/EditProduct';
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
   return (
@@ -39,6 +40,7 @@ function App() {
             </>
           )}
           <Route path="/admin" element={<Adminpage />} />
+          <Route path="/admin/:id" element={<EditProduct />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

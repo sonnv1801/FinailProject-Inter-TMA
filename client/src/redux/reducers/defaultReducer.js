@@ -1,7 +1,10 @@
 import {
   ADD_CART,
+  ADD_PRODUCT,
   BUY_PRODUCT,
   DELETE_CART,
+  DELETE_PRODUCT,
+  DELETE_USER,
   FETCH_BANNER,
   FETCH_DETAIL,
   FETCH_PRODUCT,
@@ -11,6 +14,7 @@ import {
   FETCH_PRODUCT_TYPE,
   FETCH_PRODUCT_TYPE_SAMSUNG,
   FETCH_TYPE_PRODUCT,
+  FETCH_USERS,
   GET_USER,
   LOGIN_FAILED,
   LOGIN_START,
@@ -57,9 +61,19 @@ const initialState = {
 const defaultReducer = (state = initialState, action) => {
   let { type, payload } = action;
   switch (type) {
-    case GET_USER: {
+    case FETCH_USERS: {
       state.listUser = payload;
       return { ...state }; //setState
+    }
+    case DELETE_USER: {
+      let updateList = [...state.listUser];
+      let index = updateList.findIndex((user) => user.id === action.id);
+      if (index === -1) {
+        updateList.splice(payload, index);
+        state.listUser = updateList;
+      }
+
+      return { ...state };
     }
     case LOGIN_START: {
       state.login.isFetching = true;
@@ -138,6 +152,24 @@ const defaultReducer = (state = initialState, action) => {
 
     case FETCH_PRODUCT_TYPE_SAMSUNG: {
       state.listProductTypeSamsung = payload;
+      return { ...state };
+    }
+
+    case ADD_PRODUCT: {
+      let updateList = [...state.listProduct];
+      updateList.push(payload);
+      state.listProduct = updateList;
+      return { ...state };
+    }
+
+    case DELETE_PRODUCT: {
+      let updateList = [...state.listProduct];
+      let index = updateList.findIndex((product) => product.id === action.id);
+      if (index === -1) {
+        updateList.splice(payload, index);
+        state.listProduct = updateList;
+      }
+
       return { ...state };
     }
 

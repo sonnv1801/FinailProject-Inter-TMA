@@ -1,15 +1,27 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteUser, getAllUser } from '../../redux/actions/user.action';
 import './style.css';
 function ListUser() {
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  console.log('show di may', show);
+  // console.log('show di may', show);
 
-  const handleClose = () => {
-    setShow(false);
-  };
+  // const handleClose = () => {
+  //   setShow(false);
+  // };
+
+  const listUsers = useSelector((state) => state.defaultReducer.listUser);
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
+  const currentUser = JSON.parse(localStorage.getItem('token'));
+  console.log('listUsers-Admin', listUsers);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getAllUser(currentUser?.accessToken));
+  }, []);
 
   return (
     <div className="container-listuser">
@@ -37,73 +49,53 @@ function ListUser() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>User</td>
-            <td>
-              <a
-                class="btn btn-danger"
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                <i class="fa fa-trash"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>User</td>
-            <td>
-              <a
-                class="btn btn-danger"
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                <i class="fa fa-trash"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>User</td>
-            <td>
-              <a
-                class="btn btn-danger"
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                <i class="fa fa-trash"></i>
-              </a>
-            </td>
-          </tr>
-          <tr>
-            <td>1</td>
-            <td>Doe</td>
-            <td>john@example.com</td>
-            <td>User</td>
-            <td>
-              <a
-                class="btn btn-danger"
-                onClick={() => {
-                  setShow(true);
-                }}
-              >
-                <i class="fa fa-trash"></i>
-              </a>
-            </td>
-          </tr>
+          {isLoading ? (
+            <div
+              class="spinner-border"
+              role="status"
+              style={{ margin: '0 auto' }}
+            >
+              <span class="visually-hidden">Loading...</span>
+            </div>
+          ) : (
+            <>
+              {' '}
+              {listUsers.map((item, index) => (
+                <tr key={index}>
+                  <td>{index}</td>
+                  <td>{item.fullname}</td>
+                  <td>{item.email}</td>
+                  <td>{item.role ? <p>Admin</p> : <p>User</p>}</td>
+                  {currentUser?.accessToken ? (
+                    <td>
+                      <a
+                        href="#!"
+                        class="btn btn-danger"
+                        onClick={() => {
+                          dispatch(
+                            deleteUser(item._id, currentUser?.accessToken)
+                          );
+                        }}
+                      >
+                        <i class="fa fa-trash"></i>
+                      </a>
+                    </td>
+                  ) : (
+                    <div
+                      class="spinner-border"
+                      role="status"
+                      style={{ position: 'relative', left: '50%' }}
+                    >
+                      <span class="visually-hidden">Loading...</span>
+                    </div>
+                  )}
+                </tr>
+              ))}
+            </>
+          )}
         </tbody>
       </table>
-      <Modal show={show} onHide={handleClose}>
+      {/* <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Bạn muốn xoá User?</Modal.Title>
         </Modal.Header>
@@ -116,7 +108,7 @@ function ListUser() {
             Xóa đi mầy
           </Button>
         </Modal.Footer>
-      </Modal>
+      </Modal> */}
     </div>
   );
 }
