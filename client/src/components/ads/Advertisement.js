@@ -1,22 +1,21 @@
 import React from 'react';
-
+import Carousel from '../carousel/Carousel';
+import './style.css';
 function Advertisement() {
   return (
     <div>
-      <div className="repost">
-        <div className="repost-title">Voucher today</div>
-        <img
-          src="https://clickbuy.com.vn/uploads/2023/02/bpl-dat-hang-galaxy-s23-01-2.png"
-          alt="..."
-        ></img>
-        <img
-          src="https://clickbuy.com.vn/uploads/2023/02/bpl-valentine-day-iphone-01.png"
-          alt="..."
-        ></img>
-        <img
-          src="https://clickbuy.com.vn/uploads/2022/10/bpl-apple-watch-uu-dai-to-01.png"
-          alt="..."
-        ></img>
+      <div className="ads-page">
+        <div className="left-ads">
+          <Carousel />
+          <img
+            src="https://bachlongmobile.com/bnews/wp-content/uploads/2020/03/danmh-952x500-min.png"
+            alt="..."
+          ></img>
+          <img
+            src="https://clickbuy.com.vn/uploads/2022/10/bpl-apple-watch-uu-dai-to-01.png"
+            alt="..."
+          ></img>
+        </div>
       </div>
     </div>
   );
