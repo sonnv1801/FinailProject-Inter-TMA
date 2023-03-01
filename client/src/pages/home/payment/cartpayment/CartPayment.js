@@ -24,7 +24,9 @@ export const CartPayment = () => {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            Bạn có mã ưu đãi? <b>Bấm vào đây</b>
+            <button className="btn btn-outline-success">
+              Nhập mã giảm giá
+            </button>
           </a>
         </p>
         <div class="collapse" id="collapseExample">

@@ -2,12 +2,16 @@
   width: 100%;
   display: flex;
 }
+.order-page .row {
+  width: 99%;
+}
 .oder-order {
-  width: 90%;
+  float: right;
+  width: 98%;
 }
 .order-page .order-container {
   background: #fff;
-  width: 80%;
+  width: 100%;
   min-height: 500px;
   margin: 0 auto;
   padding: 5px;
@@ -20,7 +24,7 @@
   background: #fff;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   text-align: center;
   font-weight: 700;
