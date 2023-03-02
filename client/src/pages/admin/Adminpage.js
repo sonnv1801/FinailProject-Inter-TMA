@@ -1,10 +1,10 @@
 import React from 'react';
 import Dashboard from '../../components/dashboard/Dashboard';
-import ListOderAdmin from '../../components/listOderAdmin/ListOderAdmin';
+import ListOderAdmin from '../admin/listOderAdmin/ListOderAdmin';
+import ListTypeAdmin from '../admin/listTypeAdmin/ListTypeAdmin';
+import ListUser from '../admin/listuser/ListUser';
+import Sidebar from '../admin/sidebaradmin/Sidebar';
 import ListProductAdmin from './listProductadmin/ListProductAdmin';
-import ListTypeAdmin from '../../components/listTypeAdmin/ListTypeAdmin';
-import ListUser from '../../components/listuser/ListUser';
-import Sidebar from '../../components/sidebaradmin/Sidebar';
 import './style.css';
 function Adminpage() {
   return (
@@ -15,8 +15,8 @@ function Adminpage() {
         </div>
         <div className="right-container-admin">
           <Dashboard />
-          <ListProductAdmin />
           <ListTypeAdmin />
+          <ListProductAdmin />
           <ListUser />
           <ListOderAdmin />
         </div>

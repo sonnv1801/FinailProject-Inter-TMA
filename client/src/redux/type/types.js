@@ -54,3 +54,7 @@ export const DELETE_USER = 'DELETE_USER';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+//Type Addmin
+export const DELETE_TYPE = 'DELETE_TYPE';
+export const ADD_TYPE = 'ADD_TYPE';

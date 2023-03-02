@@ -17,8 +17,6 @@ const authController = {
         username: req.body.username,
         email: req.body.email,
         password: hashed,
-        phone: req.body.phone,
-        address: req.body.address,
       });
 
       //Save user to DB
@@ -109,7 +107,7 @@ const authController = {
         sameSite: "strict",
       });
       return res.status(200).json({ accessToken: newAccessToken });
-    }); 
+    });
   },
 
   userLogout: async (req, res) => {

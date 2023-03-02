@@ -5,4 +5,14 @@ export class TypeProduct {
   getAllTypeProduct() {
     return Axios.get(API);
   }
+  addType(type, accessToken) {
+    return Axios.post(API, type, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
+  deleteType(type, accessToken) {
+    return Axios.delete(API, type, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
 }

@@ -29,12 +29,12 @@ const userSchema = new mongoose.Schema(
     },
     phone: {
       type: Number,
-      require: true,
       maxlength: 11,
+      default: 0123123,
     },
     address: {
       type: String,
-      require: true,
+      default: "ABCXYZ",
     },
     image: {
       type: String,

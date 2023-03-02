@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteUser, getAllUser } from '../../redux/actions/user.action';
+import { deleteUser, getAllUser } from '../../../redux/actions/user.action';
 import './style.css';
 function ListUser() {
   const listUsers = useSelector((state) => state.defaultReducer.listUser);
@@ -87,20 +85,6 @@ function ListUser() {
           )}
         </tbody>
       </table>
-      {/* <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Bạn muốn xoá User?</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Bạn có chắc chắn xoá user này không?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Đóng
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Xóa đi mầy
-          </Button>
-        </Modal.Footer>
-      </Modal> */}
     </div>
   );
 }

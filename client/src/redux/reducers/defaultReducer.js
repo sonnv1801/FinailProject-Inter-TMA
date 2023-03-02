@@ -1,9 +1,11 @@
 import {
   ADD_CART,
   ADD_PRODUCT,
+  ADD_TYPE,
   BUY_PRODUCT,
   DELETE_CART,
   DELETE_PRODUCT,
+  DELETE_TYPE,
   DELETE_USER,
   FETCH_BANNER,
   FETCH_DETAIL,
@@ -15,7 +17,6 @@ import {
   FETCH_PRODUCT_TYPE_SAMSUNG,
   FETCH_TYPE_PRODUCT,
   FETCH_USERS,
-  GET_USER,
   LOGIN_FAILED,
   LOGIN_START,
   LOGIN_SUCCESS,
@@ -168,6 +169,23 @@ const defaultReducer = (state = initialState, action) => {
       if (index === -1) {
         updateList.splice(payload, index);
         state.listProduct = updateList;
+      }
+
+      return { ...state };
+    }
+    //type
+    case ADD_TYPE: {
+      let updateList = [...state.listType];
+      updateList.push(payload);
+      state.listType = updateList;
+      return { ...state };
+    }
+    case DELETE_TYPE: {
+      let updateList = [...state.listType];
+      let index = updateList.findIndex((type) => type.id === action.id);
+      if (index === -1) {
+        updateList.splice(payload, index);
+        state.listType = updateList;
       }
 
       return { ...state };
