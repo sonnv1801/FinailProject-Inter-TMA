@@ -27,7 +27,6 @@ function App() {
           <Route path="/shop/:id/:fill" element={<Shop />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/order" element={<Order />} />
           <Route path="/card" element={<Card />} />
           {user === null ? (
             <>
@@ -37,10 +36,11 @@ function App() {
             <>
               <Route path="/payment" element={<Payment />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/order" element={<Order />} />
+              <Route path="/admin" element={<Adminpage />} />
+              <Route path="/admin/:id" element={<EditProduct />} />
             </>
           )}
-          <Route path="/admin" element={<Adminpage />} />
-          <Route path="/admin/:id" element={<EditProduct />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

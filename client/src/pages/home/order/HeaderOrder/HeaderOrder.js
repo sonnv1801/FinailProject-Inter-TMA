@@ -1,55 +1,77 @@
+import numeral from 'numeral';
 import React from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getOrder } from '../../../../redux/actions/order.action';
 import './style.css';
 
 export const HeaderOrder = () => {
+  const currentUser = JSON.parse(localStorage.getItem('token'));
+  const orders = useSelector((state) => state.defaultReducer.listOrder);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    // if (currentUser?._id === orders.customer) {
+    // }
+    dispatch(getOrder());
+  }, []);
+
+  const fliterOrder = orders.filter(function (product, index, array) {
+    console.log('prd....', product.customer.customerId === currentUser._id);
+    return product.customer.customerId === currentUser._id;
+  });
+
+  const renderAmount = () => {
+    return fliterOrder.reduce((total, item) => {
+      return (total += item.total);
+    }, 0);
+  };
+
+  console.log(renderAmount());
+
+  console.log('fliterOrder.products', orders);
   return (
     <div className="header-order-container">
       <p>Cảm ơn bạn. Đơn hàng của bạn đã được nhận</p>
-      <div className="sub-header-order">
-        <span>Mã đơn hàng</span>
-        <b>1213214</b>
-        <span>Ngày</span>
-        <b>1213214</b>
-        <span>Tổng</span>
-        <b>1213214</b>
-        <span>Phương thức thanh toán</span>
-        <b>1213214</b>
-      </div>
+      {fliterOrder.map((item, index) => (
+        <div className="sub-header-order" key={index}>
+          <span>Mã Đơn {index} </span>
+          <b>{item._id}</b>
+          <span>Ngày</span>
+          <b>{item.createdAt}</b>
+          <span>Tổng</span>
+          <b>{`${numeral(item.total).format('0,0')}đ`}</b>
+          <span>Phương thức thanh toán</span>
+          <b>Thanh Toán Khi Nhận</b>
+        </div>
+      ))}
       <p>Trả tiền mặt khi giao hàng</p>
       <b>Chi tiết đơn hàng</b>
       <div className="footer-order">
-        <table class="table">
+        {fliterOrder.map((item, index) => (
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Mã Đơn Hàng {index}</th>
+                <th scope="col">Tổng</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <span>{item._id}</span>
+                </td>
+                <td> {`${numeral(item.total).format('0,0')}đ`}</td>
+              </tr>
+            </tbody>
+          </table>
+        ))}
+        <table class="table" style={{ textAlign: 'center' }}>
           <thead>
             <tr>
-              <th scope="col">Sản phẩm</th>
-              <th scope="col">Tổng</th>
+              <th scope="col">Tổng Hóa Đơn Của Bạn:</th>
+              <th scope="col">{`${numeral(renderAmount()).format('0,0')}đ`}</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td>
-                iPhone 14 128GB chính hãng VNA - Purple × 1{' '}
-                <span>Màu sắc: Purple</span>
-              </td>
-              <td>19,990,000 ₫</td>
-            </tr>
-            <tr>
-              <td>Tổng số phụ:</td>
-              <td>19,990,000 ₫</td>
-            </tr>
-            <tr>
-              <td>Giao nhận hàng:</td>
-              <td>Express</td>
-            </tr>
-            <tr>
-              <td>Phương thức thanh toán:</td>
-              <td>Trả tiền mặt khi nhận hàng</td>
-            </tr>
-            <tr>
-              <td>Tổng cộng:</td>
-              <td>19,990,000 ₫</td>
-            </tr>
-          </tbody>
         </table>
       </div>
     </div>
