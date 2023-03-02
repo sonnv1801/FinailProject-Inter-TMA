@@ -5,28 +5,42 @@ import HomePage from './pages/home/hompage/HomePage';
 import Shop from './pages/home/shop/Shop';
 import Card from './components/cards/Card';
 import { Payment } from './pages/home/payment/Payment';
-import Navbar from './components/navbar/Navbar';
 import Login from './pages/home/login/Login';
 import NotFound from './pages/home/notfound/NotFound';
 import Register from './pages/home/register/Register';
 import { Order } from './pages/home/order/Order';
 import ProductDetail from './pages/home/productDetail/ProductDetail';
 import Profile from './pages/home/profile/Profile';
+import Nav from './components/navbar/Nav';
+import Adminpage from './pages/admin/Adminpage';
+import EditProduct from './pages/admin/updateProducts/EditProduct';
 function App() {
+  const user = JSON.parse(localStorage.getItem('token'));
   return (
     <div className="App">
       <Router>
-        <Navbar />
+        <Nav />
         <Routes>
           <Route path="/" element={<HomePage />} />
-          <Route path="/product-detail" element={<ProductDetail />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/payment" element={<Payment />} />
+          <Route path="/product-detail/:id" element={<ProductDetail />} />
+          <Route path="/shop/:id" element={<Shop />} />
+          <Route path="/shop/:id/:fill" element={<Shop />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/order" element={<Order />} />
           <Route path="/card" element={<Card />} />
-          <Route path="/profile" element={<Profile />} />
+          {user === null ? (
+            <>
+              <Route path="*" element={<NotFound />} />
+            </>
+          ) : (
+            <>
+              <Route path="/payment" element={<Payment />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/order" element={<Order />} />
+              <Route path="/admin" element={<Adminpage />} />
+              <Route path="/admin/:id" element={<EditProduct />} />
+            </>
+          )}
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

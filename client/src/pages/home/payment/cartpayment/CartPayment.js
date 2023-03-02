@@ -1,8 +1,77 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import Form from 'react-bootstrap/Form';
 import './style.css';
+import Swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { createOrder } from '../../../../redux/actions/order.action';
 
 export const CartPayment = () => {
+  const carts = JSON.parse(localStorage.getItem('carts'));
+  const user = JSON.parse(localStorage.getItem('token'));
+  const [order, setOrder] = useState(null);
+  const [error, setError] = useState(null);
+  console.log(carts);
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const renderAmount = () => {
+    return carts?.reduce((total, item) => {
+      return (total += item.newPrice * item.quantity_cart);
+    }, 0);
+  };
+
+  const [data, setData] = useState({
+    fullname: '',
+    phone: '',
+    address: '',
+    notes: '',
+  });
+
+  console.log(data);
+
+  const handleChange = (name) => (e) => {
+    const value = name === 'image' ? e.target.files[0] : e.target.value;
+    setData({ ...data, [name]: value });
+  };
+
+  const handleCheckout = async () => {
+    try {
+      if (data.fullname === '' && data.phone === '' && data.address === '') {
+        Swal.fire('Nhập Đầy Đủ Thông Tin?', 'error');
+      } else {
+        const cartItems = JSON.parse(localStorage.getItem('carts')) || [];
+        const customer = JSON.parse(localStorage.getItem('token')) || [];
+        const order = {
+          customer: {
+            customerId: customer?._id,
+            fullname: data?.fullname,
+            phone: data?.phone,
+            email: customer?.email,
+            address: data?.address,
+            notes: data?.notes,
+          },
+          products: cartItems?.map((item) => ({
+            productId: item?.id,
+            quantity: item?.quantity_cart,
+          })),
+          total: cartItems?.reduce(
+            (total, item) => total + item.newPrice * item?.quantity_cart,
+            0
+          ),
+        };
+        const response = dispatch(
+          createOrder(order, customer?.accessToken, navigate)
+        );
+        localStorage.removeItem('carts');
+        // console.log(response);
+        setOrder(response.customer);
+      }
+
+      // navigate('/');
+    } catch (error) {
+      setError(error.response.data.message);
+    }
+  };
   return (
     <>
       <div className="body-left-payment">
@@ -14,7 +83,9 @@ export const CartPayment = () => {
             aria-expanded="false"
             aria-controls="collapseExample"
           >
-            Bạn có mã ưu đãi?<b>Bấm vào đây</b>
+            <button className="btn btn-outline-success">
+              Nhập mã giảm giá
+            </button>
           </a>
         </p>
         <div class="collapse" id="collapseExample">
@@ -27,11 +98,7 @@ export const CartPayment = () => {
                 aria-label="Recipient's username"
                 aria-describedby="button-addon2"
               />
-              <button
-                class="btn btn-outline-secondary"
-                type="button"
-                id="button-addon2"
-              >
+              <button class="btn btn-success" type="button" id="button-addon2">
                 Áp dụng
               </button>
             </div>
@@ -39,36 +106,36 @@ export const CartPayment = () => {
         </div>
         <div className="body-payment">
           <div className="infomation-users">
-            <form>
-              <span>Họ và tên*</span>
-              <input />
-              <span>Số điện thoại*</span>
-              <input />
-              <span>Email*</span>
-              <input />
-              <span>Tỉnh/ thành phố*</span>
-              <select>
-                <option>Quảng Ngãi</option>
-                <option>Đà Nẵng</option>
-              </select>
-              <span>Quận/ huyện*</span>
-              <select>
-                <option>Hải Châu</option>
-                <option>Sơn Trà</option>
-              </select>
-              <span>Xã/ phường*</span>
-              <select>
-                <option>Hải Châu</option>
-                <option>Sơn Trà</option>
-              </select>
-              <span>Địa chỉ*</span>
-              <input />
-              <span>Ghi chú</span>
-              <textarea></textarea>
-            </form>
+            <Form.Group className="formgroup-body">
+              <Form.Label>Họ và tên: </Form.Label>
+              <Form.Control
+                type="text"
+                required
+                onChange={handleChange('fullname')}
+                // value={user.fullname}
+              />
+              <Form.Label>Số điện thoại: </Form.Label>
+              <Form.Control
+                type="number"
+                required
+                onChange={handleChange('phone')}
+                // value={user.phone}
+              />
+              <Form.Label>Email: </Form.Label>
+              <Form.Control disabled type="address" value={user.email} />
+              <Form.Label>Address: </Form.Label>
+              <Form.Control
+                type="text"
+                required
+                onChange={handleChange('address')}
+                // value={user.address}
+              />
+              <Form.Label>Ghi Chú: </Form.Label>
+              <Form.Control type="text" onChange={handleChange('notes')} />
+            </Form.Group>
           </div>
           <div className="infomation-product">
-            <b>Đơn hàng của bạn</b>
+            <b>HOÁ ĐƠN</b>
             <table class="table">
               <thead>
                 <tr>
@@ -76,52 +143,25 @@ export const CartPayment = () => {
                   <th scope="col">Tạm tính</th>
                 </tr>
               </thead>
-              <tbody>
-                <tr>
-                  <td>
-                    Iphone 14 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>45.000.000đ</td>
-                </tr>
-
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-                <tr>
-                  <td>
-                    Iphone 13 pro max 256gb{' '}
-                    <span className="quantity-prd-payment">x20</span>
-                  </td>
-                  <td>40.000.000đ</td>
-                </tr>
-              </tbody>
+              {carts?.map((item, index) => (
+                <tbody>
+                  <tr>
+                    <td>
+                      {item?.title}
+                      <span className="quantity-prd-payment">{`X${item?.quantity_cart}`}</span>
+                    </td>
+                    <td>{`${item?.newPrice?.toLocaleString()}đ`}</td>
+                  </tr>
+                </tbody>
+              ))}
             </table>
             <div className="total-payment">
               <span>Giao hàng</span>
               <span>Express</span>
             </div>
             <div className="total-payment">
-              <span>Giao hàng</span>
-              <span>500.000.000đ</span>
+              <span>Tổng:</span>
+              <span> {`${renderAmount()?.toLocaleString()}đ`}</span>
             </div>
             <span className="term">
               <input type="checkbox" />
@@ -135,8 +175,9 @@ export const CartPayment = () => {
               <input type="radio" name="ship" />
               Trả tiền mặt khi giao hàng
             </span>
-            <button className="order-payment">
-              <Link to="/order">Đặt hàng</Link>
+            <button className="order-payment" onClick={handleCheckout}>
+              {/* <Link to="/order">Đặt hàng</Link> */}
+              Đặt hàng
             </button>
           </div>
         </div>

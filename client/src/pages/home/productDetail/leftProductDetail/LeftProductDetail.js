@@ -20,13 +20,13 @@ const imgs = [
   },
 ];
 
-const LeftProductDetail = () => {
+const LeftProductDetail = (leftProduct) => {
   const [mainImage, setMainImage] = useState(imgs[0]);
 
   return (
     <div className="header-prd-dt">
       <div className="image-prd">
-        <img src={mainImage.url} alt="Iphone" />
+        <img src={leftProduct.leftProduct?.image} alt="Iphone" />
         <div className="sub-image-prd">
           {imgs.map((img) => (
             <img src={img.url} alt="Iphone" onClick={() => setMainImage(img)} />

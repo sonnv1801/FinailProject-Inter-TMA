@@ -6,12 +6,11 @@ export const HeaderPayment = () => {
   return (
     <div className="header-payment">
       <Link to="/">
-        <span>
-          <ArrowLeftIcon />
-          Mua thêm sản phẩm
-        </span>
+        <button className="btn btn-outline-danger">
+          {' '}
+          <i class="bx bxs-cart-add"></i>Mua thêm
+        </button>
       </Link>
-      <span>Giỏ hàng của bạn</span>
     </div>
   );
 };

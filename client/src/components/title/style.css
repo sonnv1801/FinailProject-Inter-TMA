@@ -1,17 +1,18 @@
-.title-head {
-  width: 100%;
-  margin-top: 1rem;
+.container-content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
 }
 
-.title-head .title h3 {
+
+.container-content h1 {
   float: left;
   margin-top: 3px;
   margin-bottom: 0px;
-  color: var(--second-cl);
-  font: var(--main-font);
-  font-size: var(--main-fsize);
+  font-size: 16px;
+  color: #fff;
   text-transform: uppercase;
-  background: #1e1e1e;
+  /* background: #1e1e1e; */
   border-radius: 12px;
   min-width: 230px;
   height: 32px;
@@ -24,48 +25,22 @@
   background: linear-gradient(to left, #434343, #000000);
 }
 
-.title-head ul {
+
+.container-content .sub-content ul {
+  display: flex;
+  white-space: nowrap;
   list-style-type: none;
-  width: 100%;
-  padding: 0;
-
 }
 
-.title-head ul li {
-  margin: 10px;
-  border: 1px solid #f1eeee;
+.container-content .sub-content ul li {
+  padding: 0rem 1rem;
+  border: 1px solid gray;
   border-radius: 5px;
-  padding: 1px;
-  display: inline-block;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: 0.6s;
 }
 
-.title-head ul li a {
-  text-decoration: none;
-  color: #000000;
-  margin: 2px;
-}
-
-.title-head ul li:hover {
-  background-color: #f3f4f6;
-  border-color: #e5e7eb;
-}
-
-.title-head ul li a:hover {
+.container-content .sub-content ul li:hover {
   color: red;
-}
-
-.title-head ul::-webkit-scrollbar {
-  width: 12px;
-  background-color: #f5f5f5;
-  height: 5px;
-}
-
-.title-head ul::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: red;
-}
-
-.title-head ul::-webkit-scrollbar-track {
-  border-radius: 10px;
 }

@@ -3,6 +3,9 @@ import './style.css';
 import { Link } from 'react-router-dom';
 import RedeemRoundedIcon from '@mui/icons-material/RedeemRounded';
 import ColorLensRoundedIcon from '@mui/icons-material/ColorLensRounded';
+import numeral from 'numeral';
+import { addCart } from '../../../../redux/actions/product.action';
+import { useDispatch } from 'react-redux';
 
 const colors = [
   {
@@ -24,14 +27,19 @@ const colors = [
     color: 'green',
   },
 ];
-const CenterProductDetail = () => {
+const CenterProductDetail = (ceterProduct) => {
   const [clicked, setClicked] = useState(colors[0]);
+  const oldPrice = ceterProduct.ceterProduct?.oldPrice;
+  const newPrice = ceterProduct.ceterProduct?.newPrice;
+  const formattedOldPrice = numeral(oldPrice).format('0,0');
+  const formattedNewPrice = numeral(newPrice).format('0,0');
+  const dispatch = useDispatch();
   return (
     <div className="body-prd-dt">
-      <Link to="/">{clicked.price}</Link>
+      <Link to="/">{`${formattedOldPrice}đ`}</Link>
       <div className="prd-price">
         <div className="sub-price" style={{ background: `${clicked.color}` }}>
-          <h1>{clicked.price}</h1>
+          <h1>{`${formattedNewPrice}đ`}</h1>
         </div>
         <div className="sub-installment">
           <h1>Trả góp từ 6.158.000₫ / 1 tháng</h1>
@@ -97,9 +105,14 @@ const CenterProductDetail = () => {
         </div>
       </div>
       <button type="button" className="btn-payment">
-        <Link to="/payment">
+        <a
+          href="#!"
+          onClick={() => {
+            dispatch(addCart(ceterProduct.ceterProduct));
+          }}
+        >
           Mua Ngay<span>Nhận tại cửa hàng hoặc giao tận nhà</span>
-        </Link>
+        </a>
       </button>
       <div className="installment-btn">
         <button type="button" className="btn-payment">

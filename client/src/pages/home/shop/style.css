@@ -29,3 +29,26 @@
     text-decoration: none;
     color: white;
 }
+
+
+
+.search-container {
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 6rem;
+}
+
+.search-container form {
+    text-align: center;
+    position: relative;
+}
+
+.search-container form button {
+    position: absolute;
+    right: 114px;
+}
+
+.search-container form input {
+    width: 80%;
+    display: inline;
+}

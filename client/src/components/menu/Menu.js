@@ -1,53 +1,34 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
 import ArrowForwardIosOutlinedIcon from '@mui/icons-material/ArrowForwardIosOutlined';
 
 import './style.css';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllTypeProduct } from '../../redux/actions/typeProduct.action';
 
-const PrductType = [
-  {
-    id: '1',
-    name: 'Iphone',
-    ip1: 'ip1',
-  },
-  {
-    id: '2',
-    name: 'LapTop',
-  },
-  {
-    id: '3',
-    name: 'Samsung',
-  },
-];
-export default function Menu() {
+export default function Menu(props) {
+  const dispatch = useDispatch();
+  const listType = useSelector((state) => state.defaultReducer.listType);
+  useEffect(() => {
+    dispatch(getAllTypeProduct());
+  }, []);
+
   return (
     <div id="mainnav">
       <ul>
-        {PrductType.map((item, index) => (
+        {listType.map((item, index) => (
           <li className="thefirst" key={index}>
-            <Link to="/">
+            <Link to={`/shop/${item.name}`}>
               {item.name} <ArrowForwardIosOutlinedIcon className="icon-menu" />
             </Link>
-            <ul className="sub-menu">
-              <li>
-                <Link to="/shop">{item.ip1}</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
+            {/* <ul className="sub-menu">
+              {item.name === props.product.type
+                ? props.product.map((prd) => <li>{prd.title}</li>)
+                : props.product.map((prd) => <li>{prd.title}</li>)}
               <li>
                 <Link to="/shop">Iphone 14</Link>
               </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-              <li>
-                <Link to="/shop">Iphone 14</Link>
-              </li>
-            </ul>
+            </ul> */}
           </li>
         ))}
       </ul>

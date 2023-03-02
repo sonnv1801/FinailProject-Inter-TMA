@@ -1,6 +1,7 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
+import './style.css';
 function Menu() {
+  const user = JSON.parse(localStorage.getItem('token'));
   return (
     <div>
       <div className="sidebar">
@@ -8,13 +9,13 @@ function Menu() {
           <div className="avarta-sidebar"></div>
           <div className="username-sidebar">
             <span>Khách hàng</span>
-            <p>Nguyễn Phi Líp</p>
+            <p>{user.fullname}</p>
           </div>
         </div>
 
         <div className="menu">
           <div className="item">
-            <a href="">
+            <a href="#!">
               <i class="fas fa-user-circle"></i>
               Thông tin khách hàng
               <i className="fas fa-angle-right dropdown"></i>

@@ -27,7 +27,6 @@ function Register() {
     };
     registerUser(newUser, dispatch, navigate);
   };
-
   const handleShow = () => {
     const x = document.getElementById('form-password');
     if (x.type === 'password') {
