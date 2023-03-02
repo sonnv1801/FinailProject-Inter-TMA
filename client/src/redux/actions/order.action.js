@@ -50,7 +50,7 @@ export const createOrder = (item, accessToken, navigate) => {
           orderSevice.create(item, accessToken).then((res) => {
             dispatch(createAction(CREATE_ORDER, res.data));
           });
-          Swal.fire('Xóa Thành Công!', 'success');
+          Swal.fire('Đơn Hàng Đã Được Xác Nhận!', 'success');
           setTimeout(() => {
             navigate('/order');
           }, 1000);
