@@ -54,3 +54,6 @@ export const DELETE_USER = 'DELETE_USER';
 export const UPDATE_PRODUCT = 'UPDATE_PRODUCT';
 export const DELETE_PRODUCT = 'DELETE_PRODUCT';
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+export const CREATE_ORDER = 'CREATE_ORDER';
+export const FETCH_ORDER = 'FETCH_ORDER';

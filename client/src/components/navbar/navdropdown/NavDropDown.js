@@ -79,6 +79,9 @@ export const NavDropDown = () => {
                   <li>
                     <Link to="/profile">Trang cá nhân</Link>
                   </li>
+                  <li>
+                    <Link to="/order">Lịch Sử Mua Hàng</Link>
+                  </li>
                 </div>
               )}
               <CartNav cart={cart} />

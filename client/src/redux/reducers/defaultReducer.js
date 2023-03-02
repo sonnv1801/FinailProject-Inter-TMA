@@ -7,6 +7,7 @@ import {
   DELETE_USER,
   FETCH_BANNER,
   FETCH_DETAIL,
+  FETCH_ORDER,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
   FETCH_PRODUCT_FILLED,
@@ -36,6 +37,7 @@ const initialState = {
   listProduct10days: [],
   listProductType: [],
   listProductTypeSamsung: [],
+  listOrder: [],
   listProductSimilar: [],
   fillPrice: [],
   productDetail: null,
@@ -252,6 +254,13 @@ const defaultReducer = (state = initialState, action) => {
       }
 
       return { ...state };
+    }
+
+    // Order
+
+    case FETCH_ORDER: {
+      state.listOrder = payload;
+      return { ...state }; //setState
     }
 
     case START_LOADING: {
