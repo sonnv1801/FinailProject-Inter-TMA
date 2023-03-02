@@ -1,17 +1,17 @@
-.container-listOderAd {
+.container-listtypeAd {
   margin-top: 40px;
   width: 98%;
   min-height: 300px;
   margin-left: 10px;
 }
-.container-listOderAd .row .col-sm-5 {
+.container-listtypeAd .row .col-sm-5 {
   padding: 0;
 }
-.container-listOderAd .row .col-sm-5 p {
+.container-listtypeAd .row .col-sm-5 p {
   margin: 0;
-  font-family: var(--maint-font);
+  font-family: var(--maint-font) !important;
 }
-.container-listOderAd .title-list {
+.container-listtypeAd .title-list {
   font-size: 2rem;
   text-align: center;
   color: black;
@@ -31,20 +31,14 @@
   text-align: center;
   font-size: 20px;
 }
-.table tbody tr td i .btn-outline-primary {
-  font-size: 20px;
-}
 
 .table tbody tr td button {
   margin-right: 5px;
-  width: 50px;
+  width: 100%;
 }
-.table tbody tr td img {
-  width: 100px;
-  height: 100px;
-}
-.table tbody tr td p {
-  color: red;
+.table tbody tr td button i {
+  padding: 0;
+  font-size: 20px;
 }
 
 .modal-content .modal-body .formgroup-body input {

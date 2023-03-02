@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { updateProduct } from '../../../redux/actions/product.action';
-
+import './style.css';
 const EditProduct = () => {
   const location = useLocation();
   const path = location.pathname.split('/')[2];
@@ -46,7 +46,8 @@ const EditProduct = () => {
   };
 
   return (
-    <div style={{ maxWidth: 500, margin: 'auto' }}>
+    <div className="form-add-product">
+      <h2>Chỉnh sửa sản phẩm nè!</h2>
       <div className="mb-3">
         <span>Tên Sản Phẩm</span>
         <input
@@ -116,10 +117,13 @@ const EditProduct = () => {
           <option value="20">20</option>
         </select>
       </div>
-      <div className="text-center">
+      <div className="text">
         <button className="btn btn-primary" onClick={handleSubmit}>
           Update
         </button>
+        <Link to={'/admin'}>
+          <button className="btn btn-success">Thoát!</button>
+        </Link>
       </div>
     </div>
   );

@@ -5,14 +5,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { deleteUser, getAllUser } from '../../redux/actions/user.action';
 import './style.css';
 function ListUser() {
-  // const [show, setShow] = useState(false);
-
-  // console.log('show di may', show);
-
-  // const handleClose = () => {
-  //   setShow(false);
-  // };
-
   const listUsers = useSelector((state) => state.defaultReducer.listUser);
   const isLoading = useSelector((state) => state.defaultReducer.isLoading);
   const currentUser = JSON.parse(localStorage.getItem('token'));

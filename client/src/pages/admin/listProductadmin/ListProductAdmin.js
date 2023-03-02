@@ -12,7 +12,7 @@ import {
   addProduct,
   deleteProduct,
   getProduct,
-} from '../../redux/actions/product.action';
+} from '../../../redux/actions/product.action';
 import { Link } from 'react-router-dom';
 function ListProductAdmin() {
   const [showadd, setShowadd] = useState(false);

@@ -55,13 +55,11 @@
 
 .table tbody tr td button {
   margin-right: 5px;
-  width: 9%;
-
+  width: 100%;
 }
 
 .table tbody tr td img {
-  width: 100px;
-  height: 100px;
+  width: 60%;
 }
 
 .table tbody tr td p {
