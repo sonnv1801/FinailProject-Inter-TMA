@@ -31,12 +31,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       require: true,
       maxlength: 11,
-      unique: true,
     },
     address: {
       type: String,
       require: true,
-      unique: true,
     },
     image: {
       type: String,
