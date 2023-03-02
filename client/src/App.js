@@ -37,11 +37,15 @@ function App() {
               <Route path="/payment" element={<Payment />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/order" element={<Order />} />
-              <Route path="/admin" element={<Adminpage />} />
               <Route path="/admin/:id" element={<EditProduct />} />
             </>
           )}
           <Route path="*" element={<NotFound />} />
+          {user?.role === true ? (
+            <Route path="/admin" element={<Adminpage />} />
+          ) : (
+            <Route path="*" element={<NotFound />} />
+          )}
         </Routes>
         <Footer />
       </Router>
