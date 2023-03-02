@@ -30,10 +30,6 @@ const orderSchema = new mongoose.Schema({
       type: String,
       default: "Tạm thời không có ghi chú cho đơn này",
     },
-    status: {
-      type: String,
-      default: "pending",
-    },
   },
   products: {
     type: [
@@ -58,6 +54,10 @@ const orderSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now,
+  },
+  status: {
+    type: Number,
+    default: 0,
   },
 });
 
