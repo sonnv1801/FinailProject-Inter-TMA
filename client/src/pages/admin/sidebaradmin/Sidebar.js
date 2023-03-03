@@ -1,6 +1,7 @@
 import React from 'react';
 import './style.css';
 import logo from '../../../assets/logo.png';
+import { Link } from 'react-router-dom';
 function Sidebar() {
   return (
     <>
@@ -11,22 +12,28 @@ function Sidebar() {
         </div>
         <ul className="nav-link-sidebar">
           <li>
-            <a href="">
+            <Link to={'/admin/user'}>
               <i class="bx bxs-user-pin"></i>
-              <span className="link-name">Quản lý user</span>
-            </a>
+              <span claName="link-name">Quản lý user</span>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to={'/admin/product'}>
               <i class="bx bxs-devices"></i>
               <span className="link-name">Quản lý sản phẩm</span>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="">
+            <Link to={'/admin/type'}>
+              <i class="bx bxs-user-pin"></i>
+              <span claName="link-name">Quản lý Mặt hàng</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={'/admin/orders'}>
               <i class="bx bxs-receipt"></i>
               <span className="link-name">Quản lý đơn hàng</span>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>

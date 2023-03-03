@@ -15,10 +15,6 @@ function Adminpage() {
         </div>
         <div className="right-container-admin">
           <Dashboard />
-          <ListTypeAdmin />
-          <ListProductAdmin />
-          <ListUser />
-          <ListOderAdmin />
         </div>
       </div>
     </>

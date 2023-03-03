@@ -4,7 +4,7 @@
   height: 100vh;
 
   position: relative;
-  background-image: url("https://c4.wallpaperflare.com/wallpaper/922/804/907/light-laptop-notebook-lighting-wallpaper-preview.jpg");
+  background-image: url('https://c4.wallpaperflare.com/wallpaper/922/804/907/light-laptop-notebook-lighting-wallpaper-preview.jpg');
   background-repeat: no-repeat;
   /* Do not repeat the image */
   background-size: cover;
@@ -12,20 +12,19 @@
 
 .register {
   margin-top: 5rem;
-  width: 430px;
-  height: 580px;
+  width: 60%;
+  height: 500px;
   background: rgb(228, 225, 225);
   border-radius: 1rem;
   position: absolute;
   opacity: 0.85;
-  left: 35%;
+  left: 20%;
   bottom: 20%;
   top: -53px;
 }
 
 .register .title {
   color: #212529;
-  /* font-family: var(--register-page-font); */
   font-size: 40px;
   font-weight: bold;
   margin: 20px 0px 10px;
@@ -89,7 +88,7 @@ input.form-control {
   margin: 1px 30px 0 0;
   padding: 10px;
 }
-input#confirm-password{
+input#confirm-password {
   margin-right: 60px;
   border-radius: 4px;
 }
@@ -125,7 +124,7 @@ input#confirm-password{
 
 .slider:before {
   position: absolute;
-  content: "";
+  content: '';
   height: 10px;
   width: 10px;
   left: 4px;
@@ -135,11 +134,11 @@ input#confirm-password{
   transition: 0.4s;
 }
 
-input:checked+.slider {
+input:checked + .slider {
   background-color: #f73100;
 }
 
-input:checked+.slider:before {
+input:checked + .slider:before {
   -webkit-transform: translateX(20px);
   -ms-transform: translateX(20px);
   transform: translateX(20px);
