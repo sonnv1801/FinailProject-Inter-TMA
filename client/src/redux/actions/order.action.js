@@ -3,6 +3,7 @@ import { createAction } from '.';
 import { orderSevice } from '../../services';
 import {
   CREATE_ORDER,
+  DELETE_ORDER,
   FETCH_ORDER,
   LOGIN_FAILED,
   LOGIN_START,
@@ -73,6 +74,32 @@ export const getOrder = () => {
       })
       .catch((err) => {
         dispatch(stopLoading());
+      });
+  };
+};
+
+export const deleteOrder = (id, accessToken) => {
+  return (dispatch) => {
+    Swal.fire({
+      title: 'Bạn chắc chưa?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK !',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          orderSevice.deleteOrder(id, accessToken).then((res) => {
+            dispatch(createAction(DELETE_ORDER, res.data));
+            dispatch(getOrder());
+          });
+          Swal.fire('Xóa Thành Công!', 'success');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
       });
   };
 };
