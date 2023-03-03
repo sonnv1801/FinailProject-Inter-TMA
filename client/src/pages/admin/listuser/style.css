@@ -4,6 +4,7 @@
   min-height: 300px;
   margin-left: 10px;
 }
+
 .container-listuser .row .col-sm-5 {
   padding: 0;
 }
@@ -25,7 +26,6 @@
 .container-listuser .col-sm-7 button {
   float: right;
   margin: 6px 20px 0 0;
-  color: black;
   display: flex;
 }
 .container-listuser .col-sm-7 button i {

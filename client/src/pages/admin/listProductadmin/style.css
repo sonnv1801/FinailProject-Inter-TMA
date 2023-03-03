@@ -25,10 +25,9 @@
   box-shadow: 3px 3px 7px 2px rgb(0 0 0 / 50%);
 }
 
-.container-listproductAd .col-sm-7 button {
+.container-listproductAd .row .col-sm-7 button {
   float: right;
   margin: 6px 20px 0 0;
-  color: black;
   display: flex;
 }
 

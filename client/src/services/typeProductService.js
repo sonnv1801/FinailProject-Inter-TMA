@@ -10,8 +10,8 @@ export class TypeProduct {
       headers: { token: `vanson ${accessToken}` },
     });
   }
-  deleteType(type, accessToken) {
-    return Axios.delete(API, type, {
+  deleteType(id, accessToken) {
+    return Axios.delete(`${API}/${id}`, {
       headers: { token: `vanson ${accessToken}` },
     });
   }
