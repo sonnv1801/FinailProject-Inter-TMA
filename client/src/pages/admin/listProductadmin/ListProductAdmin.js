@@ -14,6 +14,7 @@ import {
   getProduct,
 } from '../../../redux/actions/product.action';
 import { Link } from 'react-router-dom';
+import Sidebar from '../sidebaradmin/Sidebar';
 function ListProductAdmin() {
   const [showadd, setShowadd] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem('token'));
@@ -76,70 +77,79 @@ function ListProductAdmin() {
 
   return (
     <div className="container-listproductAd">
-      <div className="title-list">
-        <div className="row">
-          <div className="col-sm-5">
-            <p>Product Management</p>
-          </div>
-          <div className="col-sm-7">
-            <button
-              href="#"
-              class="btn btn-outline-danger"
-              onClick={() => {
-                setShowadd(true);
-              }}
-            >
-              <i class="bx bxs-folder-plus"></i>
-              <span>Add Products</span>
-            </button>
-          </div>
+      <div className="row">
+        <div className="col-3">
+          <Sidebar />
         </div>
-      </div>
-      <table className="table">
-        <thead classNane="table-dark">
-          <tr>
-            <th>STT</th>
-            <th>Image</th>
-            <th>Name Products</th>
-            <th>Type</th>
-            <th>Price</th>
-            <th>Edit</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listProductAdmin.map((item, index) => (
-            <tr>
-              <td>{index}</td>
-              <td>
-                <img src={item.image} alt={item.title} />
-              </td>
-              <td>{item.title}</td>
-
-              <td>{item.type}</td>
-              <td>
-                <p>{`${item.newPrice.toLocaleString()}đ`}</p>
-              </td>
-              <td>
-                <Link to={`/admin/${item._id}`}>
-                  <button className="btn btn-success">
-                    <i class="bx bxs-edit-alt"></i>
-                  </button>
-                </Link>
-              </td>
-              <td>
+        <div className="col-9">
+          <div className="title-list">
+            <div className="row">
+              <div className="col-sm-5">
+                <p>Product Management</p>
+              </div>
+              <div className="col-sm-7">
                 <button
-                  className="btn btn-danger"
+                  href="#"
+                  class="btn btn-outline-danger"
                   onClick={() => {
-                    dispatch(deleteProduct(item._id, currentUser?.accessToken));
+                    setShowadd(true);
                   }}
                 >
-                  <i className="fa fa-trash"></i>
+                  <i class="bx bxs-folder-plus"></i>
+                  <span>Add Products</span>
                 </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </div>
+            </div>
+          </div>
+          <table className="table">
+            <thead classNane="table-dark">
+              <tr>
+                <th>STT</th>
+                <th>Image</th>
+                <th>Name Products</th>
+                <th>Type</th>
+                <th>Price</th>
+                <th>Edit</th>
+              </tr>
+            </thead>
+            <tbody>
+              {listProductAdmin.map((item, index) => (
+                <tr>
+                  <td>{index}</td>
+                  <td>
+                    <img src={item.image} alt={item.title} />
+                  </td>
+                  <td>{item.title}</td>
+
+                  <td>{item.type}</td>
+                  <td>
+                    <p>{`${item.newPrice.toLocaleString()}đ`}</p>
+                  </td>
+                  <td>
+                    <Link to={`/admin/${item._id}`}>
+                      <button className="btn btn-success">
+                        <i class="bx bxs-edit-alt"></i>
+                      </button>
+                    </Link>
+                  </td>
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        dispatch(
+                          deleteProduct(item._id, currentUser?.accessToken)
+                        );
+                      }}
+                    >
+                      <i className="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
 
       <Modal show={showadd} onHide={handleCloseAdd} className="modal">
         <ModalHeader>

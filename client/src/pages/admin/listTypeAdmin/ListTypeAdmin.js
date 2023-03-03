@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductType } from '../../../redux/actions/product.action';
 import './style.css';
 import Modal from 'react-bootstrap/Modal';
 import ModalBody from 'react-bootstrap/ModalBody';
@@ -16,36 +15,47 @@ import {
   getAllTypeProduct,
 } from '../../../redux/actions/typeProduct.action';
 import './style.css';
+import Sidebar from '../sidebaradmin/Sidebar';
 function ListTypeAdmin() {
   const [showadd, setShowadd] = useState(false);
 
   const currentUser = JSON.parse(localStorage.getItem('token'));
-  const [data, setData] = useState({
-    name: '',
-  });
+  const [name, setName] = useState('');
+  // const [data, setData] = useState({
+  //   name: '',
+  // });
 
-  const handleChange = (name) => (e) => {
-    const value = name === 'image' ? e.target.files[0] : e.target.value;
-    setData({ ...data, [name]: value });
-  };
+  // const handleChange = (name) => (e) => {
+  //   const value = name === 'image' ? e.target.files[0] : e.target.value;
+  //   setData({ ...data, [name]: value });
+  // };
 
-  const handleSubmit = async () => {
-    try {
-      if (data.name !== '') {
-        let formData = new FormData();
-        formData.append('name', data.name);
-        dispatch(addType(formData, currentUser?.accessToken));
-        setShowadd(false);
-      } else {
-        alert('Vui lòng nhập đầy đủ...');
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const handleSubmit = async () => {
+  //   try {
+  //     if (name !== '') {
+
+  //       dispatch(addType(formData, currentUser?.accessToken));
+  //       setShowadd(false);
+  //     } else {
+  //       alert('Vui lòng nhập đầy đủ...');
+  //     }
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
   const dispatch = useDispatch();
   const listTypeAdmin = useSelector((state) => state.defaultReducer.listType);
+  // console.log('listadmin nef', listTypeAdmin);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // event.preventDefault();
+    const newType = {
+      name: name,
+    };
+    addType(newType, currentUser?.accessToken);
+    setShowadd(false);
+  };
   const handleCloseAdd = () => {
     setShowadd(false);
   };
@@ -55,54 +65,64 @@ function ListTypeAdmin() {
 
   return (
     <div className="container-listtypeAd">
-      <div className="title-list">
-        <div className="row">
-          <div className="col-sm-5">
-            <p>Type Management</p>
-          </div>
-          <div className="col-sm-7">
-            <button
-              href="#"
-              class="btn btn-outline-danger"
-              onClick={() => {
-                setShowadd(true);
-              }}
-            >
-              <i class="bx bxs-folder-plus"></i>
-              <span>Add Products</span>
-            </button>
-          </div>
+      <div className="row">
+        <div className="col-3">
+          <Sidebar />
         </div>
-      </div>
-      <table className="table">
-        <thead classNane="table-dark">
-          <tr>
-            <th>STT</th>
-            <th>Type name</th>
-            <th>Delete</th>
-          </tr>
-        </thead>
-        <tbody>
-          {listTypeAdmin.map((type, index) => (
-            <tr>
-              <td>{index}</td>
-
-              <td>{type.name}</td>
-
-              <td>
+        <div className="col-9">
+          <div className="title-list">
+            <div className="row">
+              <div className="col-sm-5">
+                <p>Type Management</p>
+              </div>
+              <div className="col-sm-7">
                 <button
-                  className="btn btn-danger"
+                  href="#"
+                  class="btn btn-outline-danger"
                   onClick={() => {
-                    dispatch(deleteType(type._id, currentUser?.accessToken));
+                    setShowadd(true);
                   }}
                 >
-                  <i className="fa fa-trash"></i>
+                  <i class="bx bxs-folder-plus"></i>
+                  <span>Add Type</span>
                 </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              </div>
+            </div>
+          </div>
+          <table className="table">
+            <thead classNane="table-dark">
+              <tr>
+                <th>STT</th>
+                <th>Type name</th>
+                <th>Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              {listTypeAdmin.map((type, index) => (
+                <tr>
+                  <td>{index}</td>
+
+                  <td>{type.name}</td>
+
+                  <td>
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        dispatch(
+                          deleteType(type._id, currentUser?.accessToken)
+                        );
+                      }}
+                    >
+                      <i className="fa fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       <Modal show={showadd} onHide={handleCloseAdd} className="modal">
         <ModalHeader>
           <ModalTitle>Thêm Type</ModalTitle>
@@ -112,7 +132,8 @@ function ListTypeAdmin() {
             <Form.Label>Tên Type: </Form.Label>
             <Form.Control
               type="text"
-              onChange={handleChange('name')}
+              // onChange={handleChange('name')}
+              onChange={(e) => setName(e.target.value)}
               placeholder="Nhập Type..."
             />
           </Form.Group>

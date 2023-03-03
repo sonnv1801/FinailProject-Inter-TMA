@@ -14,6 +14,10 @@ import Profile from './pages/home/profile/Profile';
 import Nav from './components/navbar/Nav';
 import Adminpage from './pages/admin/Adminpage';
 import EditProduct from './pages/admin/updateProducts/EditProduct';
+import ListTypeAdmin from './pages/admin/listTypeAdmin/ListTypeAdmin';
+import ListUser from './pages/admin/listuser/ListUser';
+import ListProductAdmin from './pages/admin/listProductadmin/ListProductAdmin';
+import ListOderAdmin from './pages/admin/listOderAdmin/ListOderAdmin';
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
   return (
@@ -42,7 +46,13 @@ function App() {
           )}
           <Route path="*" element={<NotFound />} />
           {user?.role === true ? (
-            <Route path="/admin" element={<Adminpage />} />
+            <>
+              <Route path="/admin" element={<Adminpage />} />
+              <Route path="/admin/type" element={<ListTypeAdmin />} />
+              <Route path="/admin/user" element={<ListUser />} />
+              <Route path="/admin/product" element={<ListProductAdmin />} />
+              <Route path="/admin/orders" element={<ListOderAdmin />} />
+            </>
           ) : (
             <Route path="*" element={<NotFound />} />
           )}

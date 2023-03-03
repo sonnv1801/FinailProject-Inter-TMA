@@ -64,8 +64,10 @@ export const deleteType = (id, accessToken) => {
           typeProduct.deleteType(id, accessToken).then((res) => {
             dispatch(createAction(DELETE_TYPE, res.data));
             dispatch(getAllTypeProduct());
+            dispatch(stopLoading());
           });
           Swal.fire('Xóa Thành Công!', 'success');
+          dispatch(stopLoading());
         }
       })
       .catch((err) => console.log(err));
