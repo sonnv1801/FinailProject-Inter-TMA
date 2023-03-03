@@ -74,22 +74,6 @@ function Login() {
             </span>
             {/* <span className='form-mess'>alo</span> */}
           </div>
-
-          <div
-            className="d-flex mb-5 align-items-center"
-            data-selected="true"
-            data-label-id="0"
-          >
-            <span className="ml-auto">
-              <a href="#!" className="forgot-pass">
-                Remember me
-              </a>
-            </span>
-            <label className="switch">
-              <input type="checkbox" />
-              <span classv="slider round"></span>
-            </label>
-          </div>
           <button type="submit" className="btn btn-danger">
             LOGIN
           </button>

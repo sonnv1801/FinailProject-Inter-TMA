@@ -21,35 +21,12 @@ function ListTypeAdmin() {
 
   const currentUser = JSON.parse(localStorage.getItem('token'));
   const [name, setName] = useState('');
-  // const [data, setData] = useState({
-  //   name: '',
-  // });
 
-  // const handleChange = (name) => (e) => {
-  //   const value = name === 'image' ? e.target.files[0] : e.target.value;
-  //   setData({ ...data, [name]: value });
-  // };
-
-  // const handleSubmit = async () => {
-  //   try {
-  //     if (name !== '') {
-
-  //       dispatch(addType(formData, currentUser?.accessToken));
-  //       setShowadd(false);
-  //     } else {
-  //       alert('Vui lòng nhập đầy đủ...');
-  //     }
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
   const dispatch = useDispatch();
   const listTypeAdmin = useSelector((state) => state.defaultReducer.listType);
-  // console.log('listadmin nef', listTypeAdmin);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // event.preventDefault();
     const newType = {
       name: name,
     };

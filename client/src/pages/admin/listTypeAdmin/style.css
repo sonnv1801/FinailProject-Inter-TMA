@@ -33,21 +33,27 @@
   box-shadow: 3px 3px 7px 2px rgb(0 0 0 / 50%);
 }
 
-.table thead tr th {
+.container-listtypeAd .table {
+  box-shadow: 3px 3px 7px 2px rgb(0 0 0 / 50%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.container-listtypeAd .table thead tr th {
   text-align: center;
   font-family: var(--maint-font);
   font-size: 20px;
 }
-.table tbody tr td {
+.container-listtypeAd .table tbody tr td {
   text-align: center;
   font-size: 20px;
 }
 
-.table tbody tr td button {
+.container-listtypeAd .table tbody tr td button {
   margin-right: 5px;
-  width: 100%;
+  width: 40%;
 }
-.table tbody tr td button i {
+.container-listtypeAd .table tbody tr td button i {
   padding: 0;
   font-size: 20px;
 }
