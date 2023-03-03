@@ -24,6 +24,23 @@
   font-weight: 600;
 }
 
+.header-order-container .sub-header-order button {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 0.4rem;
+  margin: 1rem;
+  background: white(255, 85, 0);
+  color: green;
+  border-radius: 0.3rem;
+  border: 1px solid red;
+}
+
+.header-order-container .sub-header-order button:hover {
+  background: orangered;
+  color: white;
+}
+
 .sub-header-order span {
   display: block;
   font-weight: 600;

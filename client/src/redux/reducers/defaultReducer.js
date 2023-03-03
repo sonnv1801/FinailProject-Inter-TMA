@@ -4,6 +4,7 @@ import {
   ADD_TYPE,
   BUY_PRODUCT,
   DELETE_CART,
+  DELETE_ORDER,
   DELETE_PRODUCT,
   DELETE_TYPE,
   DELETE_USER,
@@ -281,6 +282,15 @@ const defaultReducer = (state = initialState, action) => {
       return { ...state }; //setState
     }
 
+    case DELETE_ORDER: {
+      let updateList = [...state.listOrder];
+      let index = updateList.findIndex((order) => order.id === action.id);
+      if (index === -1) {
+        updateList.splice(payload, index);
+        state.listOrder = updateList;
+      }
+      return { ...state };
+    }
     case START_LOADING: {
       state.isLoading = true;
       return { ...state };

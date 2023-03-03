@@ -108,6 +108,20 @@ const orderCotroller = {
       res.status(500).json({ message: "Failed to create order." });
     }
   },
+
+  deleteOrder: async (req, res) => {
+    try {
+      Order.findByIdAndRemove(req.params.id, (err, orders) => {
+        if (err) {
+          res.status(404).json("Can't find Id");
+        } else {
+          res.status(200).json("Delete order successfully");
+        }
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
 
 module.exports = orderCotroller;

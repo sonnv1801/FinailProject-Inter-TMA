@@ -3,21 +3,24 @@ import React from 'react';
 import { useEffect } from 'react';
 import moment from 'moment';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrder } from '../../../../redux/actions/order.action';
+import { deleteOrder, getOrder } from '../../../../redux/actions/order.action';
 import './style.css';
+import { getProduct } from '../../../../redux/actions/product.action';
 
 export const HeaderOrder = () => {
   const currentUser = JSON.parse(localStorage.getItem('token'));
   const orders = useSelector((state) => state.defaultReducer.listOrder);
+  const products = useSelector((state) => state.defaultReducer.listProduct);
   const dispatch = useDispatch();
   useEffect(() => {
-    // if (currentUser?._id === orders.customer) {
-    // }
     dispatch(getOrder());
   }, []);
 
+  useEffect(() => {
+    dispatch(getProduct());
+  }, []);
+
   const fliterOrder = orders.filter(function (product, index, array) {
-    console.log('prd....', product.customer.customerId === currentUser._id);
     return product.customer.customerId === currentUser._id;
   });
 
@@ -27,9 +30,6 @@ export const HeaderOrder = () => {
     }, 0);
   };
 
-  console.log(renderAmount());
-
-  console.log('fliterOrder.products', fliterOrder);
   return (
     <>
       {fliterOrder.length === 0 ? (
@@ -61,6 +61,13 @@ export const HeaderOrder = () => {
               <b>{`${numeral(item.total).format('0,0')}đ`}</b>
               <span>Phương thức thanh toán</span>
               <b>Thanh Toán Khi Nhận</b>
+              <button
+                onClick={() => {
+                  dispatch(deleteOrder(item._id, currentUser?.accessToken));
+                }}
+              >
+                Hủy Đơn Hàng
+              </button>
             </div>
           ))}
           <p>Trả tiền mặt khi giao hàng</p>

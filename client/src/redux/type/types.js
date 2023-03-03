@@ -60,3 +60,6 @@ export const FETCH_ORDER = 'FETCH_ORDER';
 //Type Addmin
 export const DELETE_TYPE = 'DELETE_TYPE';
 export const ADD_TYPE = 'ADD_TYPE';
+
+//Order
+export const DELETE_ORDER = 'DELETE_ORDER';
