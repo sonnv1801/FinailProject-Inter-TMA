@@ -42,6 +42,7 @@ export const addType = (type, accessToken) => {
     typeProduct
       .addType(type, accessToken)
       .then((res) => {
+        console.log(res.data);
         dispatch(createAction(ADD_TYPE, res.data));
         Swal.fire('Thêm thành công...', '', 'success');
       })

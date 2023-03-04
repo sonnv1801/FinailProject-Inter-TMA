@@ -11,6 +11,10 @@ export class OrderService {
     return Axios.get(API);
   }
 
+  getAllOrderToday() {
+    return Axios.get(`${API}/today`);
+  }
+
   deleteOrder(id, accessToken) {
     return Axios.delete(`${API}/${id}`, {
       headers: { token: `vanson ${accessToken}` },

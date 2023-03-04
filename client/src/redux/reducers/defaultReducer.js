@@ -11,6 +11,7 @@ import {
   FETCH_BANNER,
   FETCH_DETAIL,
   FETCH_ORDER,
+  FETCH_ORDER_TODAY,
   FETCH_PRODUCT,
   FETCH_PRODUCT_10DAYS,
   FETCH_PRODUCT_FILLED,
@@ -40,6 +41,7 @@ const initialState = {
   listProductType: [],
   listProductTypeSamsung: [],
   listOrder: [],
+  listOrderToday: [],
   listProductSimilar: [],
   fillPrice: [],
   productDetail: null,
@@ -279,6 +281,11 @@ const defaultReducer = (state = initialState, action) => {
 
     case FETCH_ORDER: {
       state.listOrder = payload;
+      return { ...state }; //setState
+    }
+
+    case FETCH_ORDER_TODAY: {
+      state.listOrderToday = payload;
       return { ...state }; //setState
     }
 

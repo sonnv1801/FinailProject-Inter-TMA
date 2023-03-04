@@ -21,6 +21,7 @@ function ListTypeAdmin() {
 
   const currentUser = JSON.parse(localStorage.getItem('token'));
   const [name, setName] = useState('');
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
   // const [data, setData] = useState({
   //   name: '',
   // });
@@ -53,8 +54,9 @@ function ListTypeAdmin() {
     const newType = {
       name: name,
     };
-    addType(newType, currentUser?.accessToken);
+    dispatch(addType(newType, currentUser?.accessToken));
     setShowadd(false);
+    console.log('newType', newType);
   };
   const handleCloseAdd = () => {
     setShowadd(false);
@@ -98,26 +100,38 @@ function ListTypeAdmin() {
               </tr>
             </thead>
             <tbody>
-              {listTypeAdmin.map((type, index) => (
-                <tr>
-                  <td>{index}</td>
+              {isLoading ? (
+                <div
+                  class="spinner-border"
+                  role="status"
+                  style={{ margin: '0 auto' }}
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <>
+                  {listTypeAdmin.map((type, index) => (
+                    <tr>
+                      <td>{index}</td>
 
-                  <td>{type.name}</td>
+                      <td>{type.name}</td>
 
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => {
-                        dispatch(
-                          deleteType(type._id, currentUser?.accessToken)
-                        );
-                      }}
-                    >
-                      <i className="fa fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            dispatch(
+                              deleteType(type._id, currentUser?.accessToken)
+                            );
+                          }}
+                        >
+                          <i className="fa fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              )}
             </tbody>
           </table>
         </div>
