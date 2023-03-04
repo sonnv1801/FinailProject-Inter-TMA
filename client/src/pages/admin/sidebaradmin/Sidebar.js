@@ -7,7 +7,7 @@ function Sidebar() {
     <>
       <div className="sidebar-container">
         <div className="title-admin">
-          <img className="logo-sidebar" src={logo} />
+          <img className="logo-sidebar" src={logo} alt="..." />
           <p>Admin: Philip</p>
         </div>
         <ul className="nav-link-sidebar">
@@ -33,6 +33,12 @@ function Sidebar() {
             <Link to={'/admin/orders'}>
               <i class="bx bxs-receipt"></i>
               <span className="link-name">Quản lý đơn hàng</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={'/admin/orders/today'}>
+              <i class="bx bxs-receipt"></i>
+              <span className="link-name">Đơn Hàng Hôm Nay</span>
             </Link>
           </li>
         </ul>

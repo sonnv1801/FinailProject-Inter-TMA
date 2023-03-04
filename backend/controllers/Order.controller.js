@@ -47,12 +47,14 @@ const orderCotroller = {
     // }
 
     try {
-      Order.find({}, (err, orders) => {
-        if (err) {
-          res.status(500).json(err);
-        }
-        res.status(200).json(orders);
-      });
+      Order.find({})
+        .sort({ createdAt: -1 })
+        .exec((err, orders) => {
+          if (err) {
+            res.status(500).json(err);
+          }
+          res.status(200).json(orders);
+        });
     } catch (err) {
       res.status(500).json(err);
     }
@@ -106,6 +108,26 @@ const orderCotroller = {
       res.status(201).json(order);
     } catch (error) {
       res.status(500).json({ message: "Failed to create order." });
+    }
+  },
+
+  getOrderToday: async (req, res) => {
+    try {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const tomorrow = new Date(today);
+      tomorrow.setDate(tomorrow.getDate() + 1);
+      Order.find(
+        { createdAt: { $gte: today, $lt: tomorrow } },
+        (err, orders) => {
+          if (err) {
+            res.status(500).json(err);
+          }
+          res.status(200).json(orders);
+        }
+      );
+    } catch (err) {
+      res.status(500).json(err);
     }
   },
 

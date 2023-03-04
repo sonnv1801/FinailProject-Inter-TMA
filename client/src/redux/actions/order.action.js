@@ -5,6 +5,7 @@ import {
   CREATE_ORDER,
   DELETE_ORDER,
   FETCH_ORDER,
+  FETCH_ORDER_TODAY,
   LOGIN_FAILED,
   LOGIN_START,
   START_LOADING,
@@ -70,6 +71,21 @@ export const getOrder = () => {
       .getAllOrder()
       .then((res) => {
         dispatch(createAction(FETCH_ORDER, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const getOrderToday = () => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    orderSevice
+      .getAllOrderToday()
+      .then((res) => {
+        dispatch(createAction(FETCH_ORDER_TODAY, res.data));
         dispatch(stopLoading());
       })
       .catch((err) => {

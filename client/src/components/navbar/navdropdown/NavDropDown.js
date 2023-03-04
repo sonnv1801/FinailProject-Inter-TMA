@@ -70,6 +70,9 @@ export const NavDropDown = () => {
                   <li>
                     <Link to="/admin">Zô Admin nè</Link>
                   </li>
+                  <li>
+                    <Link to="/order">Lịch Sử Mua Hàng</Link>
+                  </li>
                 </div>
               ) : (
                 <div>

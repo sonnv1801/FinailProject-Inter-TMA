@@ -18,6 +18,7 @@ import Sidebar from '../sidebaradmin/Sidebar';
 function ListProductAdmin() {
   const [showadd, setShowadd] = useState(false);
   const currentUser = JSON.parse(localStorage.getItem('token'));
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
   const [data, setData] = useState({
     title: '',
     image: '',
@@ -113,39 +114,51 @@ function ListProductAdmin() {
               </tr>
             </thead>
             <tbody>
-              {listProductAdmin.map((item, index) => (
-                <tr>
-                  <td>{index}</td>
-                  <td>
-                    <img src={item.image} alt={item.title} />
-                  </td>
-                  <td>{item.title}</td>
+              {isLoading ? (
+                <div
+                  class="spinner-border"
+                  role="status"
+                  style={{ margin: '0 auto' }}
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              ) : (
+                <>
+                  {listProductAdmin.map((item, index) => (
+                    <tr>
+                      <td>{index}</td>
+                      <td>
+                        <img src={item.image} alt={item.title} />
+                      </td>
+                      <td>{item.title}</td>
 
-                  <td>{item.type}</td>
-                  <td>
-                    <p>{`${item.newPrice.toLocaleString()}đ`}</p>
-                  </td>
-                  <td>
-                    <Link to={`/admin/${item._id}`}>
-                      <button className="btn btn-success">
-                        <i class="bx bxs-edit-alt"></i>
-                      </button>
-                    </Link>
-                  </td>
-                  <td>
-                    <button
-                      className="btn btn-danger"
-                      onClick={() => {
-                        dispatch(
-                          deleteProduct(item._id, currentUser?.accessToken)
-                        );
-                      }}
-                    >
-                      <i className="fa fa-trash"></i>
-                    </button>
-                  </td>
-                </tr>
-              ))}
+                      <td>{item.type}</td>
+                      <td>
+                        <p>{`${item.newPrice.toLocaleString()}đ`}</p>
+                      </td>
+                      <td>
+                        <Link to={`/admin/${item._id}`}>
+                          <button className="btn btn-success">
+                            <i class="bx bxs-edit-alt"></i>
+                          </button>
+                        </Link>
+                      </td>
+                      <td>
+                        <button
+                          className="btn btn-danger"
+                          onClick={() => {
+                            dispatch(
+                              deleteProduct(item._id, currentUser?.accessToken)
+                            );
+                          }}
+                        >
+                          <i className="fa fa-trash"></i>
+                        </button>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              )}
             </tbody>
           </table>
         </div>
