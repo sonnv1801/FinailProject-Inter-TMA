@@ -48,16 +48,16 @@ function Register() {
     <>
       <div className="register-page">
         <form className="register" action="#" onSubmit={handleRegister}>
-          <div className="title">Register!</div>
+          <div className="title">Đăng ký nha!</div>
 
           <div className="row">
             <div className="col-6">
-              <p className="title-input">Fullname</p>
+              <p className="title-input">Họ và tên</p>
               <div className="input-group mb-3">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="your fullname"
+                  placeholder="Nhập họ và tên"
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                   onChange={(e) => {
@@ -65,12 +65,12 @@ function Register() {
                   }}
                 />
               </div>
-              <p className="title-input">Username</p>
+              <p className="title-input">Tên đăng nhập</p>
               <div className="input-group mb-3">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="your username"
+                  placeholder="Nhập...."
                   aria-label="Username"
                   aria-describedby="basic-addon1"
                   onChange={(e) => {
@@ -79,13 +79,13 @@ function Register() {
                 />
               </div>
 
-              <p className="title-input">Password</p>
+              <p className="title-input">Mật khẩu</p>
               <div className="input-group mb-3">
                 <input
                   type="password"
                   name="password"
                   className="form-control"
-                  placeholder="your password"
+                  placeholder="Nhập mật khẩu...."
                   id="form-password"
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -95,13 +95,13 @@ function Register() {
                   <i className="fa fa-eye" onClick={handleShow}></i>
                 </span>
               </div>
-              <p className="title-input">Confrim Password</p>
+              <p className="title-input">Nhập lại mật khẩu</p>
               <div className="input-group mb-3">
                 <input
                   type="password"
                   name="password"
                   className="form-control"
-                  placeholder="your password"
+                  placeholder="Nhập lại nhé!"
                   id="confirm-password"
                   onChange={(e) => {
                     setPassword(e.target.value);
@@ -118,7 +118,7 @@ function Register() {
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="your email"
+                  placeholder="Nhập email....."
                   aria-label="email"
                   aria-describedby="basic-addon1"
                   onChange={(e) => {
@@ -126,25 +126,23 @@ function Register() {
                   }}
                 />
               </div>
-              <p className="title-input">Phone</p>
+              <p className="title-input">Số điện thoại</p>
               <div className="input-group mb-3">
                 <input
                   type="number"
                   className="form-control"
-                  placeholder="your phone"
+                  placeholder="Nhập số điện thoại...."
                   onChange={(e) => {
                     setPhone(e.target.value);
                   }}
                 />
               </div>
-              <p className="title-input">Address</p>
+              <p className="title-input">Địa chỉ</p>
               <div className="input-group mb-3">
                 <input
                   type="text"
                   className="form-control"
-                  placeholder="your address"
-                  aria-label="Address"
-                  aria-describedby="basic-addon1"
+                  placeholder="Nhập địa chỉ..."
                   onChange={(e) => {
                     setAddress(e.target.value);
                   }}
@@ -154,7 +152,7 @@ function Register() {
           </div>
 
           <button type="submit" className="btn btn-danger">
-            DONE
+            XONG
           </button>
         </form>
       </div>

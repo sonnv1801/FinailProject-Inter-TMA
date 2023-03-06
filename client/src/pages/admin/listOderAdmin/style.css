@@ -10,13 +10,12 @@
 }
 .container-listOderAd .row .col-sm-5 p {
   margin: 0;
-  font-family: var(--maint-font);
+  font-family: var(--font-dep);
 }
 .container-listOderAd .title-list {
   font-size: 2rem;
   text-align: center;
   color: black;
-  margin-top: 6px;
   background-color: white;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -38,7 +37,10 @@
 
 .table tbody tr td button {
   margin-right: 5px;
-  width: 50px;
+  width: 60px;
+}
+.table tbody tr td button i {
+  font-size: 20px;
 }
 
 .table tbody tr td p {

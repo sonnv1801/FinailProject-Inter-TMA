@@ -10,7 +10,7 @@
 }
 .container-listuser .row .col-sm-5 p {
   margin: 0;
-  font-family: var(--maint-font);
+  font-family: var(--font-dep);
 }
 .container-listuser .title-list {
   font-size: 2rem;

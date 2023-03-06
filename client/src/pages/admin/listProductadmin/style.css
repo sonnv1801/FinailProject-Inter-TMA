@@ -11,7 +11,7 @@
 
 .container-listproductAd .row .col-sm-5 p {
   margin: 0;
-  font-family: var(--maint-font) !important;
+  font-family: var(--font-dep) !important;
 }
 
 .container-listproductAd .title-list {
@@ -37,31 +37,26 @@
   color: var(--red-clr);
 }
 
-.table thead tr th {
+.container-listproductAd .table thead tr th {
   text-align: center;
   font-family: var(--maint-font);
   font-size: 20px;
 }
 
-.table tbody tr td {
+.container-listproductAd .table tbody tr td {
   text-align: center;
   font-size: 20px;
 }
 
-.table tbody tr td i .btn-outline-primary {
+.container-listproductAd .table tbody tr td i .btn-outline-primary {
   font-size: 20px;
 }
 
-.table tbody tr td button {
-  margin-right: 5px;
-  width: 100%;
+.container-listproductAd .table tbody tr td img {
+  width: 50%;
 }
 
-.table tbody tr td img {
-  width: 60%;
-}
-
-.table tbody tr td p {
+.container-listproductAd .table tbody tr td p {
   color: red;
 }
 

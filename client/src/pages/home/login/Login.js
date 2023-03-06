@@ -44,13 +44,13 @@ function Login() {
           </p>
 
           <div className="title">Wellcome!</div>
-          <p className="title-input">Username</p>
+          <p className="title-input">Tên đăng nhập</p>
           <div className="input-group mb-3">
             <input
               type="text"
               for="fullname"
               className="form-control"
-              placeholder="your username"
+              placeholder="Nhập vào nè!"
               aria-label="Username"
               aria-describedby="basic-addon1"
               onChange={(e) => setUsername(e.target.value)}
@@ -58,7 +58,7 @@ function Login() {
             {/* <span className='form-mess'>alo</span> */}
           </div>
 
-          <p className="title-input">Password</p>
+          <p className="title-input">Mật khẩu</p>
           <div className="input-group mb-3">
             <input
               type="password"
@@ -66,7 +66,7 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               name="password"
               className="form-control"
-              placeholder="your password"
+              placeholder="Nhập mật khẩu bạn ơi!"
               id="form-password"
             />
             <span className="input-group-text" id="basic-addon1">
@@ -75,11 +75,11 @@ function Login() {
             {/* <span className='form-mess'>alo</span> */}
           </div>
           <button type="submit" className="btn btn-danger">
-            LOGIN
+            ĐĂNG NHẬP
           </button>
           <Link to={'/register'}>
             <button type="button" className="btn btn-danger">
-              REGISTER
+              ĐĂNG KÝ
             </button>
           </Link>
         </form>

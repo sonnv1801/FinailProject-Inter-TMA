@@ -55,7 +55,7 @@ function ListTypeAdmin() {
           <div className="title-list">
             <div className="row">
               <div className="col-sm-5">
-                <p>Type Management</p>
+                <p>Quản lý Mặt hàng</p>
               </div>
               <div className="col-sm-7">
                 <button
@@ -66,7 +66,7 @@ function ListTypeAdmin() {
                   }}
                 >
                   <i class="bx bxs-folder-plus"></i>
-                  <span>Add Type</span>
+                  <span>Thêm Mặt hàng</span>
                 </button>
               </div>
             </div>
@@ -75,8 +75,8 @@ function ListTypeAdmin() {
             <thead classNane="table-dark">
               <tr>
                 <th>STT</th>
-                <th>Type name</th>
-                <th>Delete</th>
+                <th>Tên Mặt hàng</th>
+                <th>Xoá</th>
               </tr>
             </thead>
             <tbody>

@@ -18,7 +18,11 @@ import ListTypeAdmin from './pages/admin/listTypeAdmin/ListTypeAdmin';
 import ListUser from './pages/admin/listuser/ListUser';
 import ListProductAdmin from './pages/admin/listProductadmin/ListProductAdmin';
 import ListOderAdmin from './pages/admin/listOderAdmin/ListOderAdmin';
+<<<<<<< HEAD
 import ListOrderToday from './pages/admin/listOderAdmin/listordertoday/ListOrderToday';
+=======
+import DetailorderAd from './pages/admin/detailOrderAdmin/detailorderAd';
+>>>>>>> feature/27-Philip-code-oder-detail
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
   return (
@@ -55,6 +59,8 @@ function App() {
               <Route path="/admin/orders" element={<ListOderAdmin />} />
 
               <Route path="/admin/orders/today" element={<ListOrderToday />} />
+
+              <Route path="/admin/detailorder" element={<DetailorderAd />} />
             </>
           ) : (
             <Route path="*" element={<NotFound />} />

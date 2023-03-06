@@ -32,9 +32,9 @@
   width: 80%;
 }
 .body-payment .infomation-product {
+  width: 50%;
   box-shadow: 3px 3px 7px 2px rgba(226, 14, 14, 0.5);
   background-color: rgb(253, 235, 235);
-
   border-radius: 16px;
   padding: 20px;
 }
@@ -55,29 +55,23 @@
 .infomation-product .term input {
   margin-right: 0.6rem;
 }
-.infomation-product button a {
-  color: white;
-}
-.infomation-product button a:hover {
-  color: rgb(0, 0, 0);
-}
+
 .infomation-product .term {
   color: blue;
 }
 
 .infomation-product .order-payment {
-  width: 45%;
+  width: 50%;
   padding: 5px;
   border: none;
-  background: var(--red-clr);
   font-weight: 600;
   border-radius: 8px;
   box-shadow: 3px 3px 7px 2px rgb(0 0 0 / 50%);
 }
 
 .infomation-product .order-payment:hover {
-  background: rgb(255, 255, 255);
-
+  background: rgb(250, 48, 48);
+  color: white;
   transition: 0.5s ease;
 }
 

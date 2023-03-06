@@ -86,7 +86,7 @@ function ListProductAdmin() {
           <div className="title-list">
             <div className="row">
               <div className="col-sm-5">
-                <p>Product Management</p>
+                <p>Quản lý Sản phẩm</p>
               </div>
               <div className="col-sm-7">
                 <button
@@ -106,11 +106,11 @@ function ListProductAdmin() {
             <thead classNane="table-dark">
               <tr>
                 <th>STT</th>
-                <th>Image</th>
-                <th>Name Products</th>
-                <th>Type</th>
-                <th>Price</th>
-                <th>Edit</th>
+                <th>Ảnh</th>
+                <th>Tên Sản phẩm</th>
+                <th>Mặt hàng</th>
+                <th>Giá</th>
+                <th>Sửa</th>
               </tr>
             </thead>
             <tbody>
@@ -139,11 +139,9 @@ function ListProductAdmin() {
                       <td>
                         <Link to={`/admin/${item._id}`}>
                           <button className="btn btn-success">
-                            <i class="bx bxs-edit-alt"></i>
+                            <i class="bx bxs-edit-alt" style={{}}></i>
                           </button>
                         </Link>
-                      </td>
-                      <td>
                         <button
                           className="btn btn-danger"
                           onClick={() => {
