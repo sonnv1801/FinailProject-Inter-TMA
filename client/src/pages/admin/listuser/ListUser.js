@@ -24,12 +24,12 @@ function ListUser() {
           <div className="title-list">
             <div className="row">
               <div className="col-sm-5">
-                <p>User Management</p>
+                <p>Quản lý Người dùng</p>
               </div>
               <div className="col-sm-7">
                 <button href="#" class="btn btn-outline-danger">
                   <i class="bx bxs-folder-plus"></i>
-                  <span>Add User</span>
+                  <span>Thêm người dùng</span>
                 </button>
               </div>
             </div>
@@ -38,10 +38,10 @@ function ListUser() {
             <thead classNane="table-dark">
               <tr>
                 <th>STT</th>
-                <th>Username</th>
+                <th>Tên đăng nhập</th>
                 <th>Email</th>
-                <th>Role</th>
-                <th>Edit</th>
+                <th>Quyền</th>
+                <th>Xoá</th>
               </tr>
             </thead>
             <tbody>

@@ -18,6 +18,7 @@ import ListTypeAdmin from './pages/admin/listTypeAdmin/ListTypeAdmin';
 import ListUser from './pages/admin/listuser/ListUser';
 import ListProductAdmin from './pages/admin/listProductadmin/ListProductAdmin';
 import ListOderAdmin from './pages/admin/listOderAdmin/ListOderAdmin';
+import DetailorderAd from './pages/admin/detailOrderAdmin/detailorderAd';
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));
   return (
@@ -52,6 +53,7 @@ function App() {
               <Route path="/admin/user" element={<ListUser />} />
               <Route path="/admin/product" element={<ListProductAdmin />} />
               <Route path="/admin/orders" element={<ListOderAdmin />} />
+              <Route path="/admin/detailorder" element={<DetailorderAd />} />
             </>
           ) : (
             <Route path="*" element={<NotFound />} />

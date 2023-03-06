@@ -10,7 +10,7 @@
 }
 .container-listtypeAd .row .col-sm-5 p {
   margin: 0;
-  font-family: var(--maint-font) !important;
+  font-family: var(--font-dep) !important;
 }
 .container-listtypeAd .row .col-sm-7 button {
   display: flex;
