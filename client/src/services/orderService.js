@@ -24,4 +24,9 @@ export class OrderService {
       headers: { token: `vanson ${accessToken}` },
     });
   }
+  confirmOrder(id, accessToken) {
+    return Axios.put(`${API}/${id}`, {
+      headers: { token: `vanson ${accessToken}` },
+    });
+  }
 }

@@ -2,6 +2,7 @@ import Swal from 'sweetalert2';
 import { createAction } from '.';
 import { orderSevice } from '../../services';
 import {
+  CONFIRM_ORDER,
   CREATE_ORDER,
   DELETE_ORDER,
   FETCH_DETAIL_ORDER,
@@ -129,6 +130,32 @@ export const deleteOrder = (id, accessToken) => {
             dispatch(getOrder());
           });
           Swal.fire('Xóa Thành Công!', 'success');
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+};
+
+export const confirmOrder = (id, accessToken) => {
+  return (dispatch) => {
+    Swal.fire({
+      title: 'Bạn chắc xác nhận hóa đơn này?',
+      text: '',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'OK !',
+    })
+      .then((result) => {
+        if (result.isConfirmed) {
+          orderSevice.confirmOrder(id, accessToken).then((res) => {
+            dispatch(createAction(CONFIRM_ORDER, res.data));
+            dispatch(getOrder());
+          });
+          Swal.fire('Xác Nhận Thành Công!', 'success');
         }
       })
       .catch((err) => {

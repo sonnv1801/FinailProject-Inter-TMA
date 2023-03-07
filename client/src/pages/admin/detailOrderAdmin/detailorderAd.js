@@ -11,9 +11,7 @@ function DetailorderAd() {
   const location = useLocation();
   const path = location.pathname.split('/')[3];
   const listOrder = useSelector((state) => state.defaultReducer.orderDetail);
-  const listProductAdmin = useSelector(
-    (state) => state.defaultReducer.listProduct
-  );
+
   // const fliterOrderPrd = listProductAdmin.filter(function (
   //   product,
   //   index,
@@ -31,7 +29,7 @@ function DetailorderAd() {
   }, []);
 
   const renderAmount = () => {
-    return listOrder.products?.reduce((total, item) => {
+    return listOrder?.products?.reduce((total, item) => {
       return (total += item.newPrice * item.quantity);
     }, 0);
   };
@@ -95,7 +93,7 @@ function DetailorderAd() {
                   <td>{index}</td>
                   <td>{item.title}</td>
                   <td>{item.quantity}</td>
-                  <td>{item.newPrice.toLocaleString()}đ</td>
+                  <td>{item.newPrice?.toLocaleString()}đ</td>
                   <td>{item.color}</td>
                   <td>{item.store}</td>
                   <td>{(item.quantity * item.newPrice).toLocaleString()}đ</td>
@@ -115,7 +113,7 @@ function DetailorderAd() {
             </thead>
             <tbody>
               <tr>
-                <td>{moment(listOrder.createdAt).format('DD/MM/YYYY')}</td>
+                <td>{moment(listOrder?.createdAt).format('DD/MM/YYYY')}</td>
                 <td>Nhận Hàng Khi Thanh Toán</td>
                 <td>Miễn phí</td>
               </tr>
@@ -125,7 +123,7 @@ function DetailorderAd() {
             <div className="row">
               <div className="col-sm-6">
                 <h5>Tiền thu người nhận</h5>
-                <h1>Thu: {renderAmount().toLocaleString()}đ</h1>
+                <h1>Thu: {renderAmount()?.toLocaleString()}đ</h1>
                 <br />
               </div>
               <div className="col-sm-6">
