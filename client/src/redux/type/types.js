@@ -65,3 +65,4 @@ export const ADD_TYPE = 'ADD_TYPE';
 export const DELETE_ORDER = 'DELETE_ORDER';
 export const FETCH_ORDER_TODAY = 'FETCH_ORDER_TODAY';
 export const FETCH_DETAIL_ORDER = 'FETCH_DETAIL_ORDER';
+export const CONFIRM_ORDER = 'CONFIRM_ORDER';

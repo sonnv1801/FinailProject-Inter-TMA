@@ -111,6 +111,23 @@ const orderCotroller = {
     }
   },
 
+  confirmOrder: async (req, res) => {
+    try {
+      const results = await Order.findById(req.params.id);
+      if (results.orderId === req.body.orderId) {
+        await results.updateOne({
+          $set: {
+            status: 1,
+          },
+        });
+        res.status(200).json("Confirm order successfully");
+      } else {
+        res.status(500).json("Can't Confirm order");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
   getOrderToday: async (req, res) => {
     try {
       const today = new Date();

@@ -1,20 +1,22 @@
 import moment from 'moment';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
-import { getDetailOrder } from '../../../redux/actions/order.action';
+import { useLocation, useNavigate } from 'react-router-dom';
+import {
+  confirmOrder,
+  getDetailOrder,
+} from '../../../redux/actions/order.action';
 import { getProduct } from '../../../redux/actions/product.action';
 import Sidebar from '../sidebaradmin/Sidebar';
 import './style.css';
 function DetailorderAd() {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const location = useLocation();
   const path = location.pathname.split('/')[3];
   const listOrder = useSelector((state) => state.defaultReducer.orderDetail);
-  const listProductAdmin = useSelector(
-    (state) => state.defaultReducer.listProduct
-  );
 
+  const user = JSON.parse(localStorage.getItem('token'));
   useEffect(() => {
     dispatch(getDetailOrder(path));
   }, []);
@@ -41,10 +43,18 @@ function DetailorderAd() {
                 <p>Thông tin chi tiết đơn hàng</p>
               </div>
               <div className="col-sm-5">
-                <button href="#" class="btn btn-success">
-                  <i class="bx bx-check"></i>
-                  <span>Xác nhận đơn hàng</span>
-                </button>
+                {listOrder?.status === 0 ? (
+                  <button
+                    href="#"
+                    class="btn btn-success"
+                    onClick={() =>
+                      dispatch(confirmOrder(path, user?.accessToken, navigate))
+                    }
+                  >
+                    <i class="bx bx-check"></i>
+                    <span>Xác nhận đơn hàng</span>
+                  </button>
+                ) : null}
               </div>
             </div>
           </div>
@@ -96,7 +106,7 @@ function DetailorderAd() {
                 <tr key={index}>
                   <td>{item.title}</td>
                   <td>{item.quantity}</td>
-                  <td>{item.newPrice.toLocaleString()}đ</td>
+                  <td>{item.newPrice?.toLocaleString()}đ</td>
                   <td>{item.color}</td>
                   <td>{item.store}</td>
                   <td>{(item.quantity * item.newPrice).toLocaleString()}đ</td>
