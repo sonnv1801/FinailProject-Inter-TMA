@@ -106,6 +106,8 @@ const product = {
         oldPrice: req.body.oldPrice,
         quantity: req.body.quantity,
         rates: req.body.rates,
+        colors: req.body.colors,
+        stores: req.body.stores,
       });
       await newProduct.save();
       res.status(200).json(newProduct);
@@ -129,6 +131,8 @@ const product = {
             newPrice: req.body.newPrice,
             oldPrice: req.body.oldPrice,
             quantity: req.body.quantity,
+            colors: req.body.colors,
+            stores: req.body.stores,
           },
         });
         res.status(200).json("Update product successfully");

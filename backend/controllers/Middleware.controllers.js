@@ -22,7 +22,7 @@ const middlewareController = {
       if (req.user.id == req.params.id || req.user.role) {
         next();
       } else {
-        res.status(403).json("You're not allowed to delete orther");
+        res.status(403).json("You're not allowed to delete");
       }
     });
   },
