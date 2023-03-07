@@ -56,7 +56,10 @@ function App() {
               <Route path="/admin/product" element={<ListProductAdmin />} />
               <Route path="/admin/orders" element={<ListOderAdmin />} />
               <Route path="/admin/orders/today" element={<ListOrderToday />} />
-              <Route path="/admin/detailorder" element={<DetailorderAd />} />
+              <Route
+                path="/admin/detailorder/:id"
+                element={<DetailorderAd />}
+              />
             </>
           ) : (
             <Route path="*" element={<NotFound />} />

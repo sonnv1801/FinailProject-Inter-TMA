@@ -144,6 +144,20 @@ const orderCotroller = {
       res.status(500).json(err);
     }
   },
+
+  getOrderById: async (req, res) => {
+    try {
+      const Id = req.params.id;
+      Order.findById(Id, (err, products) => {
+        if (err) {
+          return res.status(500).json("Can't find Id..");
+        }
+        return res.status(200).json(products);
+      });
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  },
 };
 
 module.exports = orderCotroller;

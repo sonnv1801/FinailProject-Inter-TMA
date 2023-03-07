@@ -2,6 +2,7 @@ import moment from 'moment';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getOrderToday } from '../../../../redux/actions/order.action';
 import Sidebar from '../../sidebaradmin/Sidebar';
 import '../style.css';
@@ -87,9 +88,11 @@ function ListOrderToday() {
                         </p>
                       </td>
                       <td>
-                        <button className="btn btn-success">
-                          <i class="bx bx-edit"></i>
-                        </button>
+                        <Link to={`/admin/detailorder/${item?._id}`}>
+                          <button className="btn btn-success">
+                            <i class="bx bx-edit"></i>
+                          </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
