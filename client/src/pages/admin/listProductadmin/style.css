@@ -56,24 +56,26 @@
   width: 50%;
 }
 
-.container-listproductAd .table tbody tr td p {
+.table tbody tr td img {
+  width: 20%;
+}
+
+.table tbody tr td p {
   color: red;
 }
 
 .modal-content .modal-body .formgroup-body input {
   margin: 0;
-  width: 85%;
-  margin-left: 30px;
+  width: 100%;
 }
 
 .modal-content .modal-body input {
   margin: 0;
-  margin-left: 30px;
-  width: 85%;
+  width: 100%;
 }
 
 .modal-content .modal-body .formgroup-body .form-label {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .modal-content .modal-body .form-label {

@@ -116,6 +116,8 @@ export default function CartNav(cart) {
                   </div>
                   <div className="col-2">
                     <p>{item.title}</p>
+                    <p>{`${item.store}`}</p>
+                    <p>{`${item.color}`}</p>
                   </div>
                   <div className="col-2">
                     <div className="quantity-cart-nav">
@@ -137,17 +139,17 @@ export default function CartNav(cart) {
                     </div>
                   </div>
                   <div className="col-2">
-                    <p>{`${item.newPrice.toLocaleString()}đ`}</p>
+                    <p>{`${numeral(item.newPrice).format('0,0')}đ`}</p>
                   </div>
                   <div className="col-2">
                     <p className="sum-carts">
-                      {`${(
-                        item.newPrice * item.quantity_cart
-                      ).toLocaleString()}đ`}
+                      {`${numeral(item.newPrice * item.quantity_cart).format(
+                        '0,0'
+                      )}đ`}
                     </p>
                   </div>
                   <div className="col-2">
-                    <span>
+                    <span style={{ float: 'right' }}>
                       <DeleteIcon
                         onClick={() => {
                           dispatch(deleteCart(item));

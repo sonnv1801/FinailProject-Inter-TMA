@@ -8,7 +8,7 @@ const productSchema = new mongoose.Schema({
   title: {
     type: String,
     require: true,
-    // maxlength: 20,
+    maxlength: 20,
   },
   type: {
     type: String,
@@ -39,6 +39,33 @@ const productSchema = new mongoose.Schema({
     require: true,
     default: 5,
   },
+
+  colors: { type: [String], required: true },
+  stores: { type: [String], required: true },
+
+  // colors: {
+  //   type: [
+  //     {
+  //       name: {
+  //         type: String,
+  //         required: true,
+  //       },
+  //     },
+  //   ],
+  //   required: true,
+  // },
+
+  // colors: {
+  //   type: [
+  //     {
+  //       name: {
+  //         type: String,
+  //         required: true,
+  //       },
+  //     },
+  //   ],
+  //   required: true,
+  // },
   created_at: { type: Date, default: Date.now },
   update_at: { type: Date, default: Date.now },
 });

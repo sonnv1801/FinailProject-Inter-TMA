@@ -59,7 +59,7 @@ const ProductDetail = () => {
         </div>
         <div className="row">
           <div className="col-8">
-            <SalientFeature />
+            {/* <SalientFeature /> */}
             <RateProduct />
           </div>
           <div className="col-4">

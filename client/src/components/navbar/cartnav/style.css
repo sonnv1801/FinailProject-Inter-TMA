@@ -28,8 +28,8 @@
 }
 
 #cart-container:hover {
-    background: rgb(190, 186, 186);
-    color: white;
+    background: rgb(238, 234, 234);
+    color: black;
 }
 
 #cart-container .cart-image {
@@ -38,7 +38,7 @@
 }
 
 #cart-container .cart-image img {
-    width: 100%;
+    width: 60%;
     border-radius: 10px;
 }
 
@@ -48,6 +48,7 @@
 
 #cart-container .sum-carts {
     color: rgb(255, 0, 0);
+    font-weight: 600;
 }
 
 #cart-container .quantity-cart-nav {
@@ -80,6 +81,7 @@
     padding: 0.7rem;
     border-radius: 0.5rem;
     text-align: center;
+
 }
 
 #cart-container span:hover {

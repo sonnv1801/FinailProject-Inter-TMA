@@ -62,9 +62,7 @@ export default function MediaCard(props) {
           // onClick={() => scroll.scrollToTop()}
           to={`/product-detail/${props.card?._id}`}
         >
-          <Button size="small" onClick={refreshPage}>
-            Xem chi tiết
-          </Button>
+          <Button size="small">Xem chi tiết</Button>
         </Link>
         <Button
           size="small"

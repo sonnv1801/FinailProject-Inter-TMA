@@ -1,3 +1,4 @@
+import { color } from '@mui/system';
 import Swal from 'sweetalert2';
 import { createAction } from '.';
 import { productSevice } from '../../services';
@@ -145,13 +146,15 @@ export const getProductTypeSamsung = (limit) => {
   };
 };
 
-export const addCart = (product) => {
+export const addCart = (product, color, store) => {
   const productCart = {
-    id: product._id,
+    id: product.id,
     title: product.title,
     image: product.image,
     newPrice: product.newPrice,
     quantity_cart: 1,
+    color: color,
+    store: store,
   };
   return (dispatch) => {
     dispatch(createAction(ADD_CART, productCart))

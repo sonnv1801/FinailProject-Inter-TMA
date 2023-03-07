@@ -201,7 +201,11 @@ const defaultReducer = (state = initialState, action) => {
     case ADD_CART: {
       let cart = [...state.cart];
       const index = cart.findIndex((cart) => {
-        return cart.id === action.payload.id;
+        return (
+          cart.id === action.payload.id &&
+          cart.color === action.payload.color &&
+          cart.store === action.payload.store
+        );
       });
 
       if (index !== -1) {
@@ -211,7 +215,13 @@ const defaultReducer = (state = initialState, action) => {
         cart = [...cart, action.payload];
         Swal.fire('Sản phẩm đã được thêm vào giỏ!', 'success');
       }
+
+      // if (cart.color === action.payload.color) {
+      //   cart[index].quantity_cart += 1;
+      // }
       // cart.push(action.payload);
+      // cart = [...cart, action.payload];
+
       state.cart = cart;
       localStorage.setItem('carts', JSON.stringify(cart));
       return { ...state };
