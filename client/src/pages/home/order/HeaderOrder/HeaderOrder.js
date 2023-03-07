@@ -61,13 +61,15 @@ export const HeaderOrder = () => {
               <b>{`${numeral(item.total).format('0,0')}đ`}</b>
               <span>Phương thức thanh toán</span>
               <b>Thanh Toán Khi Nhận</b>
-              <button
-                onClick={() => {
-                  dispatch(deleteOrder(item._id, currentUser?.accessToken));
-                }}
-              >
-                Hủy Đơn Hàng
-              </button>
+              {item?.status === 0 ? (
+                <button
+                  onClick={() => {
+                    dispatch(deleteOrder(item._id, currentUser?.accessToken));
+                  }}
+                >
+                  Hủy Đơn Hàng
+                </button>
+              ) : null}
             </div>
           ))}
           <p>Trả tiền mặt khi giao hàng</p>

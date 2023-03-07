@@ -138,7 +138,7 @@ export const deleteOrder = (id, accessToken) => {
   };
 };
 
-export const confirmOrder = (id, accessToken) => {
+export const confirmOrder = (id, accessToken, navigate) => {
   return (dispatch) => {
     Swal.fire({
       title: 'Bạn chắc xác nhận hóa đơn này?',
@@ -156,6 +156,9 @@ export const confirmOrder = (id, accessToken) => {
             dispatch(getOrder());
           });
           Swal.fire('Xác Nhận Thành Công!', 'success');
+          setTimeout(() => {
+            navigate('/admin/orders');
+          }, 500);
         }
       })
       .catch((err) => {
