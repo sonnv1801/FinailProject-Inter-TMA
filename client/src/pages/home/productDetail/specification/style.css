@@ -1,22 +1,13 @@
 .specifications {
-  margin-top: 2rem;
-}
-
-.specifications .sub-specifications .sub-body-specifications {
-  padding-bottom: 3rem;
-}
-
-.specifications .sub-specifications {
+  width: 100%;
   margin-top: 1rem;
 }
-
-.specifications .sub-specifications h6 {
-  float: left;
-  width: 50%;
+tr td {
+  text-align: left !important;
+  cursor: pointer;
 }
-
-.specifications .sub-specifications span {
-  float: left;
-  width: 50%;
-  opacity: 0.5;
+b {
+  display: block;
+  font-family: var(--font-dep);
+  font-size: 23px;
 }
