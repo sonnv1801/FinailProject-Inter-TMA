@@ -34,7 +34,6 @@
 .container-listproductAd .col-sm-7 button i {
   font-size: 20px;
   margin-right: 5px;
-  color: var(--red-clr);
 }
 
 .container-listproductAd .table thead tr th {
@@ -44,23 +43,18 @@
 }
 
 .container-listproductAd .table tbody tr td {
-  text-align: center;
+  text-align: center !important;
+  align-items: center;
   font-size: 20px;
-}
-
-.container-listproductAd .table tbody tr td i .btn-outline-primary {
-  font-size: 20px;
+  min-width: 150px;
 }
 
 .container-listproductAd .table tbody tr td img {
-  width: 50%;
+  width: 100%;
 }
 
-.table tbody tr td img {
-  width: 20%;
-}
-
-.table tbody tr td p {
+.container-listproductAd .table tbody tr td p {
+  text-align: center;
   color: red;
 }
 

@@ -41,7 +41,17 @@ function DetailorderAd() {
         </div>
         <div className="col-9">
           <div className="title-list">
-            <div className="title-detail">Thông tin chi tiết đơn hàng</div>
+            <div className="row">
+              <div className="col-sm-7">
+                <p>Thông tin chi tiết đơn hàng</p>
+              </div>
+              <div className="col-sm-5">
+                <button href="#" class="btn btn-success">
+                  <i class="bx bx-check"></i>
+                  <span>Xác nhận đơn hàng</span>
+                </button>
+              </div>
+            </div>
           </div>
           <div className="first-row">
             <div className="row">

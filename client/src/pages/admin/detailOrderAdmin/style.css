@@ -75,10 +75,27 @@
   font-family: var(--font-dep);
   color: var(--red-clr);
   margin-left: 20px;
+  margin-top: 10px;
 }
 .container-DetailorderAd h5 {
   text-decoration: underline;
   font-family: var(--font-dep);
   text-align: center;
   padding: 10px;
+}
+.container-DetailorderAd .btn-success {
+  text-align: center;
+  float: right;
+  margin: 5px 10px;
+  display: flex;
+}
+.container-DetailorderAd .btn-success i {
+  font-size: 30px;
+  margin-right: 5px;
+  line-height: 60%;
+}
+.container-DetailorderAd .row .col-sm-7 p {
+  font-family: var(--font-dep);
+  padding: 0;
+  margin: 0;
 }
