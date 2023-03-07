@@ -86,7 +86,7 @@ function ListOderAdmin() {
                         </p>
                       </td>
                       <td>
-                        <Link to={'/admin/detailorder'}>
+                        <Link to={`/admin/detailorder/${item?._id}`}>
                           <button className="btn btn-success">
                             <i class="bx bx-edit"></i>
                           </button>

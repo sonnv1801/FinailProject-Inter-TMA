@@ -10,6 +10,7 @@ import {
   DELETE_USER,
   FETCH_BANNER,
   FETCH_DETAIL,
+  FETCH_DETAIL_ORDER,
   FETCH_ORDER,
   FETCH_ORDER_TODAY,
   FETCH_PRODUCT,
@@ -45,6 +46,7 @@ const initialState = {
   listProductSimilar: [],
   fillPrice: [],
   productDetail: null,
+  orderDetail: null,
   cart: [],
   selected: '',
   search: [],
@@ -299,6 +301,10 @@ const defaultReducer = (state = initialState, action) => {
       return { ...state }; //setState
     }
 
+    case FETCH_DETAIL_ORDER: {
+      state.orderDetail = payload;
+      return { ...state };
+    }
     case DELETE_ORDER: {
       let updateList = [...state.listOrder];
       let index = updateList.findIndex((order) => order.id === action.id);

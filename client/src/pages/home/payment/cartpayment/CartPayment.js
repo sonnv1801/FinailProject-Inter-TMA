@@ -52,6 +52,10 @@ export const CartPayment = () => {
           },
           products: cartItems?.map((item) => ({
             productId: item?.id,
+            title: item?.title,
+            newPrice: item?.newPrice,
+            color: item?.color,
+            store: item?.store,
             quantity: item?.quantity_cart,
           })),
           total: cartItems?.reduce(

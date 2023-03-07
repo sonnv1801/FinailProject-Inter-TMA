@@ -12,7 +12,11 @@ export class OrderService {
   }
 
   getAllOrderToday() {
-    return Axios.get(`${API}/today`);
+    return Axios.get(`${API}/today/1ngay`);
+  }
+
+  getOrderById(id) {
+    return Axios.get(`${API}/${id}`);
   }
 
   deleteOrder(id, accessToken) {

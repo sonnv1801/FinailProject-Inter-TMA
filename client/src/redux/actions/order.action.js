@@ -4,6 +4,7 @@ import { orderSevice } from '../../services';
 import {
   CREATE_ORDER,
   DELETE_ORDER,
+  FETCH_DETAIL_ORDER,
   FETCH_ORDER,
   FETCH_ORDER_TODAY,
   LOGIN_FAILED,
@@ -89,6 +90,22 @@ export const getOrderToday = () => {
         dispatch(stopLoading());
       })
       .catch((err) => {
+        dispatch(stopLoading());
+      });
+  };
+};
+
+export const getDetailOrder = (id) => {
+  return (dispatch) => {
+    dispatch(startLoading());
+    orderSevice
+      .getOrderById(id)
+      .then((res) => {
+        dispatch(createAction(FETCH_DETAIL_ORDER, res.data));
+        dispatch(stopLoading());
+      })
+      .catch((err) => {
+        console.log(err);
         dispatch(stopLoading());
       });
   };
