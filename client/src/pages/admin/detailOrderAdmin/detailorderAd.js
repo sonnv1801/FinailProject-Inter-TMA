@@ -41,7 +41,7 @@ function DetailorderAd() {
             </thead>
             <tbody>
               <tr>
-                <td>ABC</td>
+                <td>BCD</td>
                 <td>ABC</td>
                 <td>ABC</td>
                 <td>ABC</td>

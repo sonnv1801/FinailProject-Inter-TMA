@@ -1,13 +1,9 @@
-<<<<<<< HEAD
 import moment from 'moment';
 import numeral from 'numeral';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getOrder } from '../../../redux/actions/order.action';
-=======
-import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
->>>>>>> feature/27-Philip-code-oder-detail
+import { getOrder } from '../../../redux/actions/order.action';
 import Sidebar from '../sidebaradmin/Sidebar';
 import './style.css';
 function ListOderAdmin() {
@@ -90,15 +86,16 @@ function ListOderAdmin() {
                         </p>
                       </td>
                       <td>
-                        <button className="btn btn-success">
-                          <i class="bx bx-edit"></i>
-                        </button>
+                        <Link to={'/admin/detailorder'}>
+                          <button className="btn btn-success">
+                            <i class="bx bx-edit"></i>
+                          </button>
+                        </Link>
                       </td>
                     </tr>
                   ))}
                 </>
               )}
-
             </tbody>
           </table>
         </div>

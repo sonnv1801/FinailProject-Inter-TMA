@@ -75,35 +75,6 @@ export const CartPayment = () => {
   return (
     <>
       <div className="body-left-payment">
-        <p>
-          <a
-            data-bs-toggle="collapse"
-            href="#collapseExample"
-            role="button"
-            aria-expanded="false"
-            aria-controls="collapseExample"
-          >
-            <button className="btn btn-outline-success">
-              Nhập mã giảm giá
-            </button>
-          </a>
-        </p>
-        <div class="collapse" id="collapseExample">
-          <div class="card card-body vocher-payment">
-            <div class="input-group mb-3 sub-vocher-payment">
-              <input
-                type="text"
-                class="form-control"
-                placeholder="Nhập mã vào đê..."
-                aria-label="Recipient's username"
-                aria-describedby="button-addon2"
-              />
-              <button class="btn btn-success" type="button" id="button-addon2">
-                Áp dụng
-              </button>
-            </div>
-          </div>
-        </div>
         <div className="body-payment">
           <div className="infomation-users">
             <Form.Group className="formgroup-body">
@@ -128,7 +99,6 @@ export const CartPayment = () => {
                 type="text"
                 required
                 onChange={handleChange('address')}
-                // value={user.address}
               />
               <Form.Label>Ghi Chú: </Form.Label>
               <Form.Control type="text" onChange={handleChange('notes')} />

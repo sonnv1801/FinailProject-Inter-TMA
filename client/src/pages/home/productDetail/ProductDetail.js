@@ -57,7 +57,6 @@ const ProductDetail = () => {
             <RightProductDetail />
           </div>
         </div>
-        <SimilarProduct productSimilar={ProductSimilar} />
         <div className="row">
           <div className="col-8">
             <SalientFeature />
@@ -67,6 +66,8 @@ const ProductDetail = () => {
             <Specification />
           </div>
         </div>
+        <br />
+        <SimilarProduct productSimilar={ProductSimilar} />
       </div>
     </>
   );

@@ -1,23 +1,22 @@
 .specifications {
-    margin-top: 2rem;
+  margin-top: 2rem;
 }
 
 .specifications .sub-specifications .sub-body-specifications {
-    padding-bottom: 3rem;
+  padding-bottom: 3rem;
 }
 
 .specifications .sub-specifications {
-    margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .specifications .sub-specifications h6 {
-    float: left;
-    width: 50%;
-
+  float: left;
+  width: 50%;
 }
 
 .specifications .sub-specifications span {
-    float: left;
-    width: 50%;
-    opacity: 0.5;
+  float: left;
+  width: 50%;
+  opacity: 0.5;
 }

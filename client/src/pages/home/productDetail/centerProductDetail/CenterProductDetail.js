@@ -80,30 +80,6 @@ const CenterProductDetail = (ceterProduct) => {
           <p>30,890,000 ₫</p>
         </div>
       </div>
-      <div className="voucher-prd-dt">
-        <div className="sub-prd-dt">
-          <div className="sub-header">
-            <p>
-              <RedeemRoundedIcon />
-              Khuyến mãi
-            </p>
-          </div>
-          <ul>
-            <li>
-              <span>Giảm 5% tối đa 500.000đ qua Kredivo</span>
-            </li>
-            <li>
-              <span>Giảm 5% tối đa 500.000đ qua Kredivo</span>
-            </li>
-            <li>
-              <span>Giảm 5% tối đa 500.000đ qua Kredivo</span>
-            </li>
-            <li>
-              <span>Giảm 5% tối đa 500.000đ qua Kredivo</span>
-            </li>
-          </ul>
-        </div>
-      </div>
       <button type="button" className="btn-payment">
         <a
           href="#!"
@@ -114,24 +90,12 @@ const CenterProductDetail = (ceterProduct) => {
           Mua Ngay<span>Nhận tại cửa hàng hoặc giao tận nhà</span>
         </a>
       </button>
-      <div className="installment-btn">
-        <button type="button" className="btn-payment">
-          <Link to="/">
-            Trả góp<span>Xét duyệt online</span>
-          </Link>
-        </button>
-        <button type="button" className="btn-payment">
-          <Link to="/">
-            Trả góp qua thẻ<span>Visa, MasterCard, JBL</span>
-          </Link>
-        </button>
-      </div>
       <div className="voucher-prd-dt">
         <div className="sub-prd-dt">
-          <div className="sub-header-other">
+          <div className="sub-header">
             <p>
               <RedeemRoundedIcon />
-              Khuyến mãi khác
+              Khuyến mãi
             </p>
           </div>
           <ul>
