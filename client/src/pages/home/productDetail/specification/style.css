@@ -2,11 +2,11 @@
   width: 100%;
   margin-top: 1rem;
 }
-tr td {
+.specifications tr td {
   text-align: left !important;
   cursor: pointer;
 }
-b {
+.specifications b {
   display: block;
   font-family: var(--font-dep);
   font-size: 23px;

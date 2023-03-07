@@ -14,14 +14,7 @@ function DetailorderAd() {
   const listProductAdmin = useSelector(
     (state) => state.defaultReducer.listProduct
   );
-  // const fliterOrderPrd = listProductAdmin.filter(function (
-  //   product,
-  //   index,
-  //   array
-  // ) {
-  //   return product._id === listOrder.products.productId;
-  // });
-  // console.log(fliterOrderPrd);
+
   useEffect(() => {
     dispatch(getDetailOrder(path));
   }, []);
@@ -90,7 +83,6 @@ function DetailorderAd() {
               <h4>Nội dung đơn hàng</h4>
 
               <tr>
-                <th>#</th>
                 <th>Tên sản phẩm</th>
                 <th>Số lượng</th>
                 <th>Giá</th>
@@ -102,7 +94,6 @@ function DetailorderAd() {
             <tbody>
               {listOrder?.products?.map((item, index) => (
                 <tr key={index}>
-                  <td>{index}</td>
                   <td>{item.title}</td>
                   <td>{item.quantity}</td>
                   <td>{item.newPrice.toLocaleString()}đ</td>
