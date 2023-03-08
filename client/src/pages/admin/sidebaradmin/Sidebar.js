@@ -25,7 +25,7 @@ function Sidebar() {
           </li>
           <li>
             <Link to={'/admin/type'}>
-              <i class="bx bxs-user-pin"></i>
+              <i class="bx bx-windows"></i>
               <span claName="link-name">Quản lý Mặt hàng</span>
             </Link>
           </li>
@@ -37,8 +37,14 @@ function Sidebar() {
           </li>
           <li>
             <Link to={'/admin/orders/today'}>
-              <i class="bx bxs-receipt"></i>
+              <i class="bx bxs-inbox"></i>
               <span className="link-name">Đơn Hàng Hôm Nay</span>
+            </Link>
+          </li>
+          <li>
+            <Link to={'/admin/rate'}>
+              <i class="bx bx-message-dots"></i>
+              <span className="link-name">Đánh giá khách hàng</span>
             </Link>
           </li>
         </ul>

@@ -49,14 +49,14 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  transition: all 0.4s ease;
+  transition: all 0.5s ease;
 }
 
 .sidebar-container .nav-link-sidebar li a:hover {
-  background: #f0aba6;
-  width: 95%;
+  background: var(--red-clr);
+  width: 93%;
   border-radius: 5px;
-  color: var(--red-clr);
+  color: white;
 }
 .sidebar-container .nav-link-sidebar li a i {
   min-width: 60px;

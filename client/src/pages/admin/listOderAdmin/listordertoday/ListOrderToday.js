@@ -27,7 +27,7 @@ function ListOrderToday() {
           <div className="title-list">
             <div className="row">
               <div className="col-sm-7">
-                <p style={{ margin: '0' }}>Oders Management - Today</p>
+                <p style={{ margin: '0' }}>Đơn hàng ngày hôm nay</p>
               </div>
             </div>
           </div>

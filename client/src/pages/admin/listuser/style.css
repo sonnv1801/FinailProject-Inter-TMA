@@ -16,7 +16,6 @@
   font-size: 2rem;
   text-align: center;
   color: black;
-  margin-top: 6px;
   background-color: white;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
@@ -31,7 +30,6 @@
 .container-listuser .col-sm-7 button i {
   font-size: 20px;
   margin-right: 5px;
-  color: var(--red-clr);
 }
 .container-listuser .table thead tr th {
   text-align: center;
