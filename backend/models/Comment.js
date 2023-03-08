@@ -2,25 +2,45 @@ const mongoose = require("mongoose");
 
 const commentSchema = new mongoose.Schema(
   {
-    id_user: {
-      type: String,
-      require: true,
+    customer: {
+      customerId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User",
+        required: true,
+      },
+      fullname: {
+        type: String,
+        required: true,
+        default: "Khách Hàng Ẩn Tên",
+      },
+      email: {
+        type: String,
+        required: true,
+      },
+      comment: {
+        type: String,
+        require: true,
+        default: "Product very good 10đ",
+      },
+      rate: {
+        type: Number,
+        require: true,
+        default: 5,
+        min: 1,
+        max: 5,
+      },
     },
     id_product: {
       type: String,
       require: true,
     },
-    comment: {
-      type: String,
-      require: true,
-      default: "Product very good 10đ",
+    createdAt: {
+      type: Date,
+      default: Date.now,
     },
-    rate: {
+    status: {
       type: Number,
-      require: true,
-      default: 5,
-      min: 1,
-      max: 5,
+      default: 0,
     },
   },
   { timestamps: true }

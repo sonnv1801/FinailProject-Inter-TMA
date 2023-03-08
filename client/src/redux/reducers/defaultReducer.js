@@ -1,5 +1,6 @@
 import {
   ADD_CART,
+  ADD_CMT,
   ADD_PRODUCT,
   ADD_TYPE,
   BUY_PRODUCT,
@@ -9,6 +10,7 @@ import {
   DELETE_TYPE,
   DELETE_USER,
   FETCH_BANNER,
+  FETCH_CMT,
   FETCH_DETAIL,
   FETCH_DETAIL_ORDER,
   FETCH_ORDER,
@@ -44,6 +46,7 @@ const initialState = {
   listOrder: [],
   listOrderToday: [],
   listProductSimilar: [],
+  listCMT: [],
   fillPrice: [],
   productDetail: null,
   orderDetail: null,
@@ -313,6 +316,20 @@ const defaultReducer = (state = initialState, action) => {
         state.listOrder = updateList;
       }
       return { ...state };
+    }
+
+    //CMT
+
+    case ADD_CMT: {
+      let updateList = [...state.listCMT];
+      updateList.push(payload);
+      state.listCMT = updateList;
+      return { ...state };
+    }
+
+    case FETCH_CMT: {
+      state.listCMT = payload;
+      return { ...state }; //setState
     }
     case START_LOADING: {
       state.isLoading = true;
