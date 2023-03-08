@@ -28,6 +28,8 @@ const ProductDetail = () => {
     (state) => state.defaultReducer.productDetail
   );
 
+  console.log('productDetail.....', productDetail);
+
   console.log('productDetail', productDetail?._id);
   const ProductSimilar = useSelector(
     (state) => state.defaultReducer.listProductSimilar
@@ -60,7 +62,7 @@ const ProductDetail = () => {
         <div className="row">
           <div className="col-8">
             {/* <SalientFeature /> */}
-            <RateProduct />
+            <RateProduct productDetail={productDetail} />
           </div>
           <div className="col-4">
             <Specification />

@@ -66,3 +66,7 @@ export const DELETE_ORDER = 'DELETE_ORDER';
 export const FETCH_ORDER_TODAY = 'FETCH_ORDER_TODAY';
 export const FETCH_DETAIL_ORDER = 'FETCH_DETAIL_ORDER';
 export const CONFIRM_ORDER = 'CONFIRM_ORDER';
+
+//CMT
+export const ADD_CMT = 'ADD_CMT';
+export const FETCH_CMT = 'FETCH_CMT';
