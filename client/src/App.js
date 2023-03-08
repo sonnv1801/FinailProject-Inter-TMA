@@ -19,9 +19,9 @@ import ListUser from './pages/admin/listuser/ListUser';
 import ListProductAdmin from './pages/admin/listProductadmin/ListProductAdmin';
 import ListOderAdmin from './pages/admin/listOderAdmin/ListOderAdmin';
 import ListOrderToday from './pages/admin/listOderAdmin/listordertoday/ListOrderToday';
-import DetailorderAd from './pages/admin/detailOrderAdmin/detailorderAd';
 import RatingAd from './pages/admin/rateAdmin/RatingAd';
 import DetailRateAd from './pages/admin/rateAdmin/detailRateAd/DetailRateAd';
+import DetailorderAd from './pages/admin/listOderAdmin/detailOrderAdmin/detailorderAd';
 
 function App() {
   const user = JSON.parse(localStorage.getItem('token'));

@@ -5,9 +5,10 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import {
   confirmOrder,
   getDetailOrder,
-} from '../../../redux/actions/order.action';
-import { getProduct } from '../../../redux/actions/product.action';
-import Sidebar from '../sidebaradmin/Sidebar';
+} from '../../../../redux/actions/order.action';
+import { getProduct } from '../../../../redux/actions/product.action';
+
+import Sidebar from '../../sidebaradmin/Sidebar';
 import './style.css';
 function DetailorderAd() {
   const dispatch = useDispatch();
