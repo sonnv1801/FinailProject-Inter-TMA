@@ -7,7 +7,6 @@ function ListUser() {
   const listUsers = useSelector((state) => state.defaultReducer.listUser);
   const isLoading = useSelector((state) => state.defaultReducer.isLoading);
   const currentUser = JSON.parse(localStorage.getItem('token'));
-  console.log('listUsers-Admin', listUsers);
 
   const dispatch = useDispatch();
   useEffect(() => {

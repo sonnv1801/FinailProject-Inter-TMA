@@ -8,7 +8,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createCmt } from '../../../../redux/actions/comment.action';
 const MyRate = ({ productDetail, fliterCMT }) => {
-  console.log(productDetail.productDetail.productDetail?._id);
   const [number, setNumber] = useState(0);
   const [hoverStar, setHoverStar] = useState(undefined);
   const navigate = useNavigate();
@@ -20,8 +19,6 @@ const MyRate = ({ productDetail, fliterCMT }) => {
     comment: '',
   });
 
-  console.log(data);
-  console.log(hoverStar);
   const handleChange = (name) => (e) => {
     const value = name === 'image' ? e.target.files[0] : e.target.value;
     setData({ ...data, [name]: value });

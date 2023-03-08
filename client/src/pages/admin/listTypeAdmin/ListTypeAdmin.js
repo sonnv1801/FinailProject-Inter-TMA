@@ -36,7 +36,6 @@ function ListTypeAdmin() {
     };
     dispatch(addType(newType, currentUser?.accessToken));
     setShowadd(false);
-    console.log('newType', newType);
   };
   const handleCloseAdd = () => {
     setShowadd(false);

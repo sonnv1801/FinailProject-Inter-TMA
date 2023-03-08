@@ -28,9 +28,6 @@ const ProductDetail = () => {
     (state) => state.defaultReducer.productDetail
   );
 
-  console.log('productDetail.....', productDetail);
-
-  console.log('productDetail', productDetail?._id);
   const ProductSimilar = useSelector(
     (state) => state.defaultReducer.listProductSimilar
   );

@@ -13,8 +13,6 @@ function ListOderAdmin() {
   useEffect(() => {
     dispatch(getOrder());
   }, []);
-
-  console.log(listOrderAd);
   return (
     <div className="container-listOderAd">
       <div className="row">

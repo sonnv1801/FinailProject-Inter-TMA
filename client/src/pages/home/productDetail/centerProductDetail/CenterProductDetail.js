@@ -40,11 +40,6 @@ const CenterProductDetail = (ceterProduct) => {
 
   const [selectColor, setSelectColor] = useState('');
   const [selectStore, setSelectStore] = useState('');
-
-  console.log(selectColor);
-  console.log(selectStore);
-
-  console.log(ceterProduct.ceterProduct?._id);
   const handleAddCart = (e) => {
     const newCart = {
       id: ceterProduct.ceterProduct?._id,

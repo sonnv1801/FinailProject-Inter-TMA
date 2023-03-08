@@ -11,7 +11,6 @@ export const CartPayment = () => {
   const user = JSON.parse(localStorage.getItem('token'));
   const [order, setOrder] = useState(null);
   const [error, setError] = useState(null);
-  console.log(carts);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const renderAmount = () => {
@@ -26,8 +25,6 @@ export const CartPayment = () => {
     address: '',
     notes: '',
   });
-
-  console.log(data);
 
   const handleChange = (name) => (e) => {
     const value = name === 'image' ? e.target.files[0] : e.target.value;

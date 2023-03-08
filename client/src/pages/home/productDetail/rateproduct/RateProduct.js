@@ -43,13 +43,11 @@ const rate = [
 
 const RateProduct = (productDetail) => {
   const dispatch = useDispatch();
-  console.log('.....ddd.....', productDetail.productDetail);
 
   const cmts = useSelector((state) => state.defaultReducer.listCMT);
   const user = JSON.parse(localStorage.getItem('token'));
   const location = useLocation();
   const id = location.pathname.split('/')[2];
-  // console.log('..............', cmts);
   useEffect(() => {
     dispatch(getCMT());
   }, []);
