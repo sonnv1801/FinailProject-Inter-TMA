@@ -28,9 +28,7 @@ const MyRate = ({ productDetail, fliterCMT }) => {
   const handleCMT = async (e) => {
     e.preventDefault();
     try {
-      if (data.comment === '' && number.lenght === 0) {
-        Swal.fire('Nhập Đầy Đủ Thông Tin?', 'error');
-      } else {
+      if (data.comment !== '' && number.lenght !== 0) {
         const customer = JSON.parse(localStorage.getItem('token')) || [];
         const cmt = {
           customer: {
@@ -46,6 +44,8 @@ const MyRate = ({ productDetail, fliterCMT }) => {
         // console.log(response);
         setCmt(response.customer);
         console.log(response);
+      } else {
+        Swal.fire('Nhập Đầy Đủ Thông Tin?', 'error');
       }
 
       // navigate('/');

@@ -114,7 +114,8 @@ const RateProduct = (productDetail) => {
                 <>
                   <div className="info-rate">
                     <span>
-                      {item.customer.fullname} – {item.createdAt}
+                      {item.customer.fullname} –
+                      {moment(item.createdAt).format('DD/MM/YYYY')}
                     </span>
                     <b>
                       {item.customer.rate}
