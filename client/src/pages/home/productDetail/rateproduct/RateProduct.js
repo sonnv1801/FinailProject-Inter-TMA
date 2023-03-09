@@ -88,10 +88,7 @@ const RateProduct = (productDetail) => {
           </div>
         ))} */}
       </div>
-      <div className="vote-rate">
-        <h1>Hãy cho tôi biết ý kiến của bạn</h1>
-        <button>Gửi đánh giá</button>
-      </div>
+
       <div className="body-rate">
         <p>
           {renderAmount()} đánh giá cho iPhone 14 Pro Max 128GB chính hãng VNA
