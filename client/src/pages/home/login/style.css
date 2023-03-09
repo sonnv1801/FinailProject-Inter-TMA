@@ -1,6 +1,7 @@
 .main {
   background-color: rgb(221, 185, 185);
   width: 100%;
+  margin-top: -11px;
   min-height: 700px;
   position: relative;
   background-image: url('https://wallpapers.com/images/featured/murjp1nk4lp1idlt.jpg');

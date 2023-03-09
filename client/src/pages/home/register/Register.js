@@ -3,8 +3,14 @@ import './style.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { registerUser } from '../../../redux/actions/user.action';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 function Register() {
+  const messerr = useSelector((state) => state.defaultReducer.register.error);
+  if (messerr === true) {
+    console.log('Sao la v con?');
+  } else {
+    console.log('O tuyet voi');
+  }
   const [fullname, setFullname] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -154,6 +160,9 @@ function Register() {
           <button type="submit" className="btn btn-danger">
             XONG
           </button>
+          <span className="totstify-register">
+            {messerr === false ? `` : `Xin hãy nhập đầy đủ thông tin!`}
+          </span>
         </form>
       </div>
     </>

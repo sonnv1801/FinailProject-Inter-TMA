@@ -56,38 +56,38 @@ function DetailRateAd() {
                 </div>
 
                 <h5 className="mt-3">{cmtDetail?.customer.comment}</h5>
-              </div>
-              <div className="card-footer ">
-                <div className="float-end">
-                  {cmtDetail?.status === 0 ? (
-                    <button
-                      type="button"
-                      className="btn btn-success btn-sm"
-                      onClick={() =>
-                        dispatch(
-                          confirmCMT(path, currentUser?.accessToken, navigate)
-                        )
-                      }
-                    >
-                      Phê duyệt
-                    </button>
-                  ) : (
-                    'Đã Duyệt'
-                  )}
+                <div className="card-footer ">
+                  <div className="float-end">
+                    {cmtDetail?.status === 0 ? (
+                      <button
+                        type="button"
+                        className="btn btn-success btn-sm"
+                        onClick={() =>
+                          dispatch(
+                            confirmCMT(path, currentUser?.accessToken, navigate)
+                          )
+                        }
+                      >
+                        Phê duyệt
+                      </button>
+                    ) : (
+                      'Đã Duyệt'
+                    )}
 
-                  {cmtDetail?.status === 0 ? (
-                    <button
-                      onClick={() =>
-                        dispatch(
-                          deleteCMT(path, currentUser?.accessToken, navigate)
-                        )
-                      }
-                      type="button"
-                      className="btn btn-outline-danger btn-sm"
-                    >
-                      Xoá ngay và luôn
-                    </button>
-                  ) : null}
+                    {cmtDetail?.status === 0 ? (
+                      <button
+                        onClick={() =>
+                          dispatch(
+                            deleteCMT(path, currentUser?.accessToken, navigate)
+                          )
+                        }
+                        type="button"
+                        className="btn btn-outline-danger btn-sm"
+                      >
+                        Xoá ngay và luôn
+                      </button>
+                    ) : null}
+                  </div>
                 </div>
               </div>
             </div>

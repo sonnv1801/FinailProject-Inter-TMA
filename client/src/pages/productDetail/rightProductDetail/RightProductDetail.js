@@ -5,12 +5,12 @@ import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 const RightProductDetail = () => {
   return (
     <div className="right-prd-dt">
-      <div className="select-area">
+      {/* <div className="select-area">
         <select>
           <option>Miền Nam</option>
           <option>Miền Bắc</option>
         </select>
-      </div>
+      </div> */}
       <div className="address-area">
         <ul>
           <li>

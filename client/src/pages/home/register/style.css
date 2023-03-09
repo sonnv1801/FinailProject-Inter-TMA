@@ -2,7 +2,7 @@
   background-color: rgb(221, 185, 185);
   width: 100%;
   min-height: 700px;
-
+  margin-top: -11px;
   position: relative;
   background-image: url('https://c4.wallpaperflare.com/wallpaper/922/804/907/light-laptop-notebook-lighting-wallpaper-preview.jpg');
   background-repeat: no-repeat;
@@ -11,9 +11,9 @@
 }
 
 .register {
-  margin-top: 5rem;
+  margin-top: 6rem;
   width: 60%;
-  height: 500px;
+  height: 550px;
   background: rgb(228, 225, 225);
   border-radius: 1rem;
   position: absolute;
@@ -22,7 +22,12 @@
   bottom: 20%;
   top: -53px;
 }
-
+.register-page .totstify-register {
+  float: right;
+  padding: 10px;
+  color: red;
+  margin-right: 10px;
+}
 .register .title {
   color: #212529;
   font-size: 40px;

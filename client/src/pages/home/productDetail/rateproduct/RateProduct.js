@@ -70,7 +70,7 @@ const RateProduct = (productDetail) => {
   console.log(id);
   return (
     <div className="rate-product">
-      <b>Đánh giá & Nhận xét iPhone 14 Pro Max 128GB chính hãng VNA</b>
+      <h4>Đánh giá & Nhận xét iPhone 14 Pro Max 128GB chính hãng VNA</h4>
       <div className="header-rate">
         {/* <div className="sub-header-left">
           <b>

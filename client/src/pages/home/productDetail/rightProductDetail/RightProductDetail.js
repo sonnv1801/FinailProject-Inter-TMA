@@ -1,7 +1,6 @@
 import React from 'react';
 import './style.css';
 import PinDropRoundedIcon from '@mui/icons-material/PinDropRounded';
-import HeadsetMicIcon from '@mui/icons-material/HeadsetMic';
 import { Link } from 'react-router-dom';
 const RightProductDetail = () => {
   return (
@@ -56,6 +55,12 @@ const RightProductDetail = () => {
             Trả góp qua thẻ<span>Visa, MasterCard, JBL</span>
           </Link>
         </button>
+      </div>
+      <div className="banner-prd-dt">
+        <img
+          src="https://clickbuy.com.vn/uploads/2023/02/slide-valentine-day-iphone-01.png"
+          alt="Iphone"
+        />
       </div>
     </div>
   );
