@@ -36,12 +36,12 @@ function Dashboard() {
                       <h3>150</h3>
                       <p>New Oders</p>
                     </div>
-                    <i class="bx bx-shopping-bag"></i>
+                    <i className="bx bx-shopping-bag"></i>
                   </div>
                   <div>
-                    <a href="#">
+                    <a href="#!">
                       <li style={{ background: `${item.more}` }}>
-                        More infor <i class="bx bxs-right-arrow-circle"></i>
+                        More infor <i className="bx bxs-right-arrow-circle"></i>
                       </li>
                     </a>
                   </div>

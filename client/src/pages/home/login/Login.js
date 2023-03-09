@@ -4,27 +4,25 @@ import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../../../redux/actions/user.action';
+import Swal from 'sweetalert2';
 function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const messerr = useSelector((state) => state.defaultReducer.login.error);
-  if (messerr === true) {
-    console.log('Sao la v con?');
-  } else {
-    console.log('O tuyet voi');
-  }
   const dispatch = useDispatch();
   const navigate = useNavigate();
-
+  console.log(messerr);
   const handleLogin = (e) => {
     e.preventDefault();
-    // event.preventDefault();
-    const newUser = {
-      username: username,
-      password: password,
-    };
-    loginUser(newUser, dispatch, navigate);
-    console.log(newUser);
+    if (username !== '' && password !== '') {
+      const newUser = {
+        username: username,
+        password: password,
+      };
+      loginUser(newUser, dispatch, navigate);
+    } else {
+      Swal.fire('Vui lòng nhập đầy đủ Username và mật khẩu', 'waring');
+    }
   };
   const handleShow = () => {
     const x = document.getElementById('form-password');
@@ -40,7 +38,9 @@ function Login() {
       <div className="main">
         <form className="login" action="#" id="form-1" onSubmit={handleLogin}>
           <p style={{ color: 'red', textAlign: 'center', marginTop: '10px' }}>
-            {messerr === false ? `` : `Xin hãy nhập lại!`}
+            {messerr === false
+              ? ``
+              : `Vui Lòng kiểm tra lại Username Và Mật khẩu!`}
           </p>
 
           <div className="title">Wellcome!</div>

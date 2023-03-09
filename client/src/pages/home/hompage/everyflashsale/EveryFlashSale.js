@@ -1,9 +1,7 @@
 import './style.css';
-
 import React from 'react';
 import Clock from '../../../../components/flashsale/Clock';
 import Slider from 'react-slick';
-
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Card from '../../../../components/cards/Card';
@@ -59,18 +57,18 @@ const EveryFlashSale = (listProducts) => {
       <>
         {isLoading ? (
           <div
-            class="spinner-border"
+            className="spinner-border"
             role="status"
             style={{ position: 'relative', left: '50%' }}
           >
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
           <div className="product-sale">
             <Slider {...settings}>
               {listProducts.listProducts.listProduct10days?.map(
-                (item, idex) => (
-                  <Card card={item} key={idex} />
+                (item, index) => (
+                  <Card card={item} key={index} />
                 )
               )}
             </Slider>

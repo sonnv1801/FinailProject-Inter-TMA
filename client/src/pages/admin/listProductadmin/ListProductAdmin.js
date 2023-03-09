@@ -128,12 +128,12 @@ function ListProductAdmin() {
               <div className="col-sm-7">
                 <button
                   href="#"
-                  class="btn btn-outline-danger"
+                  className="btn btn-outline-danger"
                   onClick={() => {
                     setShowadd(true);
                   }}
                 >
-                  <i class="bx bxs-folder-plus"></i>
+                  <i className="bx bxs-folder-plus"></i>
                   <span>Add Products</span>
                 </button>
               </div>
@@ -153,11 +153,11 @@ function ListProductAdmin() {
             <tbody>
               {isLoading ? (
                 <div
-                  class="spinner-border"
+                  className="spinner-border"
                   role="status"
                   style={{ margin: '0 auto' }}
                 >
-                  <span class="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
                 <>
@@ -176,7 +176,7 @@ function ListProductAdmin() {
                       <td>
                         <Link to={`/admin/${item._id}`}>
                           <button className="btn btn-success">
-                            <i class="bx bxs-edit-alt" style={{}}></i>
+                            <i className="bx bxs-edit-alt" style={{}}></i>
                           </button>
                         </Link>
                         <button

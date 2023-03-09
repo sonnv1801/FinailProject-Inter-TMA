@@ -7,6 +7,12 @@
   margin-bottom: 1rem !important;
 }
 
+.container-card:hover {
+  box-shadow: #e10c00 0px 2px 1px;
+  margin: 0;
+  padding: 0;
+}
+
 #color-tile-card span {
   color: orange !important;
 }
@@ -101,10 +107,14 @@ a {
 #rates span {
   color: orange !important;
 }
+
 .MuiCardMedia-root.sub-card-container.css-muxve-MuiCardMedia-root {
   border-top-left-radius: 7px;
   border-top-right-radius: 7px;
 }
+
+
+
 button.MuiButtonBase-root.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeSmall.MuiButton-textSizeSmall.MuiButton-root.MuiButton-text.MuiButton-textPrimary.MuiButton-sizeSmall.MuiButton-textSizeSmall.css-1knaqv7-MuiButtonBase-root-MuiButton-root {
   border: 1px solid;
   margin-left: 10px;

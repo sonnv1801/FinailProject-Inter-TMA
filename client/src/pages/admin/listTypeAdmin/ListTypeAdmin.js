@@ -59,12 +59,12 @@ function ListTypeAdmin() {
               <div className="col-sm-7">
                 <button
                   href="#"
-                  class="btn btn-outline-danger"
+                  className="btn btn-outline-danger"
                   onClick={() => {
                     setShowadd(true);
                   }}
                 >
-                  <i class="bx bxs-folder-plus"></i>
+                  <i className="bx bxs-folder-plus"></i>
                   <span>Thêm Mặt hàng</span>
                 </button>
               </div>
@@ -81,11 +81,11 @@ function ListTypeAdmin() {
             <tbody>
               {isLoading ? (
                 <div
-                  class="spinner-border"
+                  className="spinner-border"
                   role="status"
                   style={{ margin: '0 auto' }}
                 >
-                  <span class="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
                 <>

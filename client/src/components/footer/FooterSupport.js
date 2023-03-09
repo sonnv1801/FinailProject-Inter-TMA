@@ -13,7 +13,7 @@ const FooterSupport = () => {
             <span>(Từ 8:00-21:00)</span>
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/" className="text-dark">
             Hotline bán hàng: 0375521434 | 1900.633.471
           </Link>
@@ -27,7 +27,7 @@ const FooterSupport = () => {
           <Link to="/" className="text-dark">
             Hotline bán hàng: 0375521434 | 1900.633.471
           </Link>
-        </li>
+        </li> */}
         <li>
           <div className="support-footer">
             <Link to="/">

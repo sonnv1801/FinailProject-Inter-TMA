@@ -11,7 +11,7 @@ const FooterSocial = () => {
       <section className="mb-4 body-social">
         <Link
           className="btn btn-link btn-floating btn-lg text-dark m-1"
-          to="/"
+          to="https://www.facebook.com/profile.php?id=100013919431514"
           role="button"
           data-mdb-ripple-color="dark"
         >
@@ -22,7 +22,7 @@ const FooterSocial = () => {
         </Link>
         <Link
           className="btn btn-link btn-floating btn-lg text-dark m-1"
-          to="/"
+          to="https://www.youtube.com/channel/UCr2BxKRWiHS5n2jwoabrUag"
           role="button"
           data-mdb-ripple-color="dark"
         >
@@ -33,7 +33,7 @@ const FooterSocial = () => {
         </Link>
         <Link
           className="btn btn-link btn-floating btn-lg text-dark m-1"
-          to="/"
+          to="https://github.com/sonnv1801"
           role="button"
           data-mdb-ripple-color="dark"
         >
@@ -42,7 +42,7 @@ const FooterSocial = () => {
             GitHub
           </p>
         </Link>
-        <Link
+        {/* <Link
           className="btn btn-link btn-floating btn-lg text-dark m-1"
           to="/"
           role="button"
@@ -52,7 +52,7 @@ const FooterSocial = () => {
             <TwitterIcon className="icon-social" />
             Twitter
           </p>
-        </Link>
+        </Link> */}
       </section>
     </div>
   );

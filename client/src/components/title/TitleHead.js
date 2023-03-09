@@ -7,8 +7,8 @@ function TitleHead(props) {
       <h1>Sản Phẩm</h1>
       <div className="sub-content">
         <ul>
-          {props.typeProduct.map((item) => (
-            <Link to={`/shop/${item.name}`}>
+          {props.typeProduct.map((item, index) => (
+            <Link to={`/shop/${item.name}`} key={index}>
               <li>{item.name}</li>
             </Link>
           ))}

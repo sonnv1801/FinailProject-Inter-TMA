@@ -20,8 +20,6 @@ function DetailRateAd() {
   useEffect(() => {
     dispatch(getDetailCMT(path));
   }, []);
-
-  console.log(currentUser?.accessToken);
   return (
     <div className="container-DetailRateAd">
       <div className="row">

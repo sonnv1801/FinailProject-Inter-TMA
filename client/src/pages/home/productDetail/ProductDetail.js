@@ -35,8 +35,6 @@ const ProductDetail = () => {
     dispatch(getProductSimilar(id));
   }, []);
 
-  console.log('ProductSimilar', ProductSimilar);
-
   return (
     <>
       {/* <NavProduct /> */}

@@ -5,7 +5,7 @@ const Specification = () => {
   return (
     <div className="specifications">
       <b>Thông số kỹ thuật</b>
-      <table class="table table-hover">
+      <table className="table table-hover">
         <tbody>
           <tr>
             <td>Màu sắc</td>

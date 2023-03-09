@@ -98,7 +98,7 @@ const RateProduct = (productDetail) => {
             <>
               {item.status !== 0 ? (
                 <>
-                  <div className="info-rate">
+                  <div className="info-rate" key={index}>
                     <span>
                       {item.customer.fullname} –
                       {moment(item.createdAt).format('DD/MM/YYYY')}
@@ -112,7 +112,7 @@ const RateProduct = (productDetail) => {
                 </>
               ) : (
                 <>
-                  <div className="info-rate">
+                  <div className="info-rate" key={index}>
                     <span>
                       {item.customer.fullname} –
                       {moment(item.createdAt).format('DD/MM/YYYY')}

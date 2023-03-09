@@ -41,11 +41,11 @@ function ListOderAdmin() {
             <tbody>
               {isLoading ? (
                 <div
-                  class="spinner-border"
+                  className="spinner-border"
                   role="status"
                   style={{ margin: '0 auto' }}
                 >
-                  <span class="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
                 <>
@@ -61,18 +61,20 @@ function ListOderAdmin() {
                             <>
                               <span>Chờ Xử Lý</span>
                               <div
-                                class="spinner-border"
+                                className="spinner-border"
                                 role="status"
                                 style={{ margin: '0 auto' }}
                               >
-                                <span class="visually-hidden">Loading...</span>
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
                               </div>
                             </>
                           ) : (
                             <>
                               <span>Đã Xử Lý</span>
                               <i
-                                class="fa fa-check"
+                                className="fa fa-check"
                                 style={{
                                   color: 'green',
                                   fontSize: '26px',
@@ -86,7 +88,7 @@ function ListOderAdmin() {
                       <td>
                         <Link to={`/admin/detailorder/${item?._id}`}>
                           <button className="btn btn-success">
-                            <i class="bx bx-edit"></i>
+                            <i className="bx bx-edit"></i>
                           </button>
                         </Link>
                       </td>

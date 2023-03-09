@@ -1,21 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import ArrowUpwardIcon from '@mui/icons-material/ArrowUpward';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 import './style.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { searchProduct } from '../../../../redux/actions/product.action';
-import MediaCard from '../../../../components/cards/Card';
 export const BodyProduct = () => {
   const location = useLocation();
   const type = location.pathname.split('/')[2];
-  const search = useSelector((state) => state.defaultReducer.search);
   function refreshPage() {
     setTimeout(() => {
       window.location.reload(false);
     }, 200);
   }
-  console.log(search);
   const dispatch = useDispatch();
   const [key, setkey] = React.useState('');
   const handleChange = (e) => {
@@ -30,8 +27,8 @@ export const BodyProduct = () => {
 
   return (
     <div className="body-product">
-      <b>Chọn theo tiêu chí</b>
-      <div className="sub-body-product">
+      {/* <b>Chọn theo tiêu chí</b> */}
+      {/* <div className="sub-body-product">
         <select>
           <option selected>$ Giá</option>
           <option>Dưới 3 triệu</option>
@@ -44,7 +41,7 @@ export const BodyProduct = () => {
           <option>16 Gb</option>
           <option>32 Gb</option>
         </select>
-      </div>
+      </div> */}
       <b>Sắp xếp theo</b>
       <div className="sub-body-arrange">
         <Link to={`/shop/${type}/1`} onClick={refreshPage}>
@@ -67,11 +64,11 @@ export const BodyProduct = () => {
             // value={key}
             name="search"
             onChange={handleChange}
-            placeholder="Search"
-            aria-label="Search"
+            placeholder="Tìm kiếm"
+            aria-label="Tìm kiếm"
           />
           <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
-            Search
+            Tìm kiếm
           </button>
         </form>
       </div>

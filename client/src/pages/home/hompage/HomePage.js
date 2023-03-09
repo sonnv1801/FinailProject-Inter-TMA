@@ -1,5 +1,4 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import MediaCard from '../../../components/cards/Card';
 import Carousel from '../../../components/carousel/Carousel';
@@ -17,7 +16,6 @@ import EveryFlashSale from './everyflashsale/EveryFlashSale';
 import './style.css';
 import SubNav from './subnav/SubNav';
 import TypeNav from './typenav/TypeNav';
-
 const HomePage = () => {
   const listProduct = useSelector((state) => state.defaultReducer.listProduct);
   const listProductType = useSelector(
@@ -76,11 +74,11 @@ const HomePage = () => {
       <TitleHead typeProduct={listType} />
       {isLoading ? (
         <div
-          class="spinner-border"
+          className="spinner-border"
           role="status"
           style={{ position: 'relative', left: '50%' }}
         >
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
       ) : (
         <div className="card-product-home">
@@ -96,11 +94,11 @@ const HomePage = () => {
       <TitleHead typeProduct={listType} />
       {isLoading ? (
         <div
-          class="spinner-border"
+          className="spinner-border"
           role="status"
           style={{ position: 'relative', left: '50%' }}
         >
-          <span class="visually-hidden">Loading...</span>
+          <span className="visually-hidden">Loading...</span>
         </div>
       ) : (
         <div className="card-product-home">

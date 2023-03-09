@@ -6,7 +6,7 @@ export const MenuShop = (typeShop) => {
     <div className="menu-shop">
       <ul>
         {typeShop.typeShop.map((item, index) => (
-          <li>
+          <li key={index}>
             <Link to={`/product-detail/${item?._id}`}>{item.title}</Link>
           </li>
         ))}

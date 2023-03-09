@@ -47,12 +47,12 @@ function DetailorderAd() {
                 {listOrder?.status === 0 ? (
                   <button
                     href="#"
-                    class="btn btn-success"
+                    className="btn btn-success"
                     onClick={() =>
                       dispatch(confirmOrder(path, user?.accessToken, navigate))
                     }
                   >
-                    <i class="bx bx-check"></i>
+                    <i className="bx bx-check"></i>
                     <span>Xác nhận đơn hàng</span>
                   </button>
                 ) : null}
