@@ -70,3 +70,6 @@ export const CONFIRM_ORDER = 'CONFIRM_ORDER';
 //CMT
 export const ADD_CMT = 'ADD_CMT';
 export const FETCH_CMT = 'FETCH_CMT';
+export const FETCH_DETAIL_CMT = 'FETCH_DETAIL_CMT';
+export const DELETE_CMT = 'DELETE_CMT';
+export const CONFIRM_CMT = 'CONFIRM_CMT';

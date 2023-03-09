@@ -10,4 +10,6 @@ router.delete(
   middlewareController.verifyTokenAndAdminAuth,
   comments.deleteComment
 );
+router.get("/:id", comments.getCommentById);
+router.put("/:id", comments.confirmCMT);
 module.exports = router;

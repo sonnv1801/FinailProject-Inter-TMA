@@ -59,7 +59,10 @@ function App() {
               <Route path="/admin/orders" element={<ListOderAdmin />} />
               <Route path="/admin/orders/today" element={<ListOrderToday />} />
               <Route path="/admin/rate" element={<RatingAd />} />
-              <Route path="/admin/detailRating" element={<DetailRateAd />} />
+              <Route
+                path="/admin/detailRating/:id"
+                element={<DetailRateAd />}
+              />
               <Route
                 path="/admin/detailorder/:id"
                 element={<DetailorderAd />}
