@@ -15,8 +15,6 @@ function ListOrderToday() {
   useEffect(() => {
     dispatch(getOrderToday());
   }, []);
-
-  console.log(listOrderToday);
   return (
     <div className="container-listOderAd">
       <div className="row">
@@ -45,11 +43,11 @@ function ListOrderToday() {
             <tbody>
               {isLoading && listOrderToday.length === 0 ? (
                 <div
-                  class="spinner-border"
+                  className="spinner-border"
                   role="status"
                   style={{ margin: '0 auto' }}
                 >
-                  <span class="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
                 <>
@@ -65,18 +63,20 @@ function ListOrderToday() {
                             <>
                               <span>Chờ Xử Lý</span>
                               <div
-                                class="spinner-border"
+                                className="spinner-border"
                                 role="status"
                                 style={{ margin: '0 auto' }}
                               >
-                                <span class="visually-hidden">Loading...</span>
+                                <span className="visually-hidden">
+                                  Loading...
+                                </span>
                               </div>
                             </>
                           ) : (
                             <>
                               <span>Đã Xử Lý</span>
                               <i
-                                class="fa fa-check"
+                                className="fa fa-check"
                                 style={{
                                   color: 'green',
                                   fontSize: '26px',
@@ -90,7 +90,7 @@ function ListOrderToday() {
                       <td>
                         <Link to={`/admin/detailorder/${item?._id}`}>
                           <button className="btn btn-success">
-                            <i class="bx bx-edit"></i>
+                            <i className="bx bx-edit"></i>
                           </button>
                         </Link>
                       </td>

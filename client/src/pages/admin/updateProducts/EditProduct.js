@@ -105,9 +105,8 @@ const EditProduct = () => {
             <span>Tất cả màu Sản Phẩm</span>
             <div className="row">
               {data.colors?.map((item, index) => (
-                <div className="col-6">
+                <div className="col-6" key={index}>
                   <input
-                    key={index}
                     className="form-control"
                     type="text"
                     name="title"
@@ -122,9 +121,8 @@ const EditProduct = () => {
             <span>Tất cả bộ nhớ Sản Phẩm</span>
             <div className="row">
               {data.stores?.map((item, index) => (
-                <div className="col-6">
+                <div className="col-6" key={index}>
                   <input
-                    key={index}
                     className="form-control"
                     type="text"
                     name="title"

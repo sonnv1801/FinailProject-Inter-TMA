@@ -33,14 +33,18 @@ export const HeaderOrder = () => {
   return (
     <>
       {fliterOrder.length === 0 ? (
-        <div class="alert alert-danger" role="alert" style={{ margin: '2rem' }}>
+        <div
+          className="alert alert-danger"
+          role="alert"
+          style={{ margin: '2rem' }}
+        >
           Hiện Tại Chưa Có Hóa Đơn Nào - Mua Thêm Đi!!!
           <div
-            class="spinner-border text-danger"
+            className="spinner-border text-danger"
             role="status"
             style={{ float: 'right' }}
           >
-            <span class="visually-hidden">Loading...</span>
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       ) : (
@@ -76,9 +80,9 @@ export const HeaderOrder = () => {
           <b>Chi tiết đơn hàng</b>
           <div className="footer-order">
             {fliterOrder.map((item, index) => (
-              <table class="table">
+              <table className="table">
                 <thead>
-                  <tr>
+                  <tr key={index}>
                     <th scope="col">Mã Đơn Hàng {index}</th>
                     <th scope="col">Tổng</th>
                   </tr>
@@ -93,7 +97,7 @@ export const HeaderOrder = () => {
                 </tbody>
               </table>
             ))}
-            <table class="table" style={{ textAlign: 'center' }}>
+            <table className="table" style={{ textAlign: 'center' }}>
               <thead>
                 <tr>
                   <th scope="col">Tổng Hóa Đơn Của Bạn:</th>

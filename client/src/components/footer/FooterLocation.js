@@ -6,7 +6,7 @@ const FooterLocation = () => {
       <h5 className=" text-center">Khu vực</h5>
       <div>
         <nav>
-          <div className="nav nav-tabs" id="nav-tab" role="tablist">
+          {/* <div className="nav nav-tabs" id="nav-tab" role="tablist">
             <button
               className="nav-link active"
               id="nav-home-tab"
@@ -43,7 +43,7 @@ const FooterLocation = () => {
             >
               <b>Miền Nam</b>
             </button>
-          </div>
+          </div> */}
         </nav>
         <div className="tab-content tabs-scroll" id="nav-tabContent">
           <div
@@ -60,16 +60,6 @@ const FooterLocation = () => {
               <LocalOfferIcon className="icon-location" />
               Nghĩa Hành, Tư Nghĩa, Quảng Ngãi: 0375521434 | 0869176474
             </p>
-            <p>
-              <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
-            </p>
-            <p>
-              <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
-            </p>
           </div>
           <div
             className="tab-pane fade"
@@ -79,13 +69,11 @@ const FooterLocation = () => {
           >
             <p>
               <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
+              Nghĩa Trung, Tư Nghĩa, Quảng Ngãi: 0375521434 | 0869176474
             </p>
             <p>
               <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
+              Nghĩa Hành, Tư Nghĩa, Quảng Ngãi: 0375521434 | 0869176474
             </p>
           </div>
           <div
@@ -96,13 +84,11 @@ const FooterLocation = () => {
           >
             <p>
               <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
+              Nghĩa Trung, Tư Nghĩa, Quảng Ngãi: 0375521434 | 0869176474
             </p>
             <p>
               <LocalOfferIcon className="icon-location" />
-              379 Hoàng Văn Thụ, P2, Q.Tân Bình, HCM: 0984.768.260 |
-              028.66.845.057
+              Nghĩa Hành, Tư Nghĩa, Quảng Ngãi: 0375521434 | 0869176474
             </p>
           </div>
         </div>

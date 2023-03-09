@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useLocation } from 'react-router-dom';
 import MediaCard from '../../../components/cards/Card';
-import Card from '../../../components/cards/Card';
 import NavProduct from '../../../components/navproduct/NavProduct';
 import {
   filledProduct,
@@ -20,7 +19,6 @@ const Shop = () => {
   const fillPrice = useSelector((state) => state.defaultReducer.fillPrice);
   const isLoading = useSelector((state) => state.defaultReducer.isLoading);
 
-  // console.log(search);
   const type = location.pathname.split('/')[2];
   const limit = 100;
   const filled = location.pathname.split('/')[3];
@@ -41,8 +39,6 @@ const Shop = () => {
     dispatch(searchProduct(key));
   };
   const search = useSelector((state) => state.defaultReducer.search);
-  console.log(search);
-  console.log(key);
 
   if (search.length > 0) {
     return (
@@ -51,14 +47,17 @@ const Shop = () => {
           <input
             className="form-control mr-sm-2"
             type="text"
-            // value={key}
             name="search"
             onChange={handleChange}
-            placeholder="Search"
-            aria-label="Search"
+            placeholder="Tìm kiếm"
+            aria-label="Tìm kiếm"
           />
-          <button className="btn btn-outline-dark my-2 my-sm-0" type="submit">
-            Search
+          <button
+            className="btn btn-outline-dark my-2 my-sm-0"
+            type="submit"
+            style={{ right: '138px' }}
+          >
+            Tìm Kiếm
           </button>
         </form>
         <div
@@ -69,8 +68,8 @@ const Shop = () => {
         </div>
         <div className="row mt-3">
           {search?.map((item, index) => (
-            <div className="col-3 mb-2">
-              <MediaCard key={index} card={item} />
+            <div className="col-3 mb-2" key={index}>
+              <MediaCard card={item} />
             </div>
           ))}
         </div>
@@ -87,11 +86,11 @@ const Shop = () => {
         {isLoading ? (
           <>
             <div
-              class="spinner-border"
+              className="spinner-border"
               role="status"
               style={{ position: 'relative', left: '50%' }}
             >
-              <span class="visually-hidden">Loading...</span>
+              <span className="visually-hidden">Loading...</span>
             </div>
           </>
         ) : (
@@ -106,7 +105,7 @@ const Shop = () => {
                     <h1>Danh Sách Lọc Theo Giá</h1>
                   </div>
                   {fillPrice.map((item, index) => (
-                    <div className="col-3 mb-2">
+                    <div className="col-3 mb-2" key={index}>
                       <MediaCard card={item} />
                     </div>
                   ))}
@@ -120,7 +119,7 @@ const Shop = () => {
                     <h1>Danh Sách Sản Phẩm</h1>
                   </div>
                   {listProductType.map((item, index) => (
-                    <div className="col-3 mb-2">
+                    <div className="col-3 mb-2" key={index}>
                       <MediaCard card={item} />
                     </div>
                   ))}

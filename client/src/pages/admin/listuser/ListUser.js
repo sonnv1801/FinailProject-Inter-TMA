@@ -26,8 +26,8 @@ function ListUser() {
                 <p>Quản lý Người dùng</p>
               </div>
               <div className="col-sm-7">
-                <button href="#" class="btn btn-outline-danger">
-                  <i class="bx bxs-folder-plus"></i>
+                <button href="#" className="btn btn-outline-danger">
+                  <i className="bx bxs-folder-plus"></i>
                   <span>Thêm người dùng</span>
                 </button>
               </div>
@@ -46,11 +46,11 @@ function ListUser() {
             <tbody>
               {isLoading ? (
                 <div
-                  class="spinner-border"
+                  className="spinner-border"
                   role="status"
                   style={{ margin: '0 auto' }}
                 >
-                  <span class="visually-hidden">Loading...</span>
+                  <span className="visually-hidden">Loading...</span>
                 </div>
               ) : (
                 <>
@@ -65,23 +65,23 @@ function ListUser() {
                         <td>
                           <a
                             href="#!"
-                            class="btn btn-danger"
+                            className="btn btn-danger"
                             onClick={() => {
                               dispatch(
                                 deleteUser(item._id, currentUser?.accessToken)
                               );
                             }}
                           >
-                            <i class="fa fa-trash"></i>
+                            <i className="fa fa-trash"></i>
                           </a>
                         </td>
                       ) : (
                         <div
-                          class="spinner-border"
+                          className="spinner-border"
                           role="status"
                           style={{ position: 'relative', left: '50%' }}
                         >
-                          <span class="visually-hidden">Loading...</span>
+                          <span className="visually-hidden">Loading...</span>
                         </div>
                       )}
                     </tr>

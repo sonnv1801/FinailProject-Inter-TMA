@@ -10,22 +10,13 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { animateScroll as scroll } from 'react-scroll';
 import numeral from 'numeral';
-import { useDispatch } from 'react-redux';
-import { addCart } from '../../redux/actions/product.action';
 scroll.scrollToTop();
 export default function MediaCard(props) {
   const oldPrice = props.card?.oldPrice;
   const newPrice = props.card?.newPrice;
   const formattedOldPrice = numeral(oldPrice).format('0,0');
   const formattedNewPrice = numeral(newPrice).format('0,0');
-  const dispatch = useDispatch();
 
-  function refreshPage() {
-    setTimeout(() => {
-      window.location.reload(false);
-      scroll.scrollToTop();
-    }, 100);
-  }
   return (
     <>
       <Link to={`/product-detail/${props.card?._id}`}>

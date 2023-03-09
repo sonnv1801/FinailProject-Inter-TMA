@@ -64,7 +64,7 @@ export const NavDropDown = () => {
             <div id="user-app">
               {user?.role ? (
                 <div>
-                  <li textAlign="center" style={{ display: 'block' }}>
+                  <li textalign="center" style={{ display: 'block' }}>
                     {`Xin chào: ${user?.fullname}`}
                   </li>
                   <li>
@@ -76,7 +76,7 @@ export const NavDropDown = () => {
                 </div>
               ) : (
                 <div>
-                  <li textAlign="center" style={{ display: 'block' }}>
+                  <li textalign="center" style={{ display: 'block' }}>
                     {`Xin chào: ${user?.fullname}`}
                   </li>
                   <li>
@@ -89,13 +89,13 @@ export const NavDropDown = () => {
               )}
               <CartNav cart={cart} />
 
-              <Button textAlign="center" onClick={handlelogout}>
+              <Button textalign="center" onClick={handlelogout}>
                 Đăng Xuất
               </Button>
             </div>
           ) : (
             <div>
-              <Link to="/login" textAlign="center">
+              <Link to="/login" textalign="center">
                 Đăng nhập
               </Link>
               <CartNav cart={cart} />

@@ -136,7 +136,7 @@ function Nav(admin) {
               >
                 {pages.map((page) => (
                   <MenuItem key={page} onClick={handleCloseNavMenu}>
-                    <Typography textAlign="center">{page}</Typography>
+                    <Typography textalign="center">{page}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -157,7 +157,7 @@ function Nav(admin) {
               variant="h5"
               noWrap
               component="a"
-              href=""
+              href="#!"
               sx={{
                 mr: 2,
                 display: { xs: 'flex', md: 'none' },

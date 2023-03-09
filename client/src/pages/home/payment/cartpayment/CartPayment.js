@@ -107,7 +107,7 @@ export const CartPayment = () => {
           </div>
           <div className="infomation-product">
             <b>HOÁ ĐƠN</b>
-            <table class="table">
+            <table className="table">
               <thead>
                 <tr>
                   <th scope="col">Sản phẩm</th>
@@ -116,7 +116,7 @@ export const CartPayment = () => {
               </thead>
               {carts?.map((item, index) => (
                 <tbody>
-                  <tr>
+                  <tr key={index}>
                     <td>
                       {item?.title}
                       <span className="quantity-prd-payment">{`X${item?.quantity_cart}`}</span>
