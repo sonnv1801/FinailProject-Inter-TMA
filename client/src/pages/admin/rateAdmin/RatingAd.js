@@ -1,8 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { getCMT } from '../../../redux/actions/comment.action';
 import Sidebar from '../sidebaradmin/Sidebar';
 import './style.css';
 function RatingAd() {
+  const dispatch = useDispatch();
+  const cmts = useSelector((state) => state.defaultReducer.listCMT);
+  const isLoading = useSelector((state) => state.defaultReducer.isLoading);
+  useEffect(() => {
+    dispatch(getCMT());
+  }, []);
+
   return (
     <div className="container-RatingAd">
       <div className="row">
@@ -28,53 +37,60 @@ function RatingAd() {
               </tr>
             </thead>
             <tbody>
-              <div
-                class="spinner-border"
-                role="status"
-                style={{ margin: '0 auto' }}
-              >
-                <span class="visually-hidden">Loading...</span>
-              </div>
-              <>
-                <tr>
-                  <td>ABC</td>
-                  <td>ABC</td>
-                  <td>ABC</td>
-                  <td>
-                    <p style={{ margin: '0' }}>
-                      <>
-                        <span>Chờ Xử Lý</span>
-                        <div
-                          class="spinner-border"
-                          role="status"
-                          style={{ margin: '0 auto' }}
-                        >
-                          <span class="visually-hidden">Loading...</span>
-                        </div>
-                      </>
-
-                      <>
-                        <span>Đã Xử Lý</span>
-                        <i
-                          class="fa fa-check"
-                          style={{
-                            color: 'green',
-                            fontSize: '26px',
-                            margin: '6px',
-                          }}
-                        ></i>
-                      </>
-                    </p>
-                  </td>
-                  <td>
-                    <Link to={'/admin/detailRating'}>
-                      <button className="btn btn-success">
-                        <i class="bx bx-edit"></i>
-                      </button>
-                    </Link>
-                  </td>
-                </tr>
-              </>
+              {isLoading === false ? (
+                <>
+                  {cmts.map((item, index) => (
+                    <tr>
+                      <td>{item.customer.fullname}</td>
+                      <td>{item.customer.email}</td>
+                      <td>{item.customer.comment}</td>
+                      <td>
+                        <p style={{ margin: '0' }}>
+                          {item.status === 0 ? (
+                            <>
+                              <span>Chờ Xử Lý</span>
+                              <div
+                                class="spinner-border"
+                                role="status"
+                                style={{ margin: '0 auto' }}
+                              >
+                                <span class="visually-hidden">Loading...</span>
+                              </div>
+                            </>
+                          ) : (
+                            <>
+                              <span>Đã Xử Lý</span>
+                              <i
+                                class="fa fa-check"
+                                style={{
+                                  color: 'green',
+                                  fontSize: '26px',
+                                  margin: '6px',
+                                }}
+                              ></i>
+                            </>
+                          )}
+                        </p>
+                      </td>
+                      <td>
+                        <Link to={`/admin/detailRating/${item?._id}`}>
+                          <button className="btn btn-success">
+                            <i class="bx bx-edit"></i>
+                          </button>
+                        </Link>
+                      </td>
+                    </tr>
+                  ))}
+                </>
+              ) : (
+                <div
+                  class="spinner-border"
+                  role="status"
+                  style={{ margin: '0 auto' }}
+                >
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              )}
             </tbody>
           </table>
         </div>

@@ -40,6 +40,37 @@ const comments = {
       res.status(500).json(err);
     }
   },
+
+  getCommentById: async (req, res) => {
+    try {
+      const Id = req.params.id;
+      Comment.findById(Id, (err, cmts) => {
+        if (err) {
+          return res.status(500).json("Can't find Id..");
+        }
+        return res.status(200).json(cmts);
+      });
+    } catch (err) {
+      return res.status(500).json(err);
+    }
+  },
+  confirmCMT: async (req, res) => {
+    try {
+      const results = await Comment.findById(req.params.id);
+      if (results.cmtId === req.body.cmtId) {
+        await results.updateOne({
+          $set: {
+            status: 1,
+          },
+        });
+        res.status(200).json("Confirm comment successfully");
+      } else {
+        res.status(500).json("Can't Confirm comment");
+      }
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
 
 module.exports = comments;

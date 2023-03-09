@@ -5,6 +5,7 @@ import {
   ADD_TYPE,
   BUY_PRODUCT,
   DELETE_CART,
+  DELETE_CMT,
   DELETE_ORDER,
   DELETE_PRODUCT,
   DELETE_TYPE,
@@ -12,6 +13,7 @@ import {
   FETCH_BANNER,
   FETCH_CMT,
   FETCH_DETAIL,
+  FETCH_DETAIL_CMT,
   FETCH_DETAIL_ORDER,
   FETCH_ORDER,
   FETCH_ORDER_TODAY,
@@ -50,6 +52,7 @@ const initialState = {
   fillPrice: [],
   productDetail: null,
   orderDetail: null,
+  cmtDetail: null,
   cart: [],
   selected: '',
   search: [],
@@ -330,6 +333,22 @@ const defaultReducer = (state = initialState, action) => {
     case FETCH_CMT: {
       state.listCMT = payload;
       return { ...state }; //setState
+    }
+
+    case FETCH_DETAIL_CMT: {
+      state.cmtDetail = payload;
+      return { ...state };
+    }
+
+    case DELETE_CMT: {
+      let updateList = [...state.listCMT];
+      let index = updateList.findIndex((cmt) => cmt.id === action.id);
+      if (index === -1) {
+        updateList.splice(payload, index);
+        state.listCMT = updateList;
+      }
+
+      return { ...state };
     }
     case START_LOADING: {
       state.isLoading = true;
