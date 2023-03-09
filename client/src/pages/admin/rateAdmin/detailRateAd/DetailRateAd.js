@@ -34,12 +34,7 @@ function DetailRateAd() {
                   </div>
                 </div>
 
-                <h5 className="mt-3">
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-                  do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                  laboris nisi ut aliquip consequat.
-                </h5>
+                <h5 className="mt-3">ok</h5>
               </div>
               <div className="card-footer ">
                 <div className="float-end">

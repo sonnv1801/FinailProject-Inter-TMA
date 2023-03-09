@@ -7,10 +7,10 @@
   font-family: var(--main-font);
 }
 
-.body-prd-dt a {
+.body-prd-dt del {
   float: right;
   width: 82%;
-  color: black;
+  color: rgb(114, 113, 113);
 }
 
 .body-prd-dt .prd-price {
@@ -138,6 +138,7 @@
 }
 .body-prd-dt .btn-payment:hover {
   background: green;
+  transition: 0.5s ease;
 }
 
 .body-prd-dt .btn-payment {
@@ -148,6 +149,7 @@
   border-radius: 5px;
   margin-bottom: 1rem;
   padding: 5px;
+  font-size: 20px;
 }
 
 .body-prd-dt .btn-payment a {
@@ -161,8 +163,6 @@
   font-size: 15px;
 }
 
-
-
 .set-name-colors {
-    border: 1px solid red;
+  border: 1px solid red;
 }

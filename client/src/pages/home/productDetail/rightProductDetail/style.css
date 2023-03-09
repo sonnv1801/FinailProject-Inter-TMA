@@ -117,3 +117,8 @@
   display: block;
   font-size: 15px;
 }
+.right-prd-dt .banner-prd-dt img {
+  width: 100%;
+  margin-top: 1rem;
+  border-radius: 5px;
+}

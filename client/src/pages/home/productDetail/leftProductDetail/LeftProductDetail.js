@@ -33,12 +33,6 @@ const LeftProductDetail = (leftProduct) => {
           ))}
         </div>
       </div>
-      <div className="banner-prd-dt">
-        <img
-          src="https://clickbuy.com.vn/uploads/2023/02/slide-valentine-day-iphone-01.png"
-          alt="Iphone"
-        />
-      </div>
     </div>
   );
 };

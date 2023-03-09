@@ -59,7 +59,7 @@ export default function CartNav(cart) {
   };
   useEffect(() => {}, []);
   return (
-    <div>
+    <div className="carts-nav">
       <Button
         onClick={handleOpen}
         style={{ margin: '0.5rem 0', background: 'none', color: 'black' }}

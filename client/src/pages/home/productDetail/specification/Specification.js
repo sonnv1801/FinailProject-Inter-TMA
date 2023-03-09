@@ -10,7 +10,6 @@ const Specification = () => {
           <tr>
             <td>Màu sắc</td>
             <td>ABC</td>
-            <td></td>
           </tr>
           <tr>
             <td>Màn hình</td>
