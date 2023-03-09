@@ -4,7 +4,7 @@ import Swal from 'sweetalert2';
 import { FaStar, FaRegStar } from 'react-icons/fa';
 import { useState } from 'react';
 import { AiOutlineStar, AiFillStar } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { createCmt } from '../../../../redux/actions/comment.action';
 const MyRate = ({ productDetail, fliterCMT }) => {
@@ -15,6 +15,8 @@ const MyRate = ({ productDetail, fliterCMT }) => {
   const [order, setCmt] = useState(null);
   const [error, setError] = useState(null);
   const customer = JSON.parse(localStorage.getItem('token'));
+  const location = useLocation();
+  const id = location.pathname.split('/')[2];
   const [data, setData] = useState({
     comment: '',
   });
@@ -23,7 +25,6 @@ const MyRate = ({ productDetail, fliterCMT }) => {
     const value = name === 'image' ? e.target.files[0] : e.target.value;
     setData({ ...data, [name]: value });
   };
-
   const handleCMT = async (e) => {
     e.preventDefault();
     try {
@@ -39,7 +40,7 @@ const MyRate = ({ productDetail, fliterCMT }) => {
             comment: data?.comment,
             rate: number,
           },
-          id_product: productDetail.productDetail.productDetail?._id,
+          id_product: id,
         };
         const response = dispatch(createCmt(cmt, customer?.accessToken));
         // console.log(response);

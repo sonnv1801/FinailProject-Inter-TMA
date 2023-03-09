@@ -67,7 +67,7 @@ const RateProduct = (productDetail) => {
       return (total += item.customer.rate);
     }, 0);
   };
-
+  console.log(id);
   return (
     <div className="rate-product">
       <b>Đánh giá & Nhận xét iPhone 14 Pro Max 128GB chính hãng VNA</b>
