@@ -70,7 +70,7 @@ const RateProduct = (productDetail) => {
   // };
   return (
     <div className="rate-product">
-      <h4>Đánh giá & Nhận xét {productDetail?.productDetail.title}</h4>
+      <h4>Đánh giá & Nhận xét {productDetail?.productDetail?.title}</h4>
       <div className="header-rate">
         {/* <div className="sub-header-left">
           <b>
@@ -97,7 +97,7 @@ const RateProduct = (productDetail) => {
           ) : (
             <>
               {renderAmount()} đánh giá cho
-              {productDetail?.productDetail.title}
+              {productDetail?.productDetail?.title}
             </>
           )}
         </h4>
