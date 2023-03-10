@@ -5,9 +5,12 @@
   border-radius: 10px;
 }
 
+
+
 .my-rate b {
   font-size: 20px;
   display: block;
+  margin-top: 1rem;
 }
 
 .my-rate .text-rate {
@@ -26,16 +29,16 @@
 .my-rate .my-text-rate {
   width: 100%;
   border: none;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .my-rate .btn-rate {
-  padding: 5px;
+  padding: 7px;
   border: 1px solid red;
   background-color: red;
   color: white;
   font-size: 20px;
   width: 30%;
   border-radius: 4px;
-  display: block;
-  margin: 0 auto;
 }
