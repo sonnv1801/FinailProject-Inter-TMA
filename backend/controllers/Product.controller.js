@@ -59,12 +59,14 @@ const product = {
   },
   getAllProduct: async (req, res) => {
     try {
-      Product.find({}, (err, products) => {
-        if (err) {
-          res.status(500).json(err);
-        }
-        res.status(200).json(products);
-      });
+      Product.find({})
+        .sort({ created_at: -1 })
+        .exec((err, products) => {
+          if (err) {
+            res.status(500).json(err);
+          }
+          res.status(200).json(products);
+        });
     } catch (err) {
       res.status(500).json(err);
     }
