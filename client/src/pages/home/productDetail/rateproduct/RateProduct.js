@@ -8,6 +8,7 @@ import { useEffect } from 'react';
 import { getCMT } from '../../../../redux/actions/comment.action';
 import { useLocation } from 'react-router-dom';
 import moment from 'moment';
+import RepcmtAd from '../../../admin/rateAdmin/repcmtAd/RepcmtAd';
 
 const rate = [
   {
@@ -111,11 +112,12 @@ const RateProduct = (productDetail) => {
                       {item.customer.fullname} –
                       {moment(item.createdAt).format('DD/MM/YYYY')}
                     </span>
-                    <b>
+                    <b id="rate-comment">
                       <ReactStars count={item.customer.rate} />
                     </b>
                   </div>
                   <p>{item.customer.comment}</p>
+                  <RepcmtAd />
                 </>
               ) : (
                 <>
@@ -124,8 +126,11 @@ const RateProduct = (productDetail) => {
                       {item.customer.fullname} –
                       {moment(item.createdAt).format('DD/MM/YYYY')}
                     </span>
-                    <b>
-                      <ReactStars count={item.customer.rate} />
+                    <b id="rate-comment">
+                      <ReactStars
+                        count={item.customer.rate}
+                        fliterCMT={fliterCMT}
+                      />
                     </b>
                   </div>
                   <p>

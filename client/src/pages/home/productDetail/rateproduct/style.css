@@ -94,7 +94,7 @@
 
 .body-rate .sub-body-rate {
   overflow: auto;
-  height: 200px;
+  max-height: 500px;
 }
 
 .body-rate .sub-body-rate .info-rate {
@@ -106,4 +106,8 @@
   color: rgb(255, 202, 63);
   margin-left: 1rem;
   margin-top: -6px;
+}
+
+#rate-comment span {
+  color: orange !important;
 }

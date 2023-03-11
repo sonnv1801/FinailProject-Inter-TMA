@@ -28,17 +28,20 @@
 
 .my-rate .my-text-rate {
   width: 100%;
-  border: none;
+  border: 1px solid lightgray;
   margin-top: 1rem;
+  border-radius: 5px;
   margin-bottom: 1rem;
+  padding: 0.5rem;
+  outline: 1px solid var(--red-clr);
 }
 
 .my-rate .btn-rate {
-  padding: 7px;
+  padding: 3px;
   border: 1px solid red;
   background-color: red;
   color: white;
   font-size: 20px;
-  width: 30%;
+  width: 20%;
   border-radius: 4px;
 }
